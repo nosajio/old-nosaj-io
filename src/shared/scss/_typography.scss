@@ -1,0 +1,34 @@
+$ff-chaparral: 'chaparral-pro', 'Georgia', serif;
+$ff-europa: 'europa', 'Helvetica', sans-serif;
+
+:root {
+  font: 300 21px/1.4 $ff-europa;
+
+  @media #{$mq-tablet-up} {
+    line-height: 1.5;
+  }
+}
+
+a {
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 {
+  font: 1.5rem $ff-chaparral;
+}
+
+p {
+  margin: 0;
+
+  & + & {
+    margin-top: #{pow($scale, 1)}em;
+  }
+
+  &.strong {
+    font-size: #{pow($scale, 1)}rem;
+  }
+}

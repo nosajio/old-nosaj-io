@@ -1,0 +1,14 @@
+/**!
+ * MediaQuery helpers made into variables
+ */
+
+$mq-phone-only: "screen and (min-width: 320px) and (max-width: 768px)" !default;
+$mq-phone-up: "screen and (min-width: 320px)" !default;
+
+$mq-tablet-only: "screen and (min-width: 768px) and (max-width: 1024px)" !default;
+$mq-tablet-up: "screen and (min-width: 768px)" !default;
+
+$mq-desktop-only: "screen and (min-width: 1024px) and (max-width: 1400px)" !default;
+$mq-desktop-up: "screen and (min-width: 1024px)" !default;
+
+$mq-hd-up: "screen and (min-width: 1400px)" !default;

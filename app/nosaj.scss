@@ -1,0 +1,6 @@
+@import '~reset-css/reset';
+
+// General styles. From least to mosr specific
+@import './styles/root';
+@import './styles/typography';
+@import './styles/layout';

@@ -1,0 +1,14 @@
+@import './fonts';
+
+body {
+  font: 22px/1.5 $ff-body;
+}
+
+h1, h2, h3 {
+  font-family: $ff-headings;
+}
+
+
+strong, b {
+  font-weight: 700;
+}

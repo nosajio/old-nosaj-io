@@ -1,0 +1,11 @@
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px #{pow($scale, 2)}em;
+  text-align: center;
+  transition: all 200ms $easeInOutQuint;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}

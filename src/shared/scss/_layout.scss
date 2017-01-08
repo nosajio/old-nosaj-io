@@ -1,0 +1,30 @@
+$scale: 1.414;
+$max-width: 1440px;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+}
+
+html,
+body,
+#nosaj {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+html.is-fixed {
+  overflow: hidden;
+}
+
+.nosaj-wrapper {
+  background: black;
+}

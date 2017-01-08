@@ -1,0 +1,41 @@
+@import 'src/shared/scss/mq';
+
+$primary-post-color: {{primary-color}};
+
+.{{post-slug}}--is-active {
+  @media #{$mq-desktop-up} {
+    background: $primary-post-color;
+  }
+
+  .open-view__posts-header {
+    @media #{$mq-desktop-up} {
+      @if lightness($primary-post-color) > 45% {
+        color: black;
+      } @else {
+        color: white;
+      }
+    }
+  }
+
+  .writing-list__post {
+    @media #{$mq-desktop-up} {
+      @if lightness($primary-post-color) > 45% {
+        color: black;
+      } @else {
+        color: white;
+      }
+    }
+  }
+}
+
+.writing-list {
+  // &__post {
+  //   @media #{$mq-desktop-up} {
+  //     @if lightness($primary-post-color) > 45% {
+  //       color: black;
+  //     } @else {
+  //       color: white;
+  //     }
+  //   }
+  // }
+}

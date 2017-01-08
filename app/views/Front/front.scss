@@ -1,0 +1,32 @@
+@import '../../styles/fonts';
+@import '../../styles/ms';
+@import '../../styles/mq';
+
+.front-view {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+
+  &__introduction {
+    padding: msRem(1);
+    width: 100%;
+
+    @media #{$mq-tablet-up} {
+      max-width: 700px;
+      padding: msRem(4);
+
+      strong { display: block; }
+    }
+
+    h1 {
+      font: #{msRem(1)}/1.4 #{$ff-body};
+      font-style: italic;
+
+      @media #{$mq-tablet-up} {
+        font-size: msRem(2);
+      }
+    }
+
+  }
+}

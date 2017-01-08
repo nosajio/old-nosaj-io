@@ -1,0 +1,145 @@
+.meta-list {
+  @include lsn;
+  display: block;
+  width: 100%;
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__item + &__item {
+    margin-left: #{pow($scale, 2)}rem;
+  }
+}
+
+.next-item-color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: fade-in 300ms $easeInOutQuint both;
+}
+
+.writing-view {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  transition: all 500ms $easeInOutQuint;
+}
+
+.writing-view__content {
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  transition: all 300ms $easeInOutQuint;
+
+  &.is-transitioning {
+    opacity: 0;
+  }
+}
+
+.writing-view__header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: #{pow($scale, 2)}rem;
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background: black;
+  border-radius: 3px 3px 0 0;
+
+  h1 {
+    font: #{pow($scale, 2)}rem $ff-europa;
+    margin-bottom: #{pow($scale, -1)}rem;
+  }
+}
+
+.writing-list {
+  @include lsn;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  width: 100%;
+  padding: 30px;
+
+  @media #{$mq-tablet-up} {
+    // align-items: center;
+  }
+
+  &__blank {
+    display: block;
+    width: 100%;
+    font: #{pow($scale, 2)}rem $ff-chaparral;
+    text-align: center;
+    padding: #{pow($scale, 2)}rem 0 #{pow($scale, 5)}rem;
+  }
+
+  &__post {
+    display: flex;
+    width: 100%;
+    padding: #{pow($scale, 1)/2}rem 0;
+
+    @media #{$mq-tablet-up} {
+      padding: #{pow($scale, 1)/2}rem;
+      width: 50%;
+    }
+
+    @media #{$mq-desktop-up} {
+      padding: #{pow($scale, 1)/2}rem;
+      width: 33.333%;
+    }
+
+    &.is-transitioning {}
+
+    @for $i from 1 through 20 {
+      &.is-transitioning:nth-child(1n+#{$i}) {}
+    }
+
+    article {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      width: 100%;
+      padding: #{pow($scale, 1)}rem;
+      background: #f6f6f6;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+
+  &__post-cover {
+    width: 150px;
+    height: 190px;
+    margin-bottom: #{pow($scale, 1)}rem;
+    border-radius: 3px;
+    background: #dddddd;
+  }
+
+  &__post-title {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__post-title h1 {
+    display: block;
+    width: 100%;
+    font-size: #{pow($scale, 1)}rem;
+  }
+
+  &__post-meta {
+    margin-top: #{pow($scale, -2)}rem;
+    font-size: #{pow($scale, -1)}rem;
+    font-weight: 400;
+    opacity: .7;
+  }
+}
+
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
