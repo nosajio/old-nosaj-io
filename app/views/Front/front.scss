@@ -1,3 +1,4 @@
+@import '../../styles/colors';
 @import '../../styles/fonts';
 @import '../../styles/ms';
 @import '../../styles/mq';
@@ -20,7 +21,6 @@ $front-max-width: 600px;
 
     @media #{$mq-tablet-up} {
       max-width: $front-max-width;
-      strong { display: block; }
     }
 
     h1 {
@@ -29,7 +29,11 @@ $front-max-width: 600px;
 
       @media #{$mq-tablet-up} {
         font-size: msRem(5);
-        strong { font-size: msRem(9); }
+        strong {
+          display: block;
+          margin-bottom: msRem(3);
+          font-size: msRem(9);
+        }
       }
     }
   }
@@ -42,11 +46,16 @@ $front-max-width: 600px;
   }
 
   &__action {
-    display: block;
+    display: inline-block;
+    padding: msRem(-1) msRem(2);
+    cursor: pointer;
+    background: darken($clr-bg, 5%);
+    // color: white;
+    border-radius: 4px;
 
     em {
       display: block;
-      font-size: msRem(-1);
+      font: 500 msRem(-1) $ff-headings;;
     }
   }
 
@@ -63,7 +72,7 @@ $front-max-width: 600px;
 
     &-header h1 {
       display: inline-block;
-      border-bottom: 5px solid #d9d9d9;
+      border-bottom: 5px solid darken($clr-bg, 10%);
     }
   }
 }
