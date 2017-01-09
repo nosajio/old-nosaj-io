@@ -5,20 +5,36 @@ import api from '../../services/api-service';
 const App = React.createClass({
   getInitialState () {
     return {
-      allPosts: null,
+      allPosts: null
     };
   },
 
-  async componentWillMount () {
-    const allPosts = await api.request({ path: 'posts' });
-    this.handleStorePosts(allPosts);
+  componentWillMount () {
+
   },
 
+  componentWillReceiveProps (nextProps) {
+
+  },
+
+  /**
+   * Update State
+   * A minimal implementation of a store / messaging system. This method will
+   * be passed to child components to send a message back up for data requests.
+   * @param {string} part
+   * @param {object} params
+   */
+  async updateState (part, params) {
+    switch (part) {
+      case 'posts':
+        const allPosts = await api.request({ path: 'posts' });
+        this.handleStorePosts(allPosts);
+        return;
+    }
+  },
 
   handleStorePosts(json) {
-    this.setState({
-      allPosts: json
-    });
+    this.setState({ allPosts: json });
   },
 
   render () {
@@ -33,7 +49,7 @@ const App = React.createClass({
       )
     }
 
-    return React.cloneElement(children, {data: sharedState});
+    return React.cloneElement(children, {data: sharedState, updateState: this.updateState});
   }
 })
 

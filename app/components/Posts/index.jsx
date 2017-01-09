@@ -6,7 +6,7 @@ const Posts = (props, context) => {
   const {posts} = props;
 
   const handleLinkToPost = (slug) => {
-    context.router.push(`/read/${slug}`);
+    context.router.push({ pathname: `/read/${slug}` });
   };
 
   const postEl = (post, index) => {

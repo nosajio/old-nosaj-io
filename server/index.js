@@ -16,7 +16,7 @@ const apiRoot = '/api';
 
 const reactRoutes = [
   '/',
-  '/:slug'
+  '/read/:slug'
 ];
 
 if (env === 'production') {

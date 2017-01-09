@@ -8,6 +8,10 @@ const Front = React.createClass({
     data: React.PropTypes.object // this will be the shared state object
   },
 
+  componentWillMount: function() {
+    this.props.updateState('posts');
+  },
+
   render () {
     const {allPosts} = this.props.data;
 
