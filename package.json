@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "parallelshell 'node server' 'yarn run watch'",
     "build": "webpack --config ./config/webpack.config.js --colors --progress",
+    "release": "webpack -p --config ./config/webpack.production.config.js --colors --progress",
     "watch": "webpack --config ./config/webpack.config.js --colors --watch"
   },
   "devDependencies": {
