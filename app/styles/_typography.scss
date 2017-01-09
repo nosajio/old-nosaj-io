@@ -1,3 +1,4 @@
+@import './colors';
 @import './fonts';
 
 body {
@@ -5,10 +6,16 @@ body {
 }
 
 h1, h2, h3 {
+  font-weight: 500;
   font-family: $ff-headings;
 }
 
 
 strong, b {
   font-weight: 700;
+}
+
+
+a {
+  color: $clr-text;
 }

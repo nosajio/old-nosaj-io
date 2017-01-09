@@ -27,10 +27,8 @@ function friendlyDate(item) {
     augmentedItem.friendlyDate = 'Today';
   } else if (daysSinceDate === 2) {
     augmentedItem.friendlyDate = 'Yesterday';
-  } else if (daysSinceDate > 29 ) {
-    augmentedItem.friendlyDate = `${itemDate.getDate()} ${months[itemDate.getMonth()]} ${itemDate.getFullYear()}`;
   } else {
-    augmentedItem.friendlyDate = `${daysSinceDate} days ago`;
+    augmentedItem.friendlyDate = `${itemDate.getDate()} ${months[itemDate.getMonth()]} ${itemDate.getFullYear()}`;
   }
   return augmentedItem;
 }

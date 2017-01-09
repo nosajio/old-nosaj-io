@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, '../app'),
-  entry: './entry.jsx',
+  entry: ['babel-polyfill', './entry.jsx'],
   output: {
     publicPath: '/',
     path: path.resolve(__dirname, '../dist'),
@@ -30,7 +30,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'stage-0', 'react'],
+          presets: ['es2017', 'es2015', 'stage-0', 'react'],
         }
       }
     ],

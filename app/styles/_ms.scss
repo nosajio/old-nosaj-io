@@ -1,4 +1,4 @@
-$modular-scale: 1.414;
+$modular-scale: 1.125; // Major second (http://www.modularscale.com/?1&em&1.125&web&text)
 
 @function ms($number, $exponent) {
   $value: 1;

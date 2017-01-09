@@ -1,0 +1,45 @@
+@import '../../styles/colors';
+@import '../../styles/ms';
+
+.posts {
+  display: block;
+  width: 100%;
+}
+
+.posts-list {
+  display: block;
+
+  &__post {
+    display: block;
+    cursor: pointer;
+  }
+
+  .post-title {
+    font-size: msRem(4);
+  }
+
+  .posts-list__meta {
+    display: inline-block;
+    font-size: 1rem;
+    color: lighten($clr-text, 30%);
+  }
+
+  .posts-list__meta + .posts-list__meta {
+    margin-left: 10px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 3px;
+      height: 3px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: lighten($clr-text, 50%);
+    }
+  }
+
+  &__post + &__post {
+    margin-top: msRem(4);
+  }
+}

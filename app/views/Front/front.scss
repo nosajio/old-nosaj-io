@@ -2,31 +2,68 @@
 @import '../../styles/ms';
 @import '../../styles/mq';
 
+$front-max-width: 600px;
+
 .front-view {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   width: 100%;
+  padding: msRem(5);
+
+  @media #{$mq-tablet-up} {
+    padding: msRem(10);
+  }
 
   &__introduction {
-    padding: msRem(1);
     width: 100%;
 
     @media #{$mq-tablet-up} {
-      max-width: 700px;
-      padding: msRem(4);
-
+      max-width: $front-max-width;
       strong { display: block; }
     }
 
     h1 {
-      font: #{msRem(1)}/1.4 #{$ff-body};
+      font: #{msRem(3)}/1.4 #{$ff-body};
       font-style: italic;
 
       @media #{$mq-tablet-up} {
-        font-size: msRem(2);
+        font-size: msRem(5);
+        strong { font-size: msRem(9); }
       }
     }
+  }
 
+  &__actions {
+    display: block;
+    margin-top: msRem(15);
+    width: 100%;
+    max-width: $front-max-width;
+  }
+
+  &__action {
+    display: block;
+
+    em {
+      display: block;
+      font-size: msRem(-1);
+    }
+  }
+
+  &__posts {
+    width: 100%;
+    max-width: $front-max-width;
+    margin-top: msRem(15);
+
+    &-header {
+      margin-bottom: msRem(4);
+      color: black;
+      font-size: msRem(4);
+    }
+
+    &-header h1 {
+      display: inline-block;
+      border-bottom: 5px solid #d9d9d9;
+    }
   }
 }
