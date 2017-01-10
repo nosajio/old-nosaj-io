@@ -25,8 +25,9 @@ $front-max-width: 600px;
     }
 
     h1 {
-      font: 700 #{msRem(3)}/1.4 #{$ff-body};
+      font: 700 #{msRem(5)}/1.4 #{$ff-body};
       font-style: italic;
+      margin-bottom: msRem(2);
 
       @media #{$mq-tablet-up} {
         display: block;

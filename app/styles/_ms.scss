@@ -1,15 +1,15 @@
 $modular-scale: 1.125; // Major second (http://www.modularscale.com/?1&em&1.125&web&text)
 
-@function ms($number, $exponent) {
+@function ms($exponent) {
   $value: 1;
 
   @if $exponent > 0 {
     @for $i from 1 through $exponent {
-      $value: $value * $number;
+      $value: $value * $modular-scale;
     }
   } @else {
     @for $i from 1 through ($exponent * -1) {
-      $value: $value / $number;
+      $value: $value / $modular-scale;
     }
   }
 
@@ -18,6 +18,6 @@ $modular-scale: 1.125; // Major second (http://www.modularscale.com/?1&em&1.125&
 
 
 @function msRem($exponent) {
-  $val: ms($modular-scale, $exponent);
+  $val: ms($exponent);
   @return #{$val}rem;
 }
