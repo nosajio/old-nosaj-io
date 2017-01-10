@@ -13,10 +13,10 @@ const Front = React.createClass({
   },
 
   render () {
-    const {allPosts} = this.props.data;
+    const {allPosts, freshRender} = this.props.data;
 
     return (
-      <main className="front-view">
+      <main className={`front-view ${freshRender ? 'animate' : ''}`}>
         <header className="front-view__introduction">
           <h1>I'm a multidisciplinary designer and software engineer.</h1>
           <p className="subhead">I've built stuff for <a href="https://williamhill.com" target="_blank">William Hill Online</a>, <a href="http://mrsite.com" target="_blank">MrSite</a>, <a href="http://beachfix.co" target="_blank">BeachFix</a>, the BBC (via <a href="https://metabroadcast.com" target="_blank">Meta</a>) and more.</p>

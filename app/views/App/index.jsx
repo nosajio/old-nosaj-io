@@ -5,22 +5,24 @@ import api from '../../services/api-service';
 const App = React.createClass({
   getInitialState () {
     return {
-      allPosts: null
+      allPosts: null,
+      freshRender: false, // <- For telling child components this is the landing view
     };
   },
 
   componentWillMount () {
-
+    this.setState({ freshRender: true });
   },
 
   componentWillReceiveProps (nextProps) {
-
+    this.setState({ freshRender: false });
   },
 
   /**
    * Update State
    * A minimal implementation of a store / messaging system. This method will
    * be passed to child components to send a message back up for data requests.
+   *
    * @param {string} part
    * @param {object} params
    */

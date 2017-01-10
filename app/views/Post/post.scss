@@ -138,5 +138,13 @@ $post-max-width: 600px;
       margin-top: msRem(1);
     }
 
+    hr {
+      display: block;
+      width: 20%;
+      height: 3px;
+      margin: msRem(9) auto;
+      border: none;
+      background: $clr-text;
+    }
   }
 }
