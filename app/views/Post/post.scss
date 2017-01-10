@@ -15,7 +15,7 @@ $post-max-width: 600px;
     align-items: center;
 
     @media #{$mq-tablet-up} {
-      border-width: msRem(8);
+      border-width: msRem(5);
     }
   }
 
@@ -67,15 +67,22 @@ $post-max-width: 600px;
 
     .post-title {
       font-size: msRem(9);
+      color: black;
     }
   }
 
   &__body {
     margin-bottom: msRem(13);
 
-    @media #{$mq-tablet-up} {
+    h1, h2 {
+      font-size: msRem(4);
     }
 
+    @media #{$mq-tablet-up} {
+      h1, h2 {
+        font-size: msRem(6);
+      }
+    }
 
     div, img, iframe, p {
       display: block;
@@ -116,7 +123,7 @@ $post-max-width: 600px;
     > h3,
     > h4 {
       color: black;
-      margin-top: msRem(6);
+      margin-top: #{ms(3)}em;
       margin-bottom: msRem(4);
     }
 
@@ -125,6 +132,13 @@ $post-max-width: 600px;
     }
 
     // Lists
+    > ul,
+    > ol {
+      @media #{$mq-phone-only} {
+        padding-left: 25px;
+      }
+    }
+
     ol {
       list-style-type: decimal;
     }

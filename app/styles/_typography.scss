@@ -1,8 +1,12 @@
+@import './mq';
 @import './colors';
 @import './fonts';
 
 body {
-  font: 22px/1.5 $ff-body;
+  font: 19px/1.5 $ff-body;
+  @media #{$mq-tablet-up} {
+    font: 22px/1.5 $ff-body;
+  }
 }
 
 h1, h2, h3 {
