@@ -1,0 +1,123 @@
+@import '../../styles/colors';
+@import '../../styles/ms';
+@import '../../styles/mq';
+
+$post-max-width: 600px;
+
+.post-view {
+  width: 100%;
+
+  &__container {
+    width: 100%;
+    border: 10px solid darken($clr-bg, 45%);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    @media #{$mq-tablet-up} {
+      border-width: msRem(8);
+    }
+  }
+
+  .post-meta {
+    display: block;
+
+    &__item {
+      display: inline-block;
+      font-size: msRem(1);
+      color: lighten($clr-text, 30%);
+    }
+
+    .post-meta__item + .post-meta__item {
+      margin-left: 10px;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 3px;
+        height: 3px;
+        margin-right: 10px;
+        border-radius: 50%;
+        background: lighten($clr-text, 50%);
+      }
+    }
+  }
+
+  &__header,
+  &__body {
+    width: 100%;
+    max-width: $post-max-width;
+    padding: 15px;
+
+    @media #{$mq-tablet-up} {
+      padding: 0;
+      max-width: $post-max-width + 120px;
+    }
+
+  }
+
+  &__header {
+    margin: msRem(5) 0;
+
+    @media #{$mq-tablet-up} {
+      padding: 0 60px;
+      margin: msRem(10) 0;
+    }
+
+    .post-title {
+      font-size: msRem(9);
+    }
+  }
+
+  &__body {
+    margin-bottom: msRem(13);
+
+    @media #{$mq-tablet-up} {
+    }
+
+
+    div, img, iframe, p {
+      display: block;
+      width: 100%;
+    }
+
+    > div cite {
+      display: block;
+      padding: msRem(2);
+      color: lighten($clr-text, 15%);
+      font-size: 18px;
+      font-style: italic;
+      text-align: right;
+    }
+
+    > div,
+    > img {
+      margin: msRem(8) 0;
+    }
+
+
+    > p,
+    > h1,
+    > h2,
+    > h3,
+    > h4 {
+      @media #{$mq-tablet-up} {
+        padding: 0 60px;
+      }
+    }
+
+    > h1,
+    > h2,
+    > h3,
+    > h4 {
+      margin-top: msRem(6);
+      margin-bottom: msRem(4);
+    }
+
+    p + p {
+      margin-top: msRem(5);
+    }
+
+  }
+}

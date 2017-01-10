@@ -1,45 +1,9 @@
 $primary-post-color: {{primary-color}};
 
 .post-view.{{post-slug}} {
-  border-top: 3px solid $primary-post-color;
-
-  .the-nav__dot {
-    // background: black;
+  .post-view__container {
+    border-color: $primary-post-color;
   }
 
-  .post-hud {
-    .progress__complete {
-      background-color: $primary-post-color;
-    }
-  }
-
-  a {
-    color: change-color($primary-post-color, $lightness: 50%);
-  }
-
-  .post-header {
-    background: $primary-post-color;
-    @if lightness($primary-post-color) > 50% {
-      color: black;
-    } @else {
-      color: white;
-    }
-  }
-
-  .post-view__header-main {
-    background-color: $primary-post-color;
-  }
-
-  .post-view__header-sub {
-    background-color: change-color($primary-post-color, $lightness: 93%);
-    @if lightness($primary-post-color) > 40% {
-      color: change-color($primary-post-color, $lightness: 40%);
-    } @else {
-      color: $primary-post-color;
-    }
-  }
-
-  .post-body hr {
-    background: $primary-post-color;
-  }
+  // .post-meta__item + .post-meta__item::before { background: $primary-post-color; }
 }
