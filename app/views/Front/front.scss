@@ -1,3 +1,4 @@
+@import '../../styles/animations';
 @import '../../styles/colors';
 @import '../../styles/fonts';
 @import '../../styles/ms';
@@ -24,16 +25,24 @@ $front-max-width: 600px;
     }
 
     h1 {
+      font: 700 #{msRem(3)}/1.4 #{$ff-body};
+      font-style: italic;
+      animation: fade-in-up 500ms 1 both $easeInOutCirc;
+
+      @media #{$mq-tablet-up} {
+        display: block;
+        margin-bottom: msRem(3);
+        font-size: msRem(9);
+      }
+    }
+
+    .subhead {
       font: #{msRem(3)}/1.4 #{$ff-body};
       font-style: italic;
+      animation: fade-in 500ms 700ms 1 both $easeInOutCirc;
 
       @media #{$mq-tablet-up} {
         font-size: msRem(5);
-        strong {
-          display: block;
-          margin-bottom: msRem(3);
-          font-size: msRem(9);
-        }
       }
     }
   }
@@ -43,6 +52,7 @@ $front-max-width: 600px;
     margin-top: msRem(15);
     width: 100%;
     max-width: $front-max-width;
+    animation: fade-in 300ms 800ms 1 both $easeInOutCirc;
   }
 
   &__action {
@@ -63,6 +73,7 @@ $front-max-width: 600px;
     width: 100%;
     max-width: $front-max-width;
     margin-top: msRem(15);
+    animation: fade-in-up 500ms 1s 1 both $easeInOutCirc;
 
     &-header {
       margin-bottom: msRem(4);
@@ -74,5 +85,18 @@ $front-max-width: 600px;
       display: inline-block;
       border-bottom: 5px solid darken($clr-bg, 10%);
     }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
   }
 }
