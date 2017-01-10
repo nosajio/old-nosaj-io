@@ -92,8 +92,10 @@ $post-max-width: 600px;
     }
 
     > div,
-    > img {
-      margin: msRem(8) 0;
+    > img,
+    > ul,
+    > ol {
+      margin: msRem(9) 0;
     }
 
 
@@ -101,7 +103,9 @@ $post-max-width: 600px;
     > h1,
     > h2,
     > h3,
-    > h4 {
+    > h4,
+    > ul,
+    > ol {
       @media #{$mq-tablet-up} {
         padding: 0 60px;
       }
@@ -111,12 +115,27 @@ $post-max-width: 600px;
     > h2,
     > h3,
     > h4 {
+      color: black;
       margin-top: msRem(6);
       margin-bottom: msRem(4);
     }
 
     p + p {
       margin-top: msRem(5);
+    }
+
+    // Lists
+    ol {
+      list-style-type: decimal;
+    }
+
+    ul {
+      list-style-type: circle;
+    }
+
+    li + li {
+      display: list-item;
+      margin-top: msRem(1);
     }
 
   }

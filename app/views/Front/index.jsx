@@ -31,6 +31,9 @@ const Front = React.createClass({
           </header>
           <Posts posts={allPosts}/>
         </section>
+        <footer className="front-view__footer">
+          
+        </footer>
       </main>
     )
   }
