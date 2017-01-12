@@ -7,6 +7,9 @@ const App = React.createClass({
   getInitialState () {
     return {
       allPosts: null,
+      scrollPosition: 0,
+      currentRoute: '/',
+      reachedBottomOfPage: false,
       freshRender: false, // <- For telling child components this is the landing view
     };
   },
@@ -16,8 +19,18 @@ const App = React.createClass({
   },
 
   componentDidMount () {
+    const windowHeight = window.innerHeight;
+    const pageHeight = document.body.getBoundingClientRect().height;
     this.putGaOnPage();
     this.sendEventToGa();
+    this.scrollListener(pos => {
+      let scrollPosition = windowHeight + pos;
+      console.log(scrollPosition);
+      this.setState({
+        scrollPosition,
+        reachedBottomOfPage: this.state.reachedBottomOfPage ? true : scrollPosition >= pageHeight,
+      });
+    });
   },
 
   componentWillReceiveProps (nextProps) {
@@ -28,7 +41,13 @@ const App = React.createClass({
     if (typeof window === 'undefined') {
       return;
     }
-    this.sendEventToGa();
+    const {currentRoute} = this.state;
+    const routeChanged = currentRoute !== this.props.location.pathname;
+    if (routeChanged) {
+      this.scrollToTop();
+      this.sendEventToGa();
+      this.setState({ currentRoute: this.props.location.pathname });
+    }
   },
 
   /**
@@ -45,6 +64,29 @@ const App = React.createClass({
         const allPosts = await api.request({ path: 'posts' });
         this.handleStorePosts(allPosts);
         return;
+    }
+  },
+
+  scrollToTop() {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    window.scroll(0, 0);
+  },
+
+  scrollListener(cb=null) {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    if (cb) {
+      window.addEventListener('scroll', scrollListener);
+    } else {
+      window.removeEventListener('scroll', scrollListener);
+    }
+
+    function scrollListener(event) {
+      // debounce; we don't need absolute precision for this
+      debounce(20, () => cb(window.scrollY));
     }
   },
 

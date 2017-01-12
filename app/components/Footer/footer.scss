@@ -1,0 +1,38 @@
+@import '../../styles/animations';
+@import '../../styles/ms';
+
+.the-end {
+  margin: msRem(14) 0 0;
+
+  &__text {
+    display: inline-block;
+    padding: 0 4px;
+    background: rgba(255, 134, 134, .2);
+  }
+
+  &__heart {
+    svg {
+      position: relative;
+      top: -3px;
+      display: inline-block;
+      vertical-align: middle;
+      width: 25px;
+      height: auto;
+      margin-left: 20px;
+    }
+  }
+
+  &--not-in-view &__heart-animate {
+    transform: translateX(-752px);
+  }
+
+  &--in-view &__heart-animate {
+    animation: heart-colors 3s 1s 1 both $easeOutCirc;
+  }
+}
+
+@keyframes heart-colors {
+  from {
+    transform: translateX(-752px);
+  }
+}
