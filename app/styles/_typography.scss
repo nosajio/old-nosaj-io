@@ -2,10 +2,17 @@
 @import './colors';
 @import './fonts';
 
-body {
-  font: 19px/1.5 $ff-body;
+html {
+  font-size: 17px;
   @media #{$mq-tablet-up} {
-    font: 22px/1.5 $ff-body;
+    font-size: 19px;
+  }
+}
+
+body {
+  font: 1rem/1.5 $ff-body;
+  @media #{$mq-tablet-up} {
+    font: 1rem/1.5 $ff-body;
   }
 }
 

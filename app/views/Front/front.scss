@@ -5,21 +5,24 @@
 @import '../../styles/mq';
 
 
+$front-margin-big: msRem(8);
+$front-margin-small: msRem(4);
+
 .front-view {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
   width: 100%;
-  padding: msRem(5);
+  padding: $front-margin-small;
 
   @media #{$mq-tablet-up} {
-    padding: msRem(10);
+    padding: $front-margin-big;
   }
 
   &__cover {
     width: 100%;
     padding-top: 70%;
-    margin-bottom: msRem(10);
+    margin-bottom: $front-margin-big;
     background: darken($clr-bg, 10%) url('../../static/img/nosaj.jpg') center no-repeat;
     background-size: cover;
 
@@ -28,10 +31,10 @@
       margin-bottom: 0;
       max-width: auto;
       position: fixed;
-      top: msRem(10);
-      left: msRem(10);
-      bottom: msRem(10);
-      width: calc(40% - #{msRem(10)});
+      top: $front-margin-big;
+      left: $front-margin-big;
+      bottom: $front-margin-big;
+      width: calc(40% - #{$front-margin-big});
       background-position: center left;
     }
   }
@@ -46,7 +49,7 @@
     @media #{$mq-desktop-up} {
       width: 60%;
       margin-left: 40%;
-      padding-left: msRem(10);
+      padding-left: $front-margin-big;
     }
   }
 
@@ -66,16 +69,16 @@
       @media #{$mq-tablet-up} {
         display: block;
         margin-bottom: msRem(3);
-        font-size: msRem(9);
+        font-size: msRem(7);
       }
     }
 
     .subhead {
-      font: #{msRem(3)}/1.4 #{$ff-body};
+      font: #{msRem(2)}/1.4 #{$ff-body};
       font-style: italic;
 
       @media #{$mq-tablet-up} {
-        font-size: msRem(5);
+        font-size: msRem(3);
       }
     }
   }
@@ -89,15 +92,26 @@
 
   &__action {
     display: inline-block;
+  }
+
+  .action-btn {
+    display: block;
     padding: msRem(-1) msRem(2);
     cursor: pointer;
     background: darken($clr-bg, 5%);
+    font-size: msRem(1);
     border-radius: 4px;
 
     em {
       display: block;
-      font: 500 msRem(-1) $ff-headings;;
+      font: 500 msRem(-1) $ff-headings;
     }
+  }
+
+  .action-note {
+    display: block;
+    margin-top: 1rem;
+    font-size: msRem(-1);
   }
 
   &__posts {
@@ -105,9 +119,9 @@
     margin-top: msRem(15);
 
     &-header {
-      margin-bottom: msRem(4);
       color: black;
-      font-size: msRem(4);
+      font-size: msRem(3);
+      margin-bottom: 1em;
     }
 
     &-header h1 {

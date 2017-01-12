@@ -15,12 +15,12 @@
   }
 
   .post-title {
-    font-size: msRem(4);
+    font-size: msRem(3);
   }
 
   .posts-list__meta {
     display: inline-block;
-    font-size: 1rem;
+    font-size: msRem(-1);
     color: lighten($clr-text, 30%);
   }
 

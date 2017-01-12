@@ -15,7 +15,7 @@ $post-max-width: 600px;
     align-items: center;
 
     @media #{$mq-tablet-up} {
-      border-width: msRem(5);
+      border-width: msRem(4);
     }
   }
 
@@ -24,7 +24,7 @@ $post-max-width: 600px;
 
     &__item {
       display: inline-block;
-      font-size: msRem(1);
+      font-size: msRem(-1);
       color: lighten($clr-text, 30%);
     }
 
@@ -54,7 +54,6 @@ $post-max-width: 600px;
       padding: 0;
       max-width: $post-max-width + 120px;
     }
-
   }
 
   &__header {
@@ -66,13 +65,19 @@ $post-max-width: 600px;
     }
 
     .post-title {
-      font-size: msRem(9);
+      font-size: msRem(7);
       color: black;
     }
   }
 
   &__body {
     margin-bottom: msRem(13);
+
+    p {
+      @media #{$mq-phone-only} {
+        font-size: msRem(1);
+      }
+    }
 
     h1, h2 {
       font-size: msRem(4);

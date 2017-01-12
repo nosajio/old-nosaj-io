@@ -26,7 +26,7 @@ const Front = React.createClass({
           <ul className="front-view__actions">
             <li
               onClick={this.handleSendMessage}
-              className="front-view__action">Send me a message <em>I'm accepting work for early 2017</em></li>
+              className="front-view__action"><span className="action-btn">Send me a message <em>I'm accepting work for early 2017</em></span><small className="action-note">or email me on jason (at) nosaj (dot) io</small></li>
           </ul>
           <section className="front-view__posts">
             <header className="front-view__posts-header">
