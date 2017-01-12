@@ -25,7 +25,6 @@ const App = React.createClass({
     this.sendEventToGa();
     this.scrollListener(pos => {
       let scrollPosition = windowHeight + pos;
-      console.log(scrollPosition);
       this.setState({
         scrollPosition,
         reachedBottomOfPage: this.state.reachedBottomOfPage ? true : scrollPosition >= pageHeight,
