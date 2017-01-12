@@ -4,12 +4,11 @@
 @import '../../styles/ms';
 @import '../../styles/mq';
 
-$front-max-width: 600px;
 
 .front-view {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding: msRem(5);
 
@@ -17,11 +16,46 @@ $front-max-width: 600px;
     padding: msRem(10);
   }
 
+  &__cover {
+    width: 100%;
+    padding-top: 70%;
+    margin-bottom: msRem(10);
+    background: darken($clr-bg, 10%) url('../../static/img/nosaj.jpg') center no-repeat;
+    background-size: cover;
+
+    @media #{$mq-desktop-up} {
+      padding-top: 0;
+      margin-bottom: 0;
+      max-width: auto;
+      position: fixed;
+      top: msRem(10);
+      left: msRem(10);
+      bottom: msRem(10);
+      width: calc(40% - #{msRem(10)});
+      background-position: center left;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    width: 100%;
+    background: $clr-bg;
+
+    @media #{$mq-desktop-up} {
+      width: 60%;
+      margin-left: 40%;
+      padding-left: msRem(10);
+    }
+  }
+
   &__introduction {
     width: 100%;
+    max-width: 600px;
 
     @media #{$mq-tablet-up} {
-      max-width: $front-max-width;
+
     }
 
     h1 {
@@ -50,7 +84,7 @@ $front-max-width: 600px;
     display: block;
     margin-top: msRem(15);
     width: 100%;
-    max-width: $front-max-width;
+
   }
 
   &__action {
@@ -68,7 +102,6 @@ $front-max-width: 600px;
 
   &__posts {
     width: 100%;
-    max-width: $front-max-width;
     margin-top: msRem(15);
 
     &-header {
@@ -84,10 +117,11 @@ $front-max-width: 600px;
   }
 
   &.animate {
-    .front-view__introduction h1       { animation: fade-in-up 500ms 1 both $easeInOutCirc; }
-    .front-view__introduction .subhead { animation: fade-in 500ms 700ms 1 both $easeInOutCirc; }
-    .front-view__actions               { animation: fade-in 300ms 800ms 1 both $easeInOutCirc; }
-    .front-view__posts                 { animation: fade-in-up 500ms 800ms 1 both $easeInOutCirc; }
+    .front-view__introduction h1       { animation: fade-in-y 500ms 1 both $easeInOutCirc; }
+    .front-view__cover                 { animation: fade-in 500ms 500ms 1 both $easeInOutCirc; }
+    .front-view__introduction .subhead { animation: fade-in 300ms 500ms 1 both $easeInOutCirc; }
+    .front-view__actions               { animation: fade-in 300ms 600ms 1 both $easeInOutCirc; }
+    .front-view__posts                 { animation: fade-in-y 500ms 700ms 1 both $easeInOutCirc; }
   }
 }
 
@@ -97,7 +131,7 @@ $front-max-width: 600px;
   }
 }
 
-@keyframes fade-in-up {
+@keyframes fade-in-y {
   from {
     transform: translateY(200px);
     opacity: 0;

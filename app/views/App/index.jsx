@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 
+import debounce from '../../helpers/debounce';
 import api from '../../services/api-service';
 
 const App = React.createClass({
@@ -24,6 +25,9 @@ const App = React.createClass({
   },
 
   componentDidUpdate () {
+    if (typeof window === 'undefined') {
+      return;
+    }
     this.sendEventToGa();
   },
 
@@ -66,11 +70,7 @@ const App = React.createClass({
     const {children} = this.props;
 
     if (! children) {
-      return (
-        <div className="not-found">
-          IV 0 IV
-        </div>
-      )
+      return (<div className="not-found">IV—O—IV</div>)
     }
 
     return React.cloneElement(children, {data: sharedState, updateState: this.updateState});
