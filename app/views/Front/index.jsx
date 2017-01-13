@@ -9,12 +9,17 @@ const Front = React.createClass({
     data: React.PropTypes.object // this will be the shared state object
   },
 
-  componentWillMount: function() {
+  componentWillMount () {
     this.props.updateState('posts');
   },
 
   render () {
-    const {allPosts, freshRender, reachedBottomOfPage} = this.props.data;
+    const {
+      allPosts,
+      freshRender,
+      reachedBottomOfPage,
+      handleShowMessageUi
+    } = this.props.data;
 
     return (
       <div className={`front-view ${freshRender ? 'animate' : ''}`}>
@@ -25,9 +30,10 @@ const Front = React.createClass({
             <p className="subhead">I've built stuff for <a href="https://williamhill.com" target="_blank">William Hill Online</a>, <a href="http://mrsite.com" target="_blank">MrSite</a>, <a href="http://beachfix.co" target="_blank">BeachFix</a>, the BBC (via <a href="https://metabroadcast.com" target="_blank">Meta</a>) and many others.</p>
           </header>
           <ul className="front-view__actions">
-            <li
-              onClick={this.handleSendMessage}
-              className="front-view__action"><span className="action-btn">Send me a message <em>I'm accepting work for early 2017</em></span><small className="action-note">or email me on jason (at) nosaj (dot) io</small></li>
+            <li className="front-view__action">
+              <span className="action-btn" onClick={handleShowMessageUi}>Send me a message <em>I'm accepting work for early 2017</em></span>
+              <small className="action-note">or email me on jason (at) nosaj (dot) io</small>
+            </li>
           </ul>
           <section className="front-view__posts">
             <header className="front-view__posts-header">

@@ -1,3 +1,4 @@
+@import './ms';
 @import './mq';
 @import './colors';
 @import './fonts';
@@ -29,3 +30,12 @@ strong, b {
 
 a { color: $clr-text; }
 a:hover { color: #07b1de; }
+
+// Forms
+input, textarea {
+  font: 1rem/1.5 $ff-body;
+}
+
+button {
+  font: #{msRem(1)}/1 $ff-headings;
+}

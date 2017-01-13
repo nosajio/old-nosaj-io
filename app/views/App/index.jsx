@@ -3,6 +3,10 @@ import React, { PropTypes } from 'react'
 import debounce from '../../helpers/debounce';
 import api from '../../services/api-service';
 
+import InstantMessage from '../../components/InstantMessage';
+
+import './app.scss';
+
 const App = React.createClass({
   getInitialState () {
     return {
@@ -10,6 +14,8 @@ const App = React.createClass({
       scrollPosition: 0,
       currentRoute: '/',
       reachedBottomOfPage: false,
+      handleShowMessageUi: this.handleShowMessageUi,
+      messageUiShowing: false,
       freshRender: false, // <- For telling child components this is the landing view
     };
   },
@@ -19,6 +25,7 @@ const App = React.createClass({
   },
 
   componentDidMount () {
+    if (typeof window === 'undefined') return;
     this.putGaOnPage();
     this.sendEventToGa();
     this.scrollListener(this.updateScrollPosition);
@@ -29,16 +36,23 @@ const App = React.createClass({
   },
 
   componentDidUpdate () {
-    if (typeof window === 'undefined') {
-      return;
-    }
     const {currentRoute} = this.state;
     const routeChanged = currentRoute !== this.props.location.pathname;
     if (routeChanged) {
-      this.scrollToTop();
-      this.sendEventToGa();
+      if (typeof window !== 'undefined') {
+        this.scrollToTop();
+        this.sendEventToGa();
+      }
       this.setState({ currentRoute: this.props.location.pathname });
     }
+  },
+
+  handleShowMessageUi (open=true) {
+    this.setState({messageUiShowing: open});
+  },
+
+  handleMessageChange (event) {
+    const messageValue = event.target.value;
   },
 
   updateScrollPosition (pos) {
@@ -63,36 +77,23 @@ const App = React.createClass({
     switch (part) {
       case 'posts':
         const allPosts = await api.request({ path: 'posts' });
-        this.handleStorePosts(allPosts);
+        this.setState({ allPosts });
         return;
     }
   },
 
-  scrollToTop() {
-    if (typeof window === 'undefined') {
-      return;
-    }
+  scrollToTop () {
     window.scroll(0, 0);
   },
 
-  scrollListener(cb=null) {
-    if (typeof window === 'undefined') {
-      return;
-    }
-    if (cb) {
-      window.addEventListener('scroll', scrollListener);
-    } else {
-      window.removeEventListener('scroll', scrollListener);
-    }
-
-    function scrollListener(event) {
+  scrollListener (cb=null) {
+    (cb ?
+      window.addEventListener('scroll', scrollListener) : window.removeEventListener('scroll', scrollListener)
+    );
+    function scrollListener() {
       // debounce; we don't need absolute precision for this
       debounce(20, () => cb(window.scrollY));
     }
-  },
-
-  handleStorePosts(json) {
-    this.setState({ allPosts: json });
   },
 
   sendEventToGa () {
@@ -111,12 +112,18 @@ const App = React.createClass({
   render () {
     const sharedState = this.state;
     const {children} = this.props;
+    const {messageUiShowing} = this.state;
 
     if (! children) {
       return (<div className="not-found">IV—O—IV</div>)
     }
 
-    return React.cloneElement(children, {data: sharedState, updateState: this.updateState});
+    return (
+      <div className="wrap-me-like-its-christmas">
+        {React.cloneElement(children, {data: sharedState, updateState: this.updateState})}
+        {messageUiShowing ? <InstantMessage onMessageChange={this.handleMessageChange} onClose={this.handleShowMessageUi.bind(this, false)}/> : null}
+      </div>
+    );
   }
 })
 

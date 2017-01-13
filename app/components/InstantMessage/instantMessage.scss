@@ -1,0 +1,87 @@
+@import '../../styles/ms';
+@import '../../styles/mq';
+@import '../../styles/fonts';
+@import '../../styles/colors';
+
+$clr-im-bg: rgb(29, 30, 38);
+
+.instant-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000; // Hopefully this will always be above everything (I know... *hopefully*)
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: rgba(
+    red($clr-im-bg),
+    green($clr-im-bg),
+    blue($clr-im-bg),
+    .97);
+
+  &__main {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+
+    @media #{$mq-tablet-up} {
+      width: 70%;
+      padding: 0;
+    }
+
+    @media #{$mq-desktop-up} {
+      width: 50%;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 80vh;
+    border: none;
+    border-radius: 4px;
+    padding: msRem(3);
+    font-size: msRem(2);
+    background: white;
+    color: lighten($clr-text, 35%);
+
+    @media #{$mq-tablet-up} {
+      height: 40vh;
+    }
+  }
+
+  &__textarea:focus {
+    color: lighten($clr-text, 15%);
+    outline: none;
+  }
+
+  &__close {
+    padding: 15px 0;
+    cursor: pointer;
+    font-family: $ff-headings;
+  }
+
+  &__send-btn {
+    position: absolute;
+    bottom: msRem(6);
+    right: msRem(4);
+    padding: 9px 15px 7px;
+    color: white;
+    background: darken($clr-green, 10%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+
+    @media #{$mq-tablet-up} {
+      bottom: msRem(2);
+      right: msRem(2);
+    }
+
+    &:hover {
+      background: $clr-green;
+    }
+  }
+}

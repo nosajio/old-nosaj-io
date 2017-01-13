@@ -96,17 +96,49 @@ $front-margin-small: msRem(4);
   }
 
   .action-btn {
+    position: relative;
+    overflow: hidden;
     display: block;
+    z-index: 100;
     padding: msRem(-1) msRem(2);
     cursor: pointer;
     background: darken($clr-bg, 5%);
     font-size: msRem(1);
     border-radius: 4px;
+    transition: all 200ms ease;
 
     em {
       display: block;
       font: 500 msRem(-1) $ff-headings;
     }
+  }
+
+  .action-btn::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -700px;
+    right: 100%;
+    display: block;
+    width: 4000px;
+    height: 2200px;
+    background: url('../../static/img/animate-colors--blue-green.svg') top right no-repeat;
+    background-size: 100% 100%;
+    transition: all .5s ease;
+  }
+
+  .action-btn:hover {
+    background: $clr-white-blue;
+  }
+
+  .action-btn:not(:hover) {
+    transition: all 200ms .6s ease;
+  }
+
+  .action-btn:hover::before {
+    transition: all 2s 200ms $easeOutCirc;
+    height: 1200px;
+    transform: translate(55%, -200px);
   }
 
   .action-note {
