@@ -2,12 +2,14 @@
 @import '../../styles/ms';
 
 .the-end {
+  width: 100%;
   margin: msRem(14) 0 0;
+  text-align: right;
 
   &__text {
     display: inline-block;
     padding: 0 4px;
-    background: rgba(255, 134, 134, .2);
+    transition: all 400ms 300ms $easeOutBack;
   }
 
   &__heart {
@@ -15,24 +17,34 @@
       position: relative;
       top: -3px;
       display: inline-block;
-      vertical-align: middle;
       width: 25px;
       height: auto;
       margin-left: 20px;
+      vertical-align: middle;
+      transition: all 200ms 600ms $easeOutBack;
     }
   }
 
   &--not-in-view &__heart-animate {
-    transform: translateX(-752px);
+    transform: translateX(-1469px);
+  }
+
+  &--not-in-view &__text {
+    opacity: .1;
+  }
+
+  &--not-in-view &__heart svg {
+    transform: scale(.5);
+    opacity: 0;
   }
 
   &--in-view &__heart-animate {
-    animation: heart-colors 3s 1s 1 both $easeOutCirc;
+    animation: heart-colors 5s 1s infinite both linear;
   }
 }
 
 @keyframes heart-colors {
   from {
-    transform: translateX(-752px);
+    transform: translateX(-1469px);
   }
 }

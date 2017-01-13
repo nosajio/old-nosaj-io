@@ -25,6 +25,7 @@ $front-margin-small: msRem(4);
     margin-bottom: $front-margin-big;
     background: darken($clr-bg, 10%) url('../../static/img/nosaj.jpg') center no-repeat;
     background-size: cover;
+    border-radius: 4px;
 
     @media #{$mq-desktop-up} {
       padding-top: 0;
@@ -78,7 +79,7 @@ $front-margin-small: msRem(4);
       font-style: italic;
 
       @media #{$mq-tablet-up} {
-        font-size: msRem(3);
+        max-width: 500px;
       }
     }
   }

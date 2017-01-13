@@ -19,17 +19,9 @@ const App = React.createClass({
   },
 
   componentDidMount () {
-    const windowHeight = window.innerHeight;
-    const pageHeight = document.body.getBoundingClientRect().height;
     this.putGaOnPage();
     this.sendEventToGa();
-    this.scrollListener(pos => {
-      let scrollPosition = windowHeight + pos;
-      this.setState({
-        scrollPosition,
-        reachedBottomOfPage: this.state.reachedBottomOfPage ? true : scrollPosition >= pageHeight,
-      });
-    });
+    this.scrollListener(this.updateScrollPosition);
   },
 
   componentWillReceiveProps (nextProps) {
@@ -47,6 +39,16 @@ const App = React.createClass({
       this.sendEventToGa();
       this.setState({ currentRoute: this.props.location.pathname });
     }
+  },
+
+  updateScrollPosition (pos) {
+    const windowHeight = window.innerHeight;
+    const pageHeight = Math.floor(document.getElementById('Nosaj').getBoundingClientRect().height);
+    let scrollPosition = Math.ceil(windowHeight + pos);
+    this.setState({
+      scrollPosition,
+      reachedBottomOfPage: this.state.reachedBottomOfPage ? true : scrollPosition >= (pageHeight - 15),
+    });
   },
 
   /**
