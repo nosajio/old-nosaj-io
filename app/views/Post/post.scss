@@ -74,9 +74,7 @@ $post-max-width: 600px;
     margin-bottom: msRem(13);
 
     p {
-      @media #{$mq-phone-only} {
-        font-size: msRem(1);
-      }
+      font-size: msRem(1);
     }
 
     h1, h2 {
@@ -100,7 +98,7 @@ $post-max-width: 600px;
       color: lighten($clr-text, 15%);
       font-size: 18px;
       font-style: italic;
-      text-align: right;
+      text-align: center;
     }
 
     > div,
