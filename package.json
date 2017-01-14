@@ -10,7 +10,8 @@
     "dev": "parallelshell 'node server' 'yarn run watch'",
     "build": "webpack --config ./config/webpack.config.js --colors --progress",
     "release": "webpack -p --config ./config/webpack.production.config.js --colors --progress",
-    "watch": "webpack --config ./config/webpack.config.js --colors --watch"
+    "watch": "webpack --config ./config/webpack.config.js --colors --watch",
+    "pull-writing": "cd writing && git pull && cd .. && git add ./writing -A && git commit -m 'Update writings' "
   },
   "devDependencies": {
     "autoprefixer": "^6.6.1",
