@@ -1,0 +1,27 @@
+$dot-size: 10px;
+
+.loading-dots {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  width: $dot-size * 4;
+  align-items: center;
+  justify-content: space-between;
+
+  &__dot {
+    display: inline-block;
+    width: $dot-size;
+    height: $dot-size;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 50%;
+  }
+
+  .dot--1 { animation: active-dot 400ms both alternate infinite ease; }
+  .dot--2 { animation: active-dot 400ms 200ms both alternate infinite ease; }
+  .dot--3 { animation: active-dot 400ms 400ms both alternate infinite ease; }
+}
+
+@keyframes active-dot {
+  to {
+    background: white;
+  }
+}

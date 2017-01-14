@@ -10,13 +10,18 @@ import './app.scss';
 const App = React.createClass({
   getInitialState () {
     return {
-      allPosts: null,
+      // Universal
       scrollPosition: 0,
       currentRoute: '/',
       reachedBottomOfPage: false,
+      freshRender: false, // For telling child components this is the landing view
+      // Message UI
       handleShowMessageUi: this.handleShowMessageUi,
       messageUiShowing: false,
-      freshRender: false, // <- For telling child components this is the landing view
+      messageSending: false,
+      messageSent: false,
+      // Posts
+      allPosts: null,
     };
   },
 
@@ -58,12 +63,14 @@ const App = React.createClass({
 
   async handleSendMessage () {
     const {messageValue} = this.state;
+    this.setState({messageSending: true});
     try {
       const messageRequest = await api.request({
         path: 'messages',
         method: 'post',
         body: {message: messageValue},
       });
+      this.setState({ messageSent: true, messageSending: false });
     } catch (err) {
       console.error(err);
     }
@@ -130,7 +137,7 @@ const App = React.createClass({
   render () {
     const sharedState = this.state;
     const {children} = this.props;
-    const {messageUiShowing} = this.state;
+    const {messageUiShowing, messageSent, messageSending} = this.state;
 
     if (! children) {
       return (<div className="not-found">IV—O—IV</div>)
@@ -143,6 +150,8 @@ const App = React.createClass({
           <InstantMessage
             onMessageChange={this.handleMessageChange}
             onClose={this.handleShowMessageUi.bind(this, false)}
+            isSent={messageSent}
+            isSending={messageSending}
             onSend={this.handleSendMessage}/>
           : null}
       </div>

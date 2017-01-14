@@ -1,3 +1,4 @@
+@import '../../styles/animations';
 @import '../../styles/ms';
 @import '../../styles/mq';
 @import '../../styles/fonts';
@@ -22,11 +23,27 @@ $clr-im-bg: rgb(29, 30, 38);
     green($clr-im-bg),
     blue($clr-im-bg),
     .97);
+  transition: all 500ms $easeInOutCirc;
+
+  &--sent {
+    background: rgba(
+      red($clr-green),
+      green($clr-green),
+      blue($clr-green),
+      .97);
+  }
+
+  &--invalid &__send-btn {
+    background: darken($clr-bg, 40%);
+    pointer-events: none;
+    opacity: .6;
+  }
 
   &__main {
     position: relative;
     width: 100%;
     padding: 15px;
+    animation: message-main-in 600ms 1 both $easeInOutCirc;
 
     @media #{$mq-tablet-up} {
       width: 70%;
@@ -59,6 +76,7 @@ $clr-im-bg: rgb(29, 30, 38);
   }
 
   &__close {
+    display: inline-block;
     padding: 15px 0;
     cursor: pointer;
     font-family: $ff-headings;
@@ -83,5 +101,45 @@ $clr-im-bg: rgb(29, 30, 38);
     &:hover {
       background: $clr-green;
     }
+  }
+
+  &__sent {
+    text-align: center;
+    animation: message-sent-in 900ms 1 both $easeInOutCirc;
+
+    h1 {
+      font-size: msRem(5);
+      margin-bottom: msRem(5);
+    }
+
+    .instant-message__close {
+      padding: 10px 20px 7px;
+      border: 2px solid rgba(255, 255, 255, .5);
+      transition: all 200ms;
+      border-radius: 30px;
+      animation: fade-in 200ms 1s 1 both ease;
+
+      &:hover {
+        border-color: white;
+      }
+    }
+  }
+
+  &__emoji {
+    font-size: msRem(13);
+  }
+}
+
+@keyframes message-main-in {
+  from {
+    opacity: 0;
+    transform: translateY(60vh);
+  }
+}
+
+@keyframes message-sent-in {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateX(-80deg) translateY(300px);
   }
 }
