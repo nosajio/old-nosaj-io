@@ -12,9 +12,9 @@ const {
 const api = express();
 
 api.get('/posts', postsHandler)
-api.get('/posts/css', require('./styles-handler').all)
 api.get('/posts/:slug', postHandler)
-api.get('/posts/:slug/css', require('./styles-handler').post)
+api.get('/posts/:slug/css', require('./styles-handler'))
+api.post('/messages', require('./messages-handler'))
 
 module.exports = api;
 

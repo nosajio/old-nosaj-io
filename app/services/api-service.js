@@ -13,9 +13,15 @@ function apiService() {
    * @param {object} options
    * @return {Promise}
    */
-  function request({type='get', path}) {
+  function request({method='get', path, body}) {
     const url = `/api/${path}`;
-    const request = fetch(url);
+    const headers = {};
+    const options = { method, headers };
+    if (body) {
+      options.headers['Content-Type'] = 'application/json';
+      options.body = JSON.stringify(body);
+    }
+    const request = fetch(url, options);
     return request.then(res => res.json());
   }
 }

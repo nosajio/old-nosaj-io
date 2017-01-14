@@ -53,6 +53,20 @@ const App = React.createClass({
 
   handleMessageChange (event) {
     const messageValue = event.target.value;
+    this.setState({ messageValue });
+  },
+
+  async handleSendMessage () {
+    const {messageValue} = this.state;
+    try {
+      const messageRequest = await api.request({
+        path: 'messages',
+        method: 'post',
+        body: {message: messageValue},
+      });
+    } catch (err) {
+      console.error(err);
+    }
   },
 
   updateScrollPosition (pos) {
@@ -76,8 +90,12 @@ const App = React.createClass({
   async updateState (part, params) {
     switch (part) {
       case 'posts':
-        const allPosts = await api.request({ path: 'posts' });
-        this.setState({ allPosts });
+        try {
+          const allPosts = await api.request({ path: 'posts' });
+          this.setState({ allPosts });
+        } catch (err) {
+          console.error(err);
+        }
         return;
     }
   },
@@ -121,7 +139,12 @@ const App = React.createClass({
     return (
       <div className="wrap-me-like-its-christmas">
         {React.cloneElement(children, {data: sharedState, updateState: this.updateState})}
-        {messageUiShowing ? <InstantMessage onMessageChange={this.handleMessageChange} onClose={this.handleShowMessageUi.bind(this, false)}/> : null}
+        {messageUiShowing ?
+          <InstantMessage
+            onMessageChange={this.handleMessageChange}
+            onClose={this.handleShowMessageUi.bind(this, false)}
+            onSend={this.handleSendMessage}/>
+          : null}
       </div>
     );
   }

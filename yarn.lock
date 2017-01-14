@@ -1528,7 +1528,7 @@ express@^4.14.0:
     utils-merge "1.0.0"
     vary "~1.1.0"
 
-extend@~3.0.0:
+extend@^3.0.0, extend@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.0.tgz#5a474353b9f3353ddd8176dfd37b91c83a46f1d4"
 
@@ -2191,7 +2191,7 @@ lodash.mergewith@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.0.tgz#150cf0a16791f5903b8891eab154609274bdea55"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.0:
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.4, lodash@^4.2.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -3178,7 +3178,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@2, request@^2.61.0, request@^2.79.0:
+request@2, request@^2.61.0, request@^2.74.0, request@^2.79.0:
   version "2.79.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
   dependencies:
@@ -3202,6 +3202,15 @@ request@2, request@^2.61.0, request@^2.79.0:
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
     uuid "^3.0.0"
+
+requestretry@^1.2.2:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/requestretry/-/requestretry-1.12.0.tgz#7f10a2cd0edb7e43bf9a8b6cbfeda202fb320860"
+  dependencies:
+    extend "^3.0.0"
+    lodash "^4.15.0"
+    request "^2.74.0"
+    when "^3.7.7"
 
 require-directory@^2.1.1:
   version "2.1.1"
@@ -3320,6 +3329,12 @@ sha.js@2.2.6:
 signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+slack-node@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/slack-node/-/slack-node-0.1.8.tgz#cda98de8681485b301dc6742ddc3897117fad349"
+  dependencies:
+    requestretry "^1.2.2"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -3705,6 +3720,10 @@ webpack@^1.14.0:
 whatwg-fetch@>=0.10.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-1.1.1.tgz#ac3c9d39f320c6dce5339969d054ef43dd333319"
+
+when@^3.7.7:
+  version "3.7.7"
+  resolved "https://registry.yarnpkg.com/when/-/when-3.7.7.tgz#aba03fc3bb736d6c88b091d013d8a8e590d84718"
 
 whet.extend@~0.9.9:
   version "0.9.9"

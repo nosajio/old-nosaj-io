@@ -3,6 +3,7 @@ const fs          = require('fs');
 const path        = require('path');
 const morgan      = require('morgan');
 const express     = require('express');
+const bodyParser  = require('body-parser'); 
 const compression = require('compression');
 
 const app = express();
@@ -19,6 +20,8 @@ const reactRoutes = [
   '/read/:slug'
 ];
 
+// Configure Express middleware:
+app.use(bodyParser.json());
 if (env === 'production') {
   app.use( compression() );
   // app.get('*', redirectToHttps );
