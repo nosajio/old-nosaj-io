@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import './LoadingDots.scss';
+import './loadingDots.scss';
 
 const LoadingDots = (props) => {
   return (
