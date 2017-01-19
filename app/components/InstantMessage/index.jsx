@@ -4,6 +4,7 @@ import LoadingDots from '../LoadingDots';
 import './instantMessage.scss';
 
 let messageValue = '';
+let focusTimer = null
 
 const InstantMessage = (props) => {
   const {onMessageChange, onSend, onClose, isSent, isSending} = props;
@@ -11,10 +12,15 @@ const InstantMessage = (props) => {
 
   const focusTextarea = textarea => {
     if (! textarea) return;
-    if (textarea.value === defaultValue) {
-      textarea.focus();
-      textarea.select();
+    if (!! focusTimer) {
+      clearTimeout(focusTimer);
     }
+    focusTimer = setTimeout(() => {
+      if (textarea.value === defaultValue) {
+        textarea.focus();
+        textarea.select();
+      }
+    }, 900);
   }
 
   const handleMessageChange = event => {
