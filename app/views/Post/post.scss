@@ -77,13 +77,21 @@ $post-max-width: 600px;
       font-size: msRem(1);
     }
 
-    h1, h2 {
+    h1 {
       font-size: msRem(4);
     }
 
+    h2 {
+      font-size: msRem(3);
+    }
+
     @media #{$mq-tablet-up} {
-      h1, h2 {
+      h1 {
         font-size: msRem(6);
+      }
+
+      h2 {
+        font-size: msRem(4);
       }
     }
 

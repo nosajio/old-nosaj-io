@@ -2,4 +2,9 @@
 
 .wrap-me-like-its-christmas {
   position: relative;
+
+  &.is-locked {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
