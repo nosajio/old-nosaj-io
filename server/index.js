@@ -3,7 +3,7 @@ const fs          = require('fs');
 const path        = require('path');
 const morgan      = require('morgan');
 const express     = require('express');
-const bodyParser  = require('body-parser'); 
+const bodyParser  = require('body-parser');
 const compression = require('compression');
 
 const app = express();
@@ -17,6 +17,7 @@ const apiRoot = '/api';
 
 const reactRoutes = [
   '/',
+  '/portfolio',
   '/read/:slug'
 ];
 

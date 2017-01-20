@@ -1,0 +1,58 @@
+@import '../../styles/ms';
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+.portfolio {
+  background: #000;
+  height: auto;
+  min-height: 100vh;
+
+  &__body {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: .5vw;
+  }
+}
+
+.project-tile {
+  position: relative;
+  width: 32vw;
+  margin: .5vw;
+  height: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: msRem(5);
+  text-align: center;
+  cursor: pointer;
+
+  &__title {
+    font: msRem(5) $ff-sans-serif;
+  }
+}
+
+.projects-intro {
+  flex-flow: column nowrap;
+  background: white;
+  font: msRem(2) $ff-sans-serif;
+
+  &__picture {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    margin-bottom: msRem(3);
+    overflow: hidden;
+    border-radius: 100px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text {
+
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "title": "BeachFix",
+    "types": ["Design", "Development"],
+    "colors": ["#0184DC", "#ffffff"]
+  },
+  {
+    "title": "TopHat Films",
+    "types": ["Design", "Development"],
+    "colors": ["#111111", "#ffffff"]
+  },
+  {
+    "title": "MetaBroadcast",
+    "types": ["Creative Technologist"],
+    "colors": ["#FF009A", "#330068"]
+  },
+  {
+    "title": "MrSite",
+    "types": ["Lead Design"],
+    "colors": ["#0976A1", "#5BC1A2"]
+  },
+  {
+    "title": "William Hill Online",
+    "types": ["Developer"],
+    "colors": ["#000068", "#ffffff"]
+  }
+]
