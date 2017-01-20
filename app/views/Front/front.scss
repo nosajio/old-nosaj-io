@@ -79,6 +79,9 @@ $front-margin-small: msRem(4);
       @media #{$mq-tablet-up} {
         max-width: 500px;
       }
+
+      a { color: $clr-link; }
+      a:hover { color: $clr-text; }
     }
   }
 
