@@ -29,7 +29,7 @@ strong, b {
 
 
 a { color: $clr-text; }
-a:hover { color: #07b1de; }
+a:hover { color: $clr-link; }
 
 // Forms
 input, textarea {
