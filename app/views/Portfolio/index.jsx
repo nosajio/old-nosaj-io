@@ -42,10 +42,20 @@ const Portfolio = React.createClass({
         onMouseOut={this.handleInactiveTile}
         key={index}
         style={styles}
-        className={`project-tile ${activeTile === project.slug ? 'project-tile--is-selected' : ''}`}>
+        className={`
+          project-tile
+          ${activeTile === project.slug ? 'project-tile--is-selected' : ''}
+          ${hasCover ? 'project-tile--has-cover' : ''}`}>
         <div className="project-tile__meta">
           <h1 className="project-tile__title">{project.title}</h1>
-          <span className="project-tile__types">{project.types.map((type, i) => `${type}${i < project.types.length - 1 ? ', ' : ''}`)}</span>
+          <span className="project-tile__types">
+            {project.types.map((type, i) => (
+              <span key={i} className="project-tile__type">
+                {type}
+                {i < project.types.length - 1 ? (<span className="divider">•</span>) : null}
+              </span>
+            ))}
+          </span>
         </div>
         {hasCover ? (
           <div className="project-tile__cover">

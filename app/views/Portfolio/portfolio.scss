@@ -1,4 +1,5 @@
 @import '../../styles/animations';
+@import '../../styles/mq';
 @import '../../styles/ms';
 @import '../../styles/colors';
 @import '../../styles/fonts';
@@ -20,17 +21,29 @@ $maxCoverImages: 2;
 
 .project-tile {
   position: relative;
-  width: 32vw;
+  width: 99vw;
+  height: 78vw;
   margin: .5vw;
-  height: 25vw;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: msRem(5);
   text-align: center;
   cursor: pointer;
+  border-radius: 4px;
 
-  &--is-selected &__meta {
+  @media #{$mq-tablet-up} {
+    width: 48.5vw;
+    height: 39vw;
+  }
+
+
+  @media #{$mq-desktop-up} {
+    width: 32vw;
+    height: 25vw;
+  }
+
+  .project-tile--has-cover.project-tile--is-selected &__meta {
     transform: scale(.5);
     opacity: 0;
   }
@@ -63,6 +76,18 @@ $maxCoverImages: 2;
     display: block;
     margin-top: 5px;
   }
+
+  &__type {
+    display: inline-block;
+  }
+
+  &__type .divider {
+    display: inline-block;
+    margin: 0 msRem(-5);
+    font-size: 10px;
+    vertical-align: middle;
+    opacity: .7;
+  }
 }
 
 .cover-image {
@@ -70,15 +95,16 @@ $maxCoverImages: 2;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  transition: all 300ms $easeInOutCirc;
-  opacity: .4;
   background-size: 100% auto;
   background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 @for $i from 1 through $maxCoverImages {
   .cover-image--#{$i} {
     z-index: #{200/$i};
+    transition: all 300ms $easeInOutCirc;
+    opacity: .4;
 
     @if $i == 1 {
       transform: translateX(-20%);
