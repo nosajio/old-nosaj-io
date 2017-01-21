@@ -1,5 +1,14 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+const copyFiles = [
+  // Load all the portfolio images
+  {
+    from: path.join('.', 'static', 'img', 'portfolio'),
+    to: path.join('..', 'dist', 'img', 'portfolio')
+  }
+];
 
 module.exports = {
   context: path.resolve(__dirname, '../app'),
@@ -40,7 +49,8 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('nosaj.css')
+    new ExtractTextPlugin('nosaj.css'),
+    new CopyPlugin(copyFiles)
   ],
   devtool: 'source-map',
 };

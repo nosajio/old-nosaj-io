@@ -12,25 +12,54 @@ const Portfolio = React.createClass({
   getInitialState () {
     return {
       projects: projectsData,
+      activeTile: null,
     }
   },
 
   componentDidMount () {
   },
 
+  handleActiveTile (project) {
+    this.setState({
+      activeTile: project.slug,
+    })
+  },
+
+  handleInactiveTile () {
+    this.setState({activeTile: null});
+  },
+
   projectEl (project, index) {
+    const {activeTile} = this.state;
     const styles = {
-      background: project.colors[0],
+      backgroundColor: project.colors[0],
       color: project.colors[1],
     };
+    const hasCover = project.coverImages ? project.coverImages.length > 0 : false;
     return (
       <article
+        onMouseOver={this.handleActiveTile.bind(this, project)}
+        onMouseOut={this.handleInactiveTile}
         key={index}
         style={styles}
-        className="project-tile">
-        <span className="project-tile__meta">
+        className={`project-tile ${activeTile === project.slug ? 'project-tile--is-selected' : ''}`}>
+        <div className="project-tile__meta">
           <h1 className="project-tile__title">{project.title}</h1>
-        </span>
+          <span className="project-tile__types">{project.types.map((type, i) => `${type}${i < project.types.length - 1 ? ', ' : ''}`)}</span>
+        </div>
+        {hasCover ? (
+          <div className="project-tile__cover">
+            {/* Reverse to preserve layer order (first on top, last on bottom) */}
+            {project.coverImages.map((img, index) => (
+              <div
+                  key={index}
+                  className={`cover-image cover-image--${index+1}`}
+                  style={{
+                    backgroundImage: `url(/img/portfolio/${img})`
+                  }}></div>
+            ))}
+          </div>
+        ) : null}
       </article>
     );
   },

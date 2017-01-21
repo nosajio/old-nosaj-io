@@ -2,6 +2,16 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const CopyPlugin = require('copy-webpack-plugin');
+
+const copyFiles = [
+  // Load all the portfolio images
+  {
+    from: path.join('.', 'static', 'img', 'portfolio'),
+    to: path.join('..', 'dist', 'img', 'portfolio')
+  }
+];
+
 module.exports = {
   context: path.resolve(__dirname, '../app'),
   entry: ['babel-polyfill', './entry.jsx'],
@@ -42,11 +52,12 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('nosaj.css'),
+    new CopyPlugin(copyFiles)
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
   ],
 };

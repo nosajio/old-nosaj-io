@@ -1,6 +1,9 @@
+@import '../../styles/animations';
 @import '../../styles/ms';
 @import '../../styles/colors';
 @import '../../styles/fonts';
+
+$maxCoverImages: 2;
 
 .portfolio {
   background: #000;
@@ -27,8 +30,61 @@
   text-align: center;
   cursor: pointer;
 
+  &--is-selected &__meta {
+    transform: scale(.5);
+    opacity: 0;
+  }
+
+  &--is-selected .cover-image {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__meta {
+    position: relative;
+    z-index: 200;
+    transition: all 300ms $easeInOutCirc;
+  }
+
   &__title {
     font: msRem(5) $ff-sans-serif;
+  }
+
+  &__types {
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+.cover-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 300ms $easeInOutCirc;
+  opacity: .4;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+@for $i from 1 through $maxCoverImages {
+  .cover-image--#{$i} {
+    z-index: #{200/$i};
+
+    @if $i == 1 {
+      transform: translateX(-20%);
+    } @else {
+      transform: translateX(20%);
+    }
   }
 }
 

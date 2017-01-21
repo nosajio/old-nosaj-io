@@ -1,3 +1,4 @@
+// Load global styles and index.html file
 import './nosaj.scss';
 import 'file-loader?name=[name].[ext]!./static/index.html';
 

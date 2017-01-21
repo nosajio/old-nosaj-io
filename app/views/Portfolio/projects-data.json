@@ -1,26 +1,32 @@
 [
   {
     "title": "BeachFix",
+    "slug": "beachfix",
     "types": ["Design", "Development"],
-    "colors": ["#0184DC", "#ffffff"]
+    "colors": ["#0184DC", "#ffffff"],
+    "coverImages": ["beachfix/beachfix-cover-mobile.png", "beachfix/beachfix-cover-desktop.png"]
   },
   {
     "title": "TopHat Films",
+    "slug": "tophat",
     "types": ["Design", "Development"],
-    "colors": ["#111111", "#ffffff"]
+    "colors": ["#111111", "#b0b0b0"]
   },
   {
     "title": "MetaBroadcast",
+    "slug": "mbst",
     "types": ["Creative Technologist"],
-    "colors": ["#FF009A", "#330068"]
+    "colors": ["#330068", "#FF009A"]
   },
   {
     "title": "MrSite",
+    "slug": "mrsite",
     "types": ["Lead Design"],
-    "colors": ["#0976A1", "#5BC1A2"]
+    "colors": ["#0976A1", "#b1f1de"]
   },
   {
     "title": "William Hill Online",
+    "slug": "williamhill",
     "types": ["Developer"],
     "colors": ["#000068", "#ffffff"]
   }
