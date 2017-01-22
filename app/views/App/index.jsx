@@ -8,6 +8,10 @@ import InstantMessage from '../../components/InstantMessage';
 import './app.scss';
 
 const App = React.createClass({
+  contextTypes: {
+    router: PropTypes.object
+  },
+
   getInitialState () {
     return {
       // Universal
@@ -61,7 +65,10 @@ const App = React.createClass({
    * @param {Object} project - Full project object
    */
   navigateToProject (project) {
-
+    const {router} = this.context;
+    router.push({
+      pathname: `/portfolio/${project.slug}`
+    });
   },
 
   /**

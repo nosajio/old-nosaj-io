@@ -30,6 +30,7 @@ const Portfolio = React.createClass({
   },
 
   projectEl (project, index) {
+    const {navigateToProject} = this.props.data;
     const {activeTile} = this.state;
     const styles = {
       backgroundColor: project.colors[0],
@@ -38,6 +39,7 @@ const Portfolio = React.createClass({
     const hasCover = project.coverImages ? project.coverImages.length > 0 : false;
     return (
       <article
+        onClick={navigateToProject.bind(null, project)}
         onMouseOver={this.handleActiveTile.bind(this, project)}
         onMouseOut={this.handleInactiveTile}
         key={index}

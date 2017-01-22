@@ -17,8 +17,9 @@ const apiRoot = '/api';
 
 const reactRoutes = [
   '/',
+  '/read/:slug',
   '/portfolio',
-  '/read/:slug'
+  '/portfolio/:slug'
 ];
 
 // Configure Express middleware:
