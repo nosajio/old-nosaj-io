@@ -22,6 +22,8 @@ const App = React.createClass({
       messageSent: false,
       // Posts
       allPosts: null,
+      // Portfolio
+      navigateToProject: this.navigateToProject,
     };
   },
 
@@ -52,15 +54,42 @@ const App = React.createClass({
     }
   },
 
+  /**
+   * Navigate To Project
+   * Gracefully transition to the specified project
+   *
+   * @param {Object} project - Full project object
+   */
+  navigateToProject (project) {
+
+  },
+
+  /**
+   * Handle Show Message UI
+   * Set state for showing message UI
+   *
+   * @param {boolean} open
+   */
   handleShowMessageUi (open=true) {
     this.setState({messageUiShowing: open});
   },
 
+  /**
+   * handle Message Change
+   * For updating the state when the in-progress message contents changes
+   *
+   * @param {Event} event
+   */
   handleMessageChange (event) {
     const messageValue = event.target.value;
     this.setState({ messageValue });
   },
 
+  /**
+   * Handle Send Message
+   *
+   * @return {Promise}
+   */
   async handleSendMessage () {
     const {messageValue} = this.state;
     this.setState({messageSending: true});
@@ -76,6 +105,12 @@ const App = React.createClass({
     }
   },
 
+  /**
+   * Update Scroll Position
+   * Update any state linked with scroll events
+   *
+   * @param {Number} pos - scrollTop position
+   */
   updateScrollPosition (pos) {
     const windowHeight = window.innerHeight;
     const pageHeight = Math.floor(document.getElementById('Nosaj').getBoundingClientRect().height);
@@ -107,10 +142,19 @@ const App = React.createClass({
     }
   },
 
+  /**
+   * Scroll To the Top
+   */
   scrollToTop () {
     window.scroll(0, 0);
   },
 
+  /**
+   * Scroll Listener
+   * Debounced; set up and manage scroll event listeners
+   *
+   * @param {Function} cb - callback, fired when scroll updates
+   */
   scrollListener (cb=null) {
     (cb ?
       window.addEventListener('scroll', scrollListener) : window.removeEventListener('scroll', scrollListener)
@@ -121,10 +165,16 @@ const App = React.createClass({
     }
   },
 
+  /**
+   * Send Event to Google Analytice
+   */
   sendEventToGa () {
     ga('send', 'pageview');
   },
 
+  /**
+   * Put Google Analytics onto the page
+   */
   putGaOnPage () {
     // Google analytics code from google
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
