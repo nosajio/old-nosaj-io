@@ -1,3 +1,67 @@
+@import '../../../styles/mq';
+@import '../../../styles/ms';
+@import '../../../styles/fonts';
+
 .project {
-  
+  min-height: 100vh;
+  height: auto;
+  border: msRem(1) solid transparent;
+  font: 1rem $ff-sans-serif;
+
+  h1 { font: 700 msRem(7) $ff-sans-serif; }
+  h2 { font: 700 msRem(2) $ff-sans-serif; }
+  h3 { font: 700 msRem(2) $ff-sans-serif; }
+
+  @media #{$mq-desktop-up} {
+    border-width: msRem(3);
+
+    h1 { font: 700 msRem(9) $ff-sans-serif; }
+    h2 { font: 700 msRem(2) $ff-sans-serif; }
+    h3 { font: 700 msRem(2) $ff-sans-serif; }
+  }
+}
+
+.project__body {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - #{msRem(3)});
+
+  @media #{$mq-desktop-up} {
+    align-items: stretch;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+}
+
+.project__text,
+.project__images {
+  width: 100%;
+  padding: msRem(2);
+  margin-bottom: msRem(3);
+
+  @media #{$mq-desktop-up} {
+    margin-bottom: 0;
+    padding: msRem(5);
+    width: calc(50% - #{msRem(3)/2});
+  }
+}
+
+.project__text {
+
+
+  @media #{$mq-desktop-up} {
+
+  }
+}
+
+.project__header {
+  text-align: center;
+  width: 100%;
+}
+
+.project__images {
+  @media #{$mq-desktop-up} {
+  }
 }

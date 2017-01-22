@@ -28,6 +28,7 @@ const App = React.createClass({
       allPosts: null,
       // Portfolio
       navigateToProject: this.navigateToProject,
+      activeProject: null,
     };
   },
 

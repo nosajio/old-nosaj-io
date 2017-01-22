@@ -3,32 +3,91 @@
     "title": "BeachFix",
     "slug": "beachfix",
     "types": ["Design", "Development"],
-    "colors": ["#0184DC", "#ffffff"],
-    "coverImages": ["beachfix/beachfix-cover-mobile.png", "beachfix/beachfix-cover-desktop.png"]
+    "colors": ["#0083DB", "#ffe7c4", "#0064a7"],
+    "coverImages": ["beachfix/beachfix-cover-mobile.png", "beachfix/beachfix-cover-desktop.png"],
+    "deliverables": "Design and make a web application",
+    "url": "http://beachfix.co",
+    "date": "2016",
+    "aboutCompany": "BeachFix is a tool for helping people find their dream beach holiday. The startup was founded in 2015 after CEO, Nishul, noticed that the gigantic holiday market was only catered to by a hand full of big holiday websites. He set out capture a slice of the market—the beach holiday goers—with BeachFix.",
+    "whatIDid": [
+      "I was hired to make the first non-beta version of the BeachFix website.",
+      "Worked with the team to translate lessons they had learned from the beta into new designs. We used inVision to make rapid changes to the designs from feedback.",
+      "I used React to create the new isomorphic web application.",
+      "Built the new app to a very tight deadline, delivering it in under a month.",
+      "Implemented multiple ways of measuring the success rate of the new site.",
+      "Worked side-by-side with the team on handing over the project to them."
+    ],
+    "quotes": null
   },
   {
     "title": "TopHat Films",
     "slug": "tophat",
-    "types": ["Design", "Development"],
-    "colors": ["#111111", "#d9d9d9"],
-    "coverImages": ["tophat/tophat-cover-mobile.png", "tophat/tophat-cover-desktop.png"]
+    "types": ["Design", "Development", "Wordpress"],
+    "colors": ["#111111", "#d9d9d9", "#000"],
+    "coverImages": ["tophat/tophat-cover-mobile.png", "tophat/tophat-cover-desktop.png"],
+    "deliverables": "Design and make the new TopHat Films website and blog",
+    "url": "http://thetophatfilmswebsite.com",
+    "date": "2016",
+    "aboutCompany": "TopHat Films is a film company. It was started by filmmaker Rob Trott while he was still in school, and was mostly a way for him and his mates to learn how to make films while having fun. In the years since, TopHat have a feature length film (4:00am), and a web series (DOLE) to their name. Plus many interesting things in the works.",
+    "whatIDid": [
+      "I delivered a new responsive website and blog for TopHat Films.",
+      "Worked with Rob on injecting some TopHat humour into the site (we introduced some fun hidden and not-so-hidden interactive surprises).",
+      "Developed a simple way for Rob to add new projects to the website without learning how to code and without the need for a CMS."
+    ],
+    "quotes": null
   },
   {
     "title": "MetaBroadcast",
     "slug": "mbst",
     "types": ["Creative Technologist"],
-    "colors": ["#330068", "#FF009A"]
+    "colors": ["#330068", "#FF009A", "#210142"],
+    "deliverables": "Worked on projects for MetaBroadcast, BBC R&D, Channel 4, and others.",
+    "url": null,
+    "date": "2014 to 2015",
+    "aboutCompany": "MetaBroadcast, started in 2004, have positioned themselves to be indispensable in the modern world of Television and digital media. They make a number of products that help most of the big broadcasters in the UK to get content to viewers faster. They also work on commissions from broadcasting companies to develop interesting solutions using a wide range of technologies.",
+    "whatIDid": [
+      "Working at Meta taught me how to bring my A game every single day. The level of work expectation required it.",
+      "I became well versed in Angular, Ember, and Backbone Javascript frameworks, plus BASH, Python, and Ruby.",
+      "Got to play with large scale infrastructure.",
+      "Worked on projects for BBC R&D, Channel 4 and others.",
+      "Talked on numerous occasions at the monthly MetaBeers event to 40+ people.",
+      "Worked to the AGILE methodology for rapid development.",
+      "Took part in the hiring of new staff members.",
+      "Consumed a LOT of cake."
+    ],
+    "quotes": null
   },
   {
     "title": "MrSite",
     "slug": "mrsite",
     "types": ["Lead Design"],
-    "colors": ["#0976A1", "#b1f1de"]
+    "colors": ["#0976A1", "#c6ffee", "#025170"],
+    "deliverables": "",
+    "url": "https://mrsite.com",
+    "date": "2012 to 2013",
+    "aboutCompany": "MrSite were one of the first website builder products on the market. In the early days they took a big part of the d.i.y website market with their product \"Website in a Box\". Later they went through major internal changes after the industry became more competitive and their (then) newest product wasn't performing as well as they had hoped.",
+    "whatIDid": [
+      "I came in just after the release of their (then) new product, and was responsible in thinking up ways to improve it.",
+      "I got involved with support and listening to the issues of existing customers.",
+      "I lobbied for better email marketing, and designed new email templates.",
+      "I re-skinned the new website builder product, and designed onboarding solutions, like a series of \"quick steps\" to get a user comfortable in the new digs.",
+      "I designed and made a new website for the new product, focussing all I'd learned from the team and customers into the project. The resulting site increased website sales by 300% within the first month, and got the website to the first page of Google for the term \"website builder uk\"."
+    ],
+    "quotes": null
   },
   {
     "title": "William Hill Online",
     "slug": "williamhill",
     "types": ["Developer"],
-    "colors": ["#000068", "#ffffff"]
+    "colors": ["#000068", "#ffffff", "#00003e"],
+    "url": null,
+    "date": "2009",
+    "aboutCompany": "William Hill are the oldest bookmakers in England. They operate throughout the UK, and specialise in sport bets, but they also take bets for a wide range of things. For tax reasons they moved their tech team to Gibraltar, a British colony at the southern tip of Spain.",
+    "whatIDid": [
+      "I moved to Spain, crossing the border daily to work at William Hill.",
+      "I coded the William Hill Casino website with HTML, CSS & PHP.",
+      "Worked mostly with PHP, Expression Engine, MooTools, and jQuery."
+    ],
+    "quotes": null
   }
 ]
