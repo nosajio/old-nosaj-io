@@ -8,7 +8,8 @@ const copyFiles = [
   // Load all the portfolio images
   {
     from: path.join('.', 'static', 'img', 'portfolio'),
-    to: path.join('..', 'dist', 'img', 'portfolio')
+    to: path.join('..', 'dist', 'img', 'portfolio'),
+    ignore: ['.DS_Store'],
   }
 ];
 
@@ -26,11 +27,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(jpg|png|svg)$/,
-        loader: 'file-loader',
-        query: {
-          name: 'img/[name]-[hash].[ext]'
-        }
+        test: /\.(gif|jpe?g|png|svg)$/,
+        loaders: [
+          'file?name=img/[name]-[hash].[ext]',
+          'image-webpack?optimizationLevel=7'
+        ],
       },
       {
         test: /\.json$/,
@@ -52,7 +53,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('nosaj.css'),
-    new CopyPlugin(copyFiles)
+    new CopyPlugin(copyFiles),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
