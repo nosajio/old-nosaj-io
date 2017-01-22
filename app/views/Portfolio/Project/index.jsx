@@ -31,8 +31,11 @@ const Project = (props) => {
       <main className="project__body">
         <section className="project__text">
           <header className="project__header">
-            <h1>{project.title}</h1>
-
+            <h1 className="project__title">{project.title}</h1>
+            <ul className="project__meta">
+              <li className="project__meta-item date-completed">{project.date}</li>
+              <li className="project__meta-item">Brief: {project.deliverables}</li>
+            </ul>
           </header>
           <h2>About {project.title}</h2>
           <p>{project.aboutCompany}</p>

@@ -27,11 +27,42 @@
   width: 100%;
   height: auto;
   min-height: calc(100vh - #{msRem(3)});
+  line-height: 1.5;
 
   @media #{$mq-desktop-up} {
     align-items: stretch;
     flex-flow: row nowrap;
     justify-content: space-between;
+  }
+
+  p {
+    margin-top: msRem(3);
+    margin-bottom: msRem(3);
+  }
+
+  h2, h3 {
+    margin-top: msRem(7);
+    margin-bottom: msRem(3);
+  }
+
+  .project__points {
+    li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    li::before {
+      content: '\00b7';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 msRem(-4) 0 msRem(-6);
+    }
+
+    li + li {
+      margin-top: msRem(-2);
+    }
   }
 }
 
@@ -57,8 +88,12 @@
 }
 
 .project__header {
-  text-align: center;
   width: 100%;
+  margin-bottom: msRem(9);
+}
+
+.project__title {
+  margin-bottom: msRem(5);
 }
 
 .project__images {
