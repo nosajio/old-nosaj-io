@@ -59,12 +59,12 @@
     "aboutCompany": "MetaBroadcast, started in 2004, have positioned themselves to be indispensable in the modern world of Television and digital media. They make a number of products that help broadcasters in the UK get content to viewers faster. They also work on commissions to develop interesting solutions using a wide range of technologies.",
     "whatIDid": [
       "Working at Meta taught me how to bring my A game every single day. The level of work expectated required it.",
-      "I became well versed in Angular, Ember, and Backbone Javascript frameworks, plus I regularly used BASH, Python, and Ruby.",
+      "I became well versed in Angular, Ember, and Backbone frameworks, and I regularly worked with NodeJS, BASH, Python, and Ruby.",
       "Worked on projects for BBC R&D, Channel 4 and others.",
-      "Talked on numerous occasions at the monthly MetaBeers event to 40+ people.",
+      "Talked on numerous occasions at the monthly MetaBeers event to 30+ people.",
       "Got used to working with large scale infrastructure.",
       "Worked to the AGILE methodology for rapid development.",
-      "Took part in the hiring of new staff members.",
+      "Took part in the hiring process for potential new staff members.",
       "Consumed a LOT of cake."
     ],
     "quotes": null
@@ -77,9 +77,9 @@
     "deliverables": "",
     "url": "https://mrsite.com",
     "date": "2012 to 2013",
-    "aboutCompany": "MrSite were one of the first website builder products on the market. In the early days they took a big part of the d.i.y website market with their product \"Website in a Box\". Later they went through major internal changes after the industry became more competitive and their (then) newest product wasn't performing as well as they had hoped.",
+    "aboutCompany": "MrSite created one of the first successful website builder products on the market. Back in 2004 they took a big chunk of the d.i.y. website market with their product \"Website in a Box\". In 2012, as the industry became more competitive, their (then) newest product wasn't performing as well as they had expected, so moves were made to improve it.",
     "whatIDid": [
-      "I came in just after the release of their (then) new product, and was responsible in thinking up ways to improve it.",
+      "I joined MrSite in 2012, just after the release of their revamped website builder product. I was responsible in thinking up ways to improve it.",
       "I got involved with support and listening to the issues of existing customers.",
       "I lobbied for better email marketing, and designed new email templates.",
       "I re-skinned the new website builder product, and designed onboarding solutions, like a series of \"quick steps\" to get a user comfortable in the new digs.",
@@ -94,10 +94,11 @@
     "colors": ["#00133D", "#F9DA00"],
     "url": null,
     "date": "2009",
-    "aboutCompany": "William Hill are the oldest bookmakers in England. They operate throughout the UK, and specialise in sport bets, but they also take bets for a wide range of things. For tax reasons they moved their tech team to Gibraltar, a British colony at the southern tip of Spain.",
+    "aboutCompany": "William Hill are one of the oldest bookmakers in England. They operate worldwide and specialise in sports bets, but they take bets for a wide range of things. The online division of the company is based in Gibraltar along with the tech and content teams.",
     "whatIDid": [
-      "Worked mostly with PHP, Expression Engine, MooTools, and jQuery.",
-      "I coded the William Hill Casino website with HTML, CSS & PHP.",
+      "I was one of three developers working in Gibraltar. I mostly worked on coding new websites from mockups and on the William Hill poker app for Windows.",
+      "Worked with PHP, Expression Engine, MooTools, and jQuery.",
+      "I coded the William Hill Casino website myself, working with the internal design team. The website stayed online until 2015.",
       "I moved to Spain, crossing the border daily to work at William Hill."
     ],
     "quotes": null
