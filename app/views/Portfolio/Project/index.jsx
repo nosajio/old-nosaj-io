@@ -7,7 +7,6 @@ const Project = (props) => {
   const {slug} = props.params;
   const project = projectsData.filter(p => p.slug === slug)[0];
 
-
   if (! project) {
     return (
       <main className="project-not-found">
@@ -15,6 +14,9 @@ const Project = (props) => {
       </main>
     );
   }
+
+  const projectIndex = projectsData.indexOf(project);
+  const nextProjectIndex = projectIndex + 1 >= projectsData.length ? projectsData.length - 1 : projectIndex + 1;
 
   const contrast = spin.getLuminance(project.colors[0]) < 50 ? 'lod' : 'dol';
   const projectStyles = {
@@ -79,20 +81,29 @@ const Project = (props) => {
             ))}
           </ul>
         </section>
-        {previewImages ? (
-          <section className="project__images">
-            <div style={projectImagesStyles} className="images-decoration"></div>
-            {addImageIfPresent('desktop')}
-            {addImageIfPresent('mobile')}
-          </section>
-        ) : null}
+        <section className="project__images">
+          <div style={projectImagesStyles} className="images-decoration"></div>
+          {previewImages ? addImageIfPresent('desktop') : null}
+          {previewImages ? addImageIfPresent('mobile') : null}
+        </section>
       </main>
       <nav className="projects-nav">
         <a href="/portfolio" className="projects-nav__back">&larr; Back to Projects</a>
         {projectsData.map(navLinkEl)}
       </nav>
+      {nextProjectIndex !== projectIndex ? (
+        <a
+          href={`/portfolio/${projectsData[nextProjectIndex].slug}`}
+          className="project__goto-next"
+          style={{
+            background: projectsData[nextProjectIndex].colors[0]
+          }}>
+          <em>Next Project:</em>
+          <h3>{projectsData[nextProjectIndex].title}</h3>
+        </a>
+      ) : null}
     </div>
-  )
+  );
 }
 
 export default Project;

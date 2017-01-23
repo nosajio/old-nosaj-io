@@ -16,10 +16,11 @@
     "aboutCompany": "BeachFix is a tool for helping people find their dream beach holiday. The startup was founded in 2015 after CEO, Nishul, noticed that the gigantic holiday market was only catered to by a hand full of big holiday websites. He set out capture a slice of the market—the beach holiday goers—with BeachFix.",
     "whatIDid": [
       "I was hired to make the first non-beta version of the BeachFix website.",
-      "Worked with the team to translate lessons they had learned from the beta into new designs. We used InVision to share and make quick changes to prototypes.",
+      "Worked with the team to translate lessons they had learned from the beta into new designs.",
+      "The design process started on paper and progressed to InVision prototypes. InVision allowed us to see everything in one place and make iterative changes where necessary.",
       "I used React to create the new isomorphic web application.",
-      "Built the new app to a very tight deadline, delivering it in under a month.",
-      "Implemented multiple ways of collecting usage data from users once the app was launched. The data was used to gain insight into whether our assumptions about the new version of the application were valid.",
+      "I coded the new app to a very tight deadline, delivering it in under a month.",
+      "Implemented several methods of collecting usage data once the app was launched. The data was used to gain insight into whether our assumptions were valid. If they weren't, we changed it.",
       "Spent three days working side-by-side with the team when handing the project over to them."
     ],
     "quotes": null
@@ -34,11 +35,11 @@
       "mobile": "tophat/tophat-phone.png",
       "desktop": "tophat/tophat-desktop.png"
     },
-    "deliverables": "Design and make the new TopHat Films website and blog",
+    "deliverables": "Design and make a light weight website and blog",
     "stack": ["Valilla JS", "Wordpress"],
     "url": "http://thetophatfilmswebsite.com",
     "date": "2016",
-    "aboutCompany": "TopHat Films is a film company. It was started by filmmaker Rob Trott while he was still in school, and was mostly a way for him and his mates to learn how to make films while having fun. In the years since, TopHat have a feature length film (4:00am), and a web series (DOLE) to their name. Plus many interesting things in the works.",
+    "aboutCompany": "TopHat Films was started by filmmaker Rob Trott while he was still in school, and was mostly a way for him and his mates to learn how to make films and having fun with it. In the years since, TopHat have a feature length film (4:00am), and a web series (DOLE) to their name, plus some interesting things in the works.",
     "whatIDid": [
       "I delivered a new responsive website and blog for TopHat Films.",
       "Invented a <a href=\"https://github.com/nosajj/micro-templating\" target=\"_blank\">micro templating library</a> to make adding new content easier.",
@@ -58,7 +59,7 @@
     "aboutCompany": "MetaBroadcast, started in 2004, have positioned themselves to be indispensable in the modern world of Television and digital media. They make a number of products that help broadcasters in the UK get content to viewers faster. They also work on commissions to develop interesting solutions using a wide range of technologies.",
     "whatIDid": [
       "Working at Meta taught me how to bring my A game every single day. The level of work expectated required it.",
-      "I became well versed in Angular, Ember, and Backbone Javascript frameworks, plus I rregularly used BASH, Python, and Ruby.",
+      "I became well versed in Angular, Ember, and Backbone Javascript frameworks, plus I regularly used BASH, Python, and Ruby.",
       "Worked on projects for BBC R&D, Channel 4 and others.",
       "Talked on numerous occasions at the monthly MetaBeers event to 40+ people.",
       "Got used to working with large scale infrastructure.",
@@ -95,9 +96,9 @@
     "date": "2009",
     "aboutCompany": "William Hill are the oldest bookmakers in England. They operate throughout the UK, and specialise in sport bets, but they also take bets for a wide range of things. For tax reasons they moved their tech team to Gibraltar, a British colony at the southern tip of Spain.",
     "whatIDid": [
-      "I moved to Spain, crossing the border daily to work at William Hill.",
+      "Worked mostly with PHP, Expression Engine, MooTools, and jQuery.",
       "I coded the William Hill Casino website with HTML, CSS & PHP.",
-      "Worked mostly with PHP, Expression Engine, MooTools, and jQuery."
+      "I moved to Spain, crossing the border daily to work at William Hill."
     ],
     "quotes": null
   }

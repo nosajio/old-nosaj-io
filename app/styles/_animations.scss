@@ -7,3 +7,30 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0;
   }
 }
+
+
+@keyframes fade-in-rtl {
+  from {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-ltr {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes in-rtl {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes in-ltr {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+}

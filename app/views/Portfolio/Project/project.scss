@@ -2,6 +2,7 @@
 @import '../../../styles/ms';
 @import '../../../styles/fonts';
 @import '../../../styles/colors';
+@import '../../../styles/animations';
 
 .projects-nav {
   position: fixed;
@@ -12,6 +13,7 @@
   background: rgba(0, 0, 0, .8);
   box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
   font-size: msRem(-1);
+  overflow: scroll;
 
   &__back {
     position: relative;
@@ -126,7 +128,7 @@
 .project__text,
 .project__images {
   width: 100%;
-  margin-bottom: msRem(13);
+  margin-bottom: msRem(18);
 
   @media #{$mq-desktop-up} {
     margin-bottom: 0;
@@ -137,6 +139,7 @@
   position: relative;
   z-index: 100;
   padding: msRem(15) msRem(2) msRem(2);
+  animation: fade-in 800ms 1 both ease;
 
   @media #{$mq-desktop-up} {
     padding: msRem(15) 0 msRem(10) msRem(10);
@@ -156,13 +159,13 @@
   width: 100%;
 
   .project.lod & &-item {
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .8);
   }
 
   &-item {
     display: block;
     padding: 10px;
-    max-width: 350px;
+    max-width: 300px;
     min-width: 130px;
     font-weight: 700;
   }
@@ -190,6 +193,7 @@
 .project__images {
   position: relative;
   z-index: 10;
+  overflow: hidden;
 
   @media #{$mq-desktop-up} {
     padding: msRem(15) 0;
@@ -203,7 +207,6 @@
     height: 600px;
     width: 100%;
 
-
     @media #{$mq-desktop-up} {
       z-index: 100;
       top: 0;
@@ -212,6 +215,7 @@
       display: block;
       width: 33vw;
       height: 100%;
+      animation: fade-in-rtl 400ms 300ms 1 both $easeOutCirc;
     }
   }
 }
@@ -224,6 +228,7 @@
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: top left;
+  animation: in-rtl 700ms 600ms 1 both $easeOutCirc;
 
   @media #{$mq-desktop-up} {
 
@@ -237,4 +242,15 @@
   &--desktop {
     min-height: 700px;
   }
+}
+
+.project__goto-next {
+  display: block;
+  padding: msRem(4) 0 msRem(7);
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+
+  > em { font-size: msRem(-1); }
+  > h3 { font-size: msRem(4); }
 }
