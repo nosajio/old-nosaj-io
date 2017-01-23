@@ -2,9 +2,6 @@
 import './nosaj.scss';
 import 'file-loader?name=[name].[ext]!./static/index.html';
 
-// Import global scripts
-import 'spin-color';
-
 import React from 'react';
 import {render} from 'react-dom';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'

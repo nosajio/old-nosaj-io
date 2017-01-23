@@ -18,7 +18,6 @@ const Project = (props) => {
   const projectIndex = projectsData.indexOf(project);
   const nextProjectIndex = projectIndex + 1 >= projectsData.length ? projectsData.length - 1 : projectIndex + 1;
 
-  const contrast = spin.getLuminance(project.colors[0]) < 50 ? 'lod' : 'dol';
   const projectStyles = {
     background: project.colors[0],
   };
@@ -57,7 +56,7 @@ const Project = (props) => {
   };
 
   return (
-    <div style={projectStyles} className={`project ${contrast}`}>
+    <div style={projectStyles} className="project lod">
       <main className="project__body">
         <section className="project__text">
           <header className="project__header">
