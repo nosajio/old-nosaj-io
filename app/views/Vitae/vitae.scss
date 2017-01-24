@@ -32,11 +32,20 @@
     }
 
     h1 {
-      font-size: msRem(10);
+      font-size: msRem(7);
+      color: rgb(216, 183, 0);
+
+      @media #{$mq-desktop-up} {
+        font-size: msRem(10);
+      }
     }
 
     h2 {
-      font: italic msRem(3) $ff-body;
+      font: italic msRem(1) $ff-body;
+
+      @media #{$mq-desktop-up} {
+        font-size: msRem(3);
+      }
     }
   }
 
