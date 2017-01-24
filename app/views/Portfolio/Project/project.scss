@@ -94,34 +94,25 @@
     justify-content: space-between;
   }
 
-  p {
-    margin-top: msRem(3);
-    margin-bottom: msRem(3);
+}
+
+.project__points {
+  li {
+    position: relative;
+    padding-left: 28px;
   }
 
-  h2, h3 {
-    margin-top: msRem(8);
-    margin-bottom: msRem(3);
+  li::before {
+    content: '\00b7';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 msRem(-4) 0 msRem(-6);
   }
 
-  .project__points {
-    li {
-      position: relative;
-      padding-left: 28px;
-    }
-
-    li::before {
-      content: '\00b7';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 0 msRem(-4) 0 msRem(-6);
-    }
-
-    li + li {
-      margin-top: msRem(-2);
-    }
+  li + li {
+    margin-top: msRem(-2);
   }
 }
 
@@ -145,11 +136,54 @@
     padding: msRem(15) 0 msRem(10) msRem(10);
     width: 45%;
   }
+
+  > p {
+    margin-top: msRem(3);
+    margin-bottom: msRem(3);
+  }
+
+  h2, h3 {
+    margin-top: msRem(8);
+    margin-bottom: msRem(3);
+  }
 }
 
 .project__header {
   width: 100%;
   margin-bottom: msRem(9);
+}
+
+.project__interactions {
+  width: 100%;
+  margin-top: msRem(7);
+}
+
+.project__interaction {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  margin: 4px;
+
+  a {
+    display: block;
+    width: 100%;
+    padding: msRem(-3) msRem(3);
+    text-decoration: none;
+    background: rgba(0, 0, 0, .1);
+    transition: all 800ms $easeOutCirc;
+    border-radius: 3px;
+  }
+
+  a:hover {
+    background: rgba(0, 0, 0, .5);
+  }
+
+  &--link a::after {
+    content: '\2192';
+    display: inline-block;
+    opacity: .5;
+    margin-left: 15px;
+  }
 }
 
 .project__meta {
@@ -177,7 +211,21 @@
 }
 
 .project__title {
-  margin-bottom: msRem(10);
+
+  &--compensate-for-summary {
+    margin-bottom: msRem(10);
+  }
+}
+
+.project__summary {
+  font-size: msRem(4);
+  opacity: .5;
+  margin: msRem(1) 0 msRem(10);
+  line-height: 1.2;
+
+  @media #{$mq-desktop-up} {
+    font-size: msRem(7);
+  }
 }
 
 .project__stack {

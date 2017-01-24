@@ -60,14 +60,22 @@ const Project = (props) => {
       <main className="project__body">
         <section className="project__text">
           <header className="project__header">
-            <h1 className="project__title">{project.title}</h1>
+            <h1 className={`project__title ${! project.deliverables ? 'project__title--compensate-for-summary' : ''}`}>{project.title}</h1>
+            {project.deliverables ? (
+              <p className="project__summary">{project.deliverables}</p>
+            ) : null}
             <ul className="project__meta">
               <li className="project__meta-item date"><em style={secondaryColorStyle}>Date</em> {project.date}</li>
-              {project.deliverables ? (
-                <li className="project__meta-item brief"><em style={secondaryColorStyle}>Summary</em> {project.deliverables}</li>
-              ) : null}
+                <li className="project__meta-item brief"><em style={secondaryColorStyle}>Role</em> {project.types.join(', ')}</li>
               {project.stack ? (
                 <li className="project__meta-item brief"><em style={secondaryColorStyle}>Stack</em> {stackList(project.stack)}</li>
+              ) : null}
+            </ul>
+            <ul className="project__interactions">
+              {project.url ? (
+                <li className="project__interaction project__interaction--link">
+                  <a href={project.url} target="_blank" className="project__url">Visit the live site</a>
+                </li>
               ) : null}
             </ul>
           </header>
