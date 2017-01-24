@@ -17,6 +17,7 @@ const apiRoot = '/api';
 
 const reactRoutes = [
   '/',
+  '/vitae',
   '/read/:slug',
   '/portfolio',
   '/portfolio/:slug'

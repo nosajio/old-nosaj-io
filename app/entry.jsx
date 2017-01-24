@@ -9,6 +9,7 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import App from './views/App';
 import Front from './views/Front';
 import Post from './views/Post';
+import Vitae from './views/Vitae';
 import Portfolio from './views/Portfolio';
 import PortfolioProject from './views/Portfolio/Project';
 
@@ -17,6 +18,7 @@ render((
     <Route path="/" component={App}>
       <IndexRoute component={Front}/>
       <Route path="read/:slug" component={Post}/>
+      <Route path="vitae" component={Vitae}/>
       <Route path="portfolio" component={Portfolio}/>
       <Route path="portfolio/:slug" component={PortfolioProject}/>
     </Route>

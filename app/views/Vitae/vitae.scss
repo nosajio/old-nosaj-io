@@ -1,0 +1,111 @@
+@import '../../styles/mq';
+@import '../../styles/ms';
+@import '../../styles/fonts';
+@import '../../styles/colors';
+@import '../../styles/animations';
+
+
+.vitae {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: msRem(2);
+  padding-bottom: msRem(8);
+
+  @media #{$mq-desktop-up} {
+    padding: msRem(3);
+    padding-bottom: msRem(12);
+  }
+
+  &__inner {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  &__header {
+    margin-bottom: msRem(9);
+
+    @media #{$mq-desktop-up} {
+      margin-bottom: msRem(11);
+      padding-top: msRem(14);
+    }
+
+    h1 {
+      font-size: msRem(10);
+    }
+
+    h2 {
+      font: italic msRem(3) $ff-body;
+    }
+  }
+
+  &__section {
+    &-head {
+      display: inline-block;
+      margin-bottom: msRem(6);
+      border-bottom: 3px solid $clr-text;
+
+      h1, h2 { font: 700 msRem(3) $ff-body; }
+    }
+  }
+
+  &__block {
+    @media #{$mq-desktop-up} {
+      margin-bottom: msRem(6);
+    }
+
+    h1, h2 {
+      margin-bottom: msRem(3);
+      font: 700 1rem $ff-body;
+
+      @media #{$mq-desktop-up} {
+        margin-bottom: msRem(5);
+      }
+    }
+  }
+
+  &__list {
+
+    &-item {
+
+    }
+
+    &-item + &-item {
+      margin-top: msRem(4);
+    }
+
+    &-item > h3 {
+      // margin-bottom: msRem(-4);
+    }
+  }
+
+  &__sublist {
+    padding: msRem(-4) msRem(2);
+    border-left: darken($clr-bg, 4%) solid 4px;
+
+    &-item + &-item {
+      margin-top: 10px;
+    }
+
+    .company {
+      display: block;
+      font-size: msRem(1);
+    }
+
+    .role {
+      display: block;
+      font-style: italic;
+      font-size: msRem(-1);
+      color: darken($clr-bg, 50%);
+    }
+  }
+}
+
+.vitae-date {
+  display: inline-block;
+  padding: 3px 10px;
+  background: darken($clr-bg, 4%);
+  color: darken($clr-bg, 60%);
+  border-radius: 2px;
+}
