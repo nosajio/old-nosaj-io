@@ -52,7 +52,6 @@ const App = React.createClass({
     const routeChanged = currentRoute !== this.props.location.pathname;
     if (routeChanged) {
       if (typeof window !== 'undefined') {
-        this.scrollToTop();
         this.sendEventToGa();
       }
       this.setState({ currentRoute: this.props.location.pathname });
