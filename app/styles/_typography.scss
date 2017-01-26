@@ -28,8 +28,11 @@ strong, b {
 }
 
 
-a { color: $clr-text; }
-a:hover { color: $clr-link; }
+a, .pseudo-link {
+  color: $clr-link;
+  cursor: pointer;
+  &:hover { text-decoration: underline; }
+}
 
 // Forms
 input, textarea {

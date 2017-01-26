@@ -15,7 +15,6 @@ $maxCoverImages: 2;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    padding: .5vw;
   }
 }
 
@@ -31,13 +30,13 @@ $maxCoverImages: 2;
   cursor: pointer;
 
   @media #{$mq-tablet-up} {
-    width: 49.5vw;
+    width: 50vw;
     height: 39vw;
   }
 
 
   @media #{$mq-desktop-up} {
-    width: 33vw;
+    width: 33.33vw;
     height: 25vw;
   }
 
@@ -117,6 +116,7 @@ $maxCoverImages: 2;
   flex-flow: column nowrap;
   background: white;
   font: msRem(2) $ff-sans-serif;
+  cursor: default;
 
   &__picture {
     flex-shrink: 0;
