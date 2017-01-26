@@ -55,6 +55,9 @@
     "colors": ["#330068", "#FF009A"],
     "deliverables": "Worked on projects for MetaBroadcast, BBC R&D, Channel 4, and others.",
     "url": null,
+    "links": {
+      "The MetaBroadcast Website": "http://metabroadcast.com"
+    },
     "date": "2014 to 2015",
     "aboutCompany": "MetaBroadcast, started in 2004, have positioned themselves to be indispensable in the modern world of Television and digital media. They make a number of products that help broadcasters in the UK get content to viewers faster. They also work on commissions to develop interesting solutions using a wide range of technologies.",
     "whatIDid": [
@@ -75,7 +78,7 @@
     "types": ["Lead Design"],
     "colors": ["#0976A1", "#c6ffee"],
     "deliverables": "",
-    "url": "https://mrsite.com",
+    "url": "http://mrsite.com",
     "date": "2012 to 2013",
     "aboutCompany": "MrSite created one of the first successful website builder products on the market. Back in 2004 they took a big chunk of the d.i.y. website market with their product \"Website in a Box\". In 2012, as the industry became more competitive, their (then) newest product wasn't performing as well as they had expected, so moves were made to improve it.",
     "whatIDid": [
@@ -93,6 +96,9 @@
     "types": ["Developer"],
     "colors": ["#00133D", "#F9DA00"],
     "url": null,
+    "links": {
+      "The William Hill Website": "http://williamhill.com"
+    },
     "date": "2009",
     "aboutCompany": "William Hill are one of the oldest bookmakers in England. They operate worldwide and specialise in sports bets, but they take bets for a wide range of things. The online division of the company is based in Gibraltar along with the tech and content teams.",
     "whatIDid": [

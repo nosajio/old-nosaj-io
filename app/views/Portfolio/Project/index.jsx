@@ -77,6 +77,11 @@ const Project = (props) => {
                   <a href={project.url} target="_blank" className="project__url">Visit the live site</a>
                 </li>
               ) : null}
+              {project.links ? Object.keys(project.links).map((linkName, index) => (
+                <li key={index} className="project__interaction project__interaction--link">
+                  <a href={project.links[linkName]} target="_blank" className="project__url">{linkName}</a>
+                </li>
+              )) : null}
             </ul>
           </header>
           <h2 style={secondaryColorStyle}>About {project.title}</h2>
