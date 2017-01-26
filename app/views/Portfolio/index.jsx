@@ -91,7 +91,8 @@ const Portfolio = React.createClass({
               <img src={profileImg} alt="Jason Howmans Portrait"/>
             </div>
             <div className="projects-intro__text">
-              Hi I'm Jason. I design and build software for the internet. Im currently accepting new projects.
+              <p>Hi I'm Jason. I design and build software for the internet.</p>
+              <p>I'm currently accepting new projects. <span onClick={this.props.data.handleShowMessageUi} className="pseudo-link">Contact me.</span></p>
             </div>
           </header>
           {projects.map(this.projectEl)}
