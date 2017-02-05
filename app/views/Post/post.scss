@@ -9,7 +9,6 @@ $post-max-width: 600px;
 
   &__container {
     width: 100%;
-    border: 10px solid darken($clr-bg, 45%);
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -66,7 +65,7 @@ $post-max-width: 600px;
 
     .post-title {
       font-size: msRem(7);
-      color: lighten($clr-bg, 70%);
+      color: white;
     }
   }
 
@@ -165,11 +164,11 @@ $post-max-width: 600px;
 
     hr {
       display: block;
-      width: 20%;
-      height: 3px;
+      width: 10%;
+      height: 7px;
       margin: msRem(9) auto;
       border: none;
-      background: $clr-text;
+      background: lighten($clr-bg, 20%);
     }
   }
 }
