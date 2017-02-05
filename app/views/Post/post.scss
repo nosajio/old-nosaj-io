@@ -61,7 +61,7 @@ $post-max-width: 600px;
 
     @media #{$mq-tablet-up} {
       padding: 0 60px;
-      margin: msRem(10) 0;
+      margin: msRem(14) 0 msRem(10);
     }
 
     .post-title {
@@ -134,8 +134,8 @@ $post-max-width: 600px;
     > h3,
     > h4 {
       color: lighten($clr-bg, 60%);
-      margin-top: #{ms(3)}em;
-      margin-bottom: msRem(4);
+      margin-top: #{ms(5)}em;
+      margin-bottom: msRem(3);
     }
 
     p + p {
