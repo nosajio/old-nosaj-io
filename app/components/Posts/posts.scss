@@ -21,7 +21,7 @@
   .posts-list__meta {
     display: inline-block;
     font-size: msRem(-1);
-    color: lighten($clr-text, 30%);
+    color: lighten($clr-bg, 35%);
   }
 
   .posts-list__meta + .posts-list__meta {
@@ -35,7 +35,7 @@
       height: 3px;
       margin-right: 10px;
       border-radius: 50%;
-      background: lighten($clr-text, 50%);
+      background: lighten($clr-bg, 20%);
     }
   }
 

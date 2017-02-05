@@ -26,6 +26,7 @@ $clr-im-bg: rgb(29, 30, 38);
   transition: all 500ms $easeInOutCirc;
 
   &--sent {
+    padding-top: msRem(5);
     background: rgba(
       red($clr-green),
       green($clr-green),
@@ -43,7 +44,7 @@ $clr-im-bg: rgb(29, 30, 38);
     position: relative;
     width: 100%;
     padding: 15px;
-    animation: message-main-in 600ms 1 both $easeInOutCirc;
+    animation: message-main-in 400ms 1 both $easeInOutCirc;
 
     @media #{$mq-tablet-up} {
       width: 70%;
@@ -63,7 +64,7 @@ $clr-im-bg: rgb(29, 30, 38);
     border-radius: 4px;
     padding: msRem(3);
     font-size: msRem(2);
-    background: white;
+    background: $clr-black;
     color: lighten($clr-text, 35%);
 
     @media #{$mq-tablet-up} {

@@ -15,8 +15,20 @@ $front-margin-small: msRem(4);
   width: 100%;
   padding: $front-margin-small;
 
-  @media #{$mq-tablet-up} {
-    padding: $front-margin-big;
+  @media #{$mq-desktop-up} {
+    padding: 0;
+  }
+
+  &__header {
+    color: $clr-white;
+    font-size: msRem(3);
+    margin-bottom: 1em;
+  }
+
+  &__header h1 {
+    display: inline-block;
+    color: lighten($clr-bg, 45%);
+    border-bottom: 5px solid lighten($clr-bg, 10%);
   }
 
   &__cover {
@@ -32,11 +44,12 @@ $front-margin-small: msRem(4);
       margin-bottom: 0;
       max-width: auto;
       position: fixed;
-      top: $front-margin-big;
-      left: $front-margin-big;
-      bottom: $front-margin-big;
+      top: 0;
+      left: 0;
+      bottom: 0;
       width: calc(40% - #{$front-margin-big});
       background-position: center left;
+      border-radius: 0;
     }
   }
 
@@ -50,7 +63,7 @@ $front-margin-small: msRem(4);
     @media #{$mq-desktop-up} {
       width: 60%;
       margin-left: 40%;
-      padding-left: $front-margin-big;
+      padding: $front-margin-big;
     }
   }
 
@@ -86,8 +99,11 @@ $front-margin-small: msRem(4);
   }
 
   &__actions {
-    display: block;
     margin-top: msRem(10);
+  }
+
+  &__actions-list {
+    display: block;
     width: 100%;
   }
 
@@ -97,78 +113,36 @@ $front-margin-small: msRem(4);
 
   .action-btn {
     position: relative;
-    overflow: hidden;
     display: block;
-    z-index: 100;
-    padding: msRem(-1) msRem(2);
     cursor: pointer;
-    background: lighten($clr-bg, 5%);
     font-size: msRem(1);
-    border-radius: 4px;
     transition: all 200ms ease;
 
     em {
       display: block;
       font: 500 msRem(-1) $ff-headings;
+      color: lighten($clr-bg, 45%);
     }
-  }
-
-  .action-btn::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: -700px;
-    right: 100%;
-    display: block;
-    width: 4000px;
-    height: 2200px;
-    background: url('../../static/img/animate-colors--blue-green.svg') top right no-repeat;
-    background-size: 100% 100%;
-    transition: all .5s ease;
-  }
-
-  .action-btn:hover {
-    background: $clr-white-blue;
-  }
-
-  .action-btn:not(:hover) {
-    transition: all 200ms .6s ease;
-  }
-
-  .action-btn:hover::before {
-    transition: all 2s 200ms $easeOutCirc;
-    height: 1200px;
-    transform: translate(55%, -200px);
   }
 
   .action-note {
     display: block;
     margin-top: 1rem;
     font-size: msRem(-1);
+    color: lighten($clr-bg, 25%);
   }
 
   &__posts {
     width: 100%;
     margin-top: msRem(15);
-
-    &-header {
-      color: black;
-      font-size: msRem(3);
-      margin-bottom: 1em;
-    }
-
-    &-header h1 {
-      display: inline-block;
-      border-bottom: 5px solid darken($clr-bg, 10%);
-    }
   }
 
   &.animate {
-    .front-view__introduction h1       { animation: fade-in-y 500ms 1 both $easeInOutCirc; }
-    .front-view__cover                 { animation: fade-in 500ms 500ms 1 both $easeInOutCirc; }
-    .front-view__introduction .subhead { animation: fade-in 300ms 500ms 1 both $easeInOutCirc; }
-    .front-view__actions               { animation: fade-in 300ms 600ms 1 both $easeInOutCirc; }
-    .front-view__posts                 { animation: fade-in-y 500ms 700ms 1 both $easeInOutCirc; }
+    .front-view__cover                 { animation: fade-in 1s 1 both ease-out; }
+    .front-view__introduction h1       { animation: fade-in-y 200ms 300ms 1 both $easeInOutCirc; }
+    .front-view__introduction .subhead { animation: fade-in 600ms 700ms 1 both ease-in; }
+    .front-view__actions               { animation: fade-in 300ms 450ms 1 both $easeInOutCirc; }
+    .front-view__posts                 { animation: fade-in-y 300ms 500ms 1 both $easeInOutCirc; }
   }
 }
 

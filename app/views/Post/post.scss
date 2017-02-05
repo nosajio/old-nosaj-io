@@ -25,7 +25,7 @@ $post-max-width: 600px;
     &__item {
       display: inline-block;
       font-size: msRem(-1);
-      color: lighten($clr-text, 30%);
+      color: lighten($clr-bg, 35%);
     }
 
     .post-meta__item + .post-meta__item {
@@ -66,7 +66,7 @@ $post-max-width: 600px;
 
     .post-title {
       font-size: msRem(7);
-      color: black;
+      color: lighten($clr-bg, 70%);
     }
   }
 
@@ -103,7 +103,7 @@ $post-max-width: 600px;
     > div cite {
       display: block;
       padding: msRem(2);
-      color: lighten($clr-text, 15%);
+      color: lighten($clr-bg, 40%);
       font-size: 18px;
       font-style: italic;
       text-align: center;
@@ -133,7 +133,7 @@ $post-max-width: 600px;
     > h2,
     > h3,
     > h4 {
-      color: black;
+      color: lighten($clr-bg, 60%);
       margin-top: #{ms(3)}em;
       margin-bottom: msRem(4);
     }

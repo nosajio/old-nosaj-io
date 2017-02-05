@@ -12,6 +12,7 @@ html {
 
 body {
   font: 1rem/1.5 $ff-body;
+  -webkit-font-smoothing: antialiased;
   @media #{$mq-tablet-up} {
     font: 1rem/1.5 $ff-body;
   }
