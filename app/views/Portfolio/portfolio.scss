@@ -134,6 +134,8 @@ $maxCoverImages: 2;
   }
 
   &__text {
+    color: $clr-black;
 
+    p + p { margin-top: 1rem; }
   }
 }
