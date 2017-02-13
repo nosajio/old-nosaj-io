@@ -5,7 +5,6 @@ import InstantMessage from '../../components/InstantMessage';
 import './app.scss';
 
 const App = React.createClass({
-
   getInitialState () {
     return {
       scrollPosition: 0,
@@ -25,6 +24,38 @@ const App = React.createClass({
       && typeof window !== 'undefined') {
       this.sendEventToGa();
     }
+  },
+
+  render () {
+    const {reachedBottomOfPage} = this.state;
+    const sharedState = this.props;
+    const {
+      children,
+      handleMessageChange,
+      handleHideMessageUi,
+      handleSendMessage,
+      messageUiShowing,
+      messageSent,
+      messageSending,
+    } = this.props;
+
+    if (! children) {
+      return (<div className="not-found">IV—O—IV</div>)
+    }
+
+    return (
+      <div className={`wrap-me-like-its-christmas ${messageUiShowing ? 'is-locked' : ''}`}>
+        {React.cloneElement(children, {data: {...sharedState, reachedBottomOfPage}, updateState: this.props.updateState})}
+        {messageUiShowing ?
+          <InstantMessage
+            onMessageChange={handleMessageChange}
+            onClose={handleHideMessageUi}
+            isSent={messageSent}
+            isSending={messageSending}
+            onSend={handleSendMessage}/>
+          : null}
+      </div>
+    );
   },
 
   /**
@@ -83,38 +114,6 @@ const App = React.createClass({
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-71692329-1', 'auto');
-  },
-
-  render () {
-    const {reachedBottomOfPage} = this.state;
-    const sharedState = this.props;
-    const {
-      children,
-      handleMessageChange,
-      handleHideMessageUi,
-      handleSendMessage,
-      messageUiShowing,
-      messageSent,
-      messageSending,
-    } = this.props;
-
-    if (! children) {
-      return (<div className="not-found">IV—O—IV</div>)
-    }
-
-    return (
-      <div className={`wrap-me-like-its-christmas ${messageUiShowing ? 'is-locked' : ''}`}>
-        {React.cloneElement(children, {data: {...sharedState, reachedBottomOfPage}, updateState: this.props.updateState})}
-        {messageUiShowing ?
-          <InstantMessage
-            onMessageChange={handleMessageChange}
-            onClose={handleHideMessageUi}
-            isSent={messageSent}
-            isSending={messageSending}
-            onSend={handleSendMessage}/>
-          : null}
-      </div>
-    );
   }
 })
 

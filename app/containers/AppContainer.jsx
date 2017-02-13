@@ -122,7 +122,7 @@ const AppContainer = React.createClass({
   },
 
   render () {
-    return React.createElement(App, {...this.state}, this.props.children)
+    return React.createElement(App, {...this.state}, this.props.children);
   }
 });
 
