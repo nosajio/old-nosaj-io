@@ -2,7 +2,7 @@
 @import '../../styles/ms';
 @import '../../styles/mq';
 
-$post-max-width: 600px;
+$post-max-width: 1000px;
 
 .post {
   width: 100%;
@@ -12,10 +12,6 @@ $post-max-width: 600px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-
-    @media #{$mq-tablet-up} {
-      border-width: msRem(4);
-    }
   }
 
   .post-meta {
@@ -59,7 +55,7 @@ $post-max-width: 600px;
     margin: msRem(5) 0;
 
     @media #{$mq-tablet-up} {
-      padding: 0 60px;
+      // padding: 0 60px;
       margin: msRem(14) 0 msRem(10);
     }
 
@@ -124,7 +120,7 @@ $post-max-width: 600px;
     > ul,
     > ol {
       @media #{$mq-tablet-up} {
-        padding: 0 60px;
+        // padding: 0 60px;
       }
     }
 

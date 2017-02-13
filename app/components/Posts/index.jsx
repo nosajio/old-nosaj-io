@@ -10,9 +10,7 @@ const Posts = (props, context) => {
 
   return (
     <div className="posts">
-      <ol className="posts-list">
-        {posts.map((post, i) => <Post key={i} post={post}/>)}
-      </ol>
+      {posts.map((post, i) => <Post key={i} post={post}/>)}
     </div>
   )
 }
