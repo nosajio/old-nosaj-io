@@ -6,7 +6,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 
-import App from './views/App';
+import App from './containers/AppContainer';
 import Front from './views/Front';
 import Post from './views/Post';
 import Vitae from './views/Vitae';

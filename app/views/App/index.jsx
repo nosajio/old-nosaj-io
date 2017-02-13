@@ -1,39 +1,16 @@
 import React, { PropTypes } from 'react'
-
 import debounce from '../../helpers/debounce';
-import api from '../../services/api-service';
-
 import InstantMessage from '../../components/InstantMessage';
 
 import './app.scss';
 
 const App = React.createClass({
-  contextTypes: {
-    router: PropTypes.object
-  },
 
   getInitialState () {
     return {
-      // Universal
       scrollPosition: 0,
-      currentRoute: '/',
       reachedBottomOfPage: false,
-      freshRender: false, // For telling child components this is the landing view
-      // Message UI
-      handleShowMessageUi: this.handleShowMessageUi,
-      messageUiShowing: false,
-      messageSending: false,
-      messageSent: false,
-      // Posts
-      allPosts: null,
-      // Portfolio
-      navigateToProject: this.navigateToProject,
-      activeProject: null,
     };
-  },
-
-  componentWillMount () {
-    this.setState({ freshRender: true });
   },
 
   componentDidMount () {
@@ -44,71 +21,9 @@ const App = React.createClass({
   },
 
   componentWillReceiveProps (nextProps) {
-    this.setState({ freshRender: false });
-  },
-
-  componentDidUpdate () {
-    const {currentRoute} = this.state;
-    const routeChanged = currentRoute !== this.props.location.pathname;
-    if (routeChanged) {
-      if (typeof window !== 'undefined') {
-        this.sendEventToGa();
-      }
-      this.setState({ currentRoute: this.props.location.pathname });
-    }
-  },
-
-  /**
-   * Navigate To Project
-   * Gracefully transition to the specified project
-   *
-   * @param {Object} project - Full project object
-   */
-  navigateToProject (project) {
-    const {router} = this.context;
-    router.push({
-      pathname: `/portfolio/${project.slug}`
-    });
-  },
-
-  /**
-   * Handle Show Message UI
-   * Set state for showing message UI
-   *
-   * @param {boolean} open
-   */
-  handleShowMessageUi (open=true) {
-    this.setState({messageUiShowing: open});
-  },
-
-  /**
-   * handle Message Change
-   * For updating the state when the in-progress message contents changes
-   *
-   * @param {Event} event
-   */
-  handleMessageChange (event) {
-    const messageValue = event.target.value;
-    this.setState({ messageValue });
-  },
-
-  /**
-   * Handle Send Message
-   *
-   * @return {Promise}
-   */
-  async handleSendMessage () {
-    const {messageValue} = this.state;
-    this.setState({messageSending: true});
-    try {
-      const messageRequest = await api.request({
-        path: 'messages',
-        method: 'post',
-        body: {message: messageValue},
-      });
-      this.setState({ messageSent: true, messageSending: false });
-    } catch (err) {
-      console.error(err);
+    if (nextProps.currentRoute !== this.props.currentRoute
+      && typeof window !== 'undefined') {
+      this.sendEventToGa();
     }
   },
 
@@ -126,27 +41,6 @@ const App = React.createClass({
       scrollPosition,
       reachedBottomOfPage: this.state.reachedBottomOfPage ? true : scrollPosition >= (pageHeight - 15),
     });
-  },
-
-  /**
-   * Update State
-   * A minimal implementation of a store / messaging system. This method will
-   * be passed to child components to send a message back up for data requests.
-   *
-   * @param {string} part
-   * @param {object} params
-   */
-  async updateState (part, params) {
-    switch (part) {
-      case 'posts':
-        try {
-          const allPosts = await api.request({ path: 'posts' });
-          this.setState({ allPosts });
-        } catch (err) {
-          console.error(err);
-        }
-        return;
-    }
   },
 
   /**
@@ -192,9 +86,17 @@ const App = React.createClass({
   },
 
   render () {
-    const sharedState = this.state;
-    const {children} = this.props;
-    const {messageUiShowing, messageSent, messageSending} = this.state;
+    const {reachedBottomOfPage} = this.state;
+    const sharedState = this.props;
+    const {
+      children,
+      handleMessageChange,
+      handleHideMessageUi,
+      handleSendMessage,
+      messageUiShowing,
+      messageSent,
+      messageSending,
+    } = this.props;
 
     if (! children) {
       return (<div className="not-found">IV—O—IV</div>)
@@ -202,14 +104,14 @@ const App = React.createClass({
 
     return (
       <div className={`wrap-me-like-its-christmas ${messageUiShowing ? 'is-locked' : ''}`}>
-        {React.cloneElement(children, {data: sharedState, updateState: this.updateState})}
+        {React.cloneElement(children, {data: {...sharedState, reachedBottomOfPage}, updateState: this.props.updateState})}
         {messageUiShowing ?
           <InstantMessage
-            onMessageChange={this.handleMessageChange}
-            onClose={this.handleShowMessageUi.bind(this, false)}
+            onMessageChange={handleMessageChange}
+            onClose={handleHideMessageUi}
             isSent={messageSent}
             isSending={messageSending}
-            onSend={this.handleSendMessage}/>
+            onSend={handleSendMessage}/>
           : null}
       </div>
     );
