@@ -8,9 +8,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "parallelshell 'node server' 'yarn run watch'",
-    "build": "webpack --config ./config/webpack.config.js --colors --progress",
-    "release": "webpack -p --config ./config/webpack.production.config.js --colors --progress",
-    "watch": "webpack --config ./config/webpack.config.js --colors --watch",
+    "build": "node compile",
+    "release": "node compile --release",
+    "watch": "node compile --watch",
     "pull-writing": "cd writing && git pull && cd .. && git add ./writing -A && git commit -m 'Update writings' "
   },
   "devDependencies": {
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
+    "clear": "^0.0.1",
     "compression": "^1.6.2",
     "css-loader": "^0.26.1",
     "dotenv": "^4.0.0",
