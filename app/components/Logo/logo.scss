@@ -1,0 +1,36 @@
+@import '../../styles/ms';
+@import '../../styles/mq';
+
+.logo {
+  display: block; 
+  width: 100%;
+  margin-bottom: #{msRem(3)};
+  
+  @media #{$mq-tablet-up} {
+    margin-bottom: #{msRem(10)};
+  }
+}
+
+.logo h1 {
+  font-weight: 700;
+  font-size: #{msRem(1)};
+  color: #3d3d3d;
+}
+
+.logo-letter {
+  display: inline-block;  
+}
+
+.logo:hover, .logo--app-is-busy {
+  .logo-letter--n { animation: letter-n-busy 600ms both infinite; }
+  .logo-letter--o { animation: letter-o-busy 600ms 100ms both infinite; }
+  .logo-letter--s { animation: letter-s-busy 600ms 200ms both infinite; }
+  .logo-letter--a { animation: letter-a-busy 600ms 300ms both infinite; }
+  .logo-letter--j { animation: letter-j-busy 600ms 400ms both infinite; }
+}
+
+@keyframes letter-n-busy { 50% { color: rgb(235, 0, 0); } }
+@keyframes letter-o-busy { 50% { color: rgb(18, 203, 186); } }
+@keyframes letter-s-busy { 50% { color: rgb(63, 223, 238); } }
+@keyframes letter-a-busy { 50% { color: rgb(181, 0, 235); } }
+@keyframes letter-j-busy { 50% { color: rgb(235, 197, 0); } }

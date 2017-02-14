@@ -1,42 +1,35 @@
+/* global ga */
 import React, { PropTypes } from 'react'
 import debounce from '../../helpers/debounce';
-import InstantMessage from '../../components/InstantMessage';
 
 import './app.scss';
 
-const App = React.createClass({
-  getInitialState () {
-    return {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       scrollPosition: 0,
-      reachedBottomOfPage: false,
     };
-  },
+  }
 
   componentDidMount () {
     if (typeof window === 'undefined') return;
     this.putGaOnPage();
     this.sendEventToGa();
-    this.scrollListener(this.updateScrollPosition);
-  },
+    this.scrollListener((pos) => this.updateScrollPosition(pos));
+  }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.currentRoute !== this.props.currentRoute
       && typeof window !== 'undefined') {
       this.sendEventToGa();
     }
-  },
+  }
 
   render () {
-    const {reachedBottomOfPage} = this.state;
     const sharedState = this.props;
     const {
       children,
-      handleMessageChange,
-      handleHideMessageUi,
-      handleSendMessage,
-      messageUiShowing,
-      messageSent,
-      messageSending,
     } = this.props;
 
     if (! children) {
@@ -44,19 +37,11 @@ const App = React.createClass({
     }
 
     return (
-      <div className={`wrap-me-like-its-christmas ${messageUiShowing ? 'is-locked' : ''}`}>
-        {React.cloneElement(children, {data: {...sharedState, reachedBottomOfPage}, updateState: this.props.updateState})}
-        {messageUiShowing ?
-          <InstantMessage
-            onMessageChange={handleMessageChange}
-            onClose={handleHideMessageUi}
-            isSent={messageSent}
-            isSending={messageSending}
-            onSend={handleSendMessage}/>
-          : null}
+      <div className={`wrap-everything`}>
+        {React.cloneElement(children, {data: {...sharedState}, updateState: this.props.updateState})}
       </div>
     );
-  },
+  }
 
   /**
    * Update Scroll Position
@@ -66,20 +51,18 @@ const App = React.createClass({
    */
   updateScrollPosition (pos) {
     const windowHeight = window.innerHeight;
-    const pageHeight = Math.floor(document.getElementById('Nosaj').getBoundingClientRect().height);
     let scrollPosition = Math.ceil(windowHeight + pos);
     this.setState({
       scrollPosition,
-      reachedBottomOfPage: this.state.reachedBottomOfPage ? true : scrollPosition >= (pageHeight - 15),
     });
-  },
+  }
 
   /**
    * Scroll To the Top
    */
   scrollToTop () {
     window.scroll(0, 0);
-  },
+  }
 
   /**
    * Scroll Listener
@@ -95,14 +78,14 @@ const App = React.createClass({
       // debounce; we don't need absolute precision for this
       debounce(20, () => cb(window.scrollY));
     }
-  },
+  }
 
   /**
    * Send Event to Google Analytice
    */
   sendEventToGa () {
     ga('send', 'pageview');
-  },
+  }
 
   /**
    * Put Google Analytics onto the page
@@ -115,6 +98,12 @@ const App = React.createClass({
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-71692329-1', 'auto');
   }
-})
+}
+
+App.propTypes = {
+  currentRoute: PropTypes.string,
+  children: PropTypes.node,
+  updateState: PropTypes.func.isRequired,
+};
 
 export default App

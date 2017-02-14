@@ -20,7 +20,7 @@
     display: inline-block;
     padding: 15px 20px;
     color: white;
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: none;
   }
 
@@ -56,27 +56,27 @@
   position: relative;
   min-height: 100vh;
   height: auto;
-  font: 1rem $ff-sans-serif;
+  font: 1rem $ff-body;
 
   &.lod {
     color: white;
     a { color: white; }
-    a:hover { color: $clr-white-blue; }
+    a:hover { color: rgb(104, 169, 205); }
   }
 
   &.dol {
     color: inherit;
   }
 
-  h1 { font: 700 msRem(9) $ff-sans-serif; }
-  h2 { font: 700 msRem(2) $ff-sans-serif; }
-  h3 { font: 700 msRem(2) $ff-sans-serif; }
+  h1 { font: 700 msRem(9) $ff-body; }
+  h2 { font: 700 msRem(2) $ff-body; }
+  h3 { font: 700 msRem(2) $ff-body; }
 
   @media #{$mq-desktop-up} {
 
-    h1 { font: 700 msRem(13) $ff-sans-serif; }
-    h2 { font: 700 msRem(2) $ff-sans-serif; }
-    h3 { font: 700 msRem(2) $ff-sans-serif; }
+    h1 { font: 700 msRem(13) $ff-body; }
+    h2 { font: 700 msRem(2) $ff-body; }
+    h3 { font: 700 msRem(2) $ff-body; }
   }
 }
 

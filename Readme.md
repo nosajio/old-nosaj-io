@@ -1,12 +1,11 @@
 nosaj.io
 
 ### Stuff to do
-- Cache visited posts and mark them as read.
-- ~~https~~
-- Create a nice transition to post.
-- Access to all posts from the post page.
-- Next post navigation on post page.
+- [ ] Simplify front view.
+- [ ] Make the post view.
+- [ ] Cache visited posts and mark them as read.
+- [X] https
 
 ### Optimisations
-- Bootstrap script: lean script injected into the index page that manages the bootstrap process.
+- Bootstrap script: lean script injected into the index page that manages the bootstrapping and loading of external scripts and fonts.
 - Server render for screen readers and web crawlers.

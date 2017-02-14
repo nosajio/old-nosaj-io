@@ -63,11 +63,11 @@ $maxCoverImages: 2;
     position: relative;
     z-index: 200;
     transition: all 300ms $easeInOutCirc;
-    font: msRem(-1) $ff-sans-serif;
+    font: msRem(-1) $ff-body;
   }
 
   &__title {
-    font: 700 msRem(5) $ff-sans-serif;
+    font: 700 msRem(5) $ff-body;
   }
 
   &__types {
@@ -115,7 +115,7 @@ $maxCoverImages: 2;
 .projects-intro {
   flex-flow: column nowrap;
   background: white;
-  font: msRem(2) $ff-sans-serif;
+  font: msRem(2) $ff-body;
   cursor: default;
 
   &__picture {
@@ -134,7 +134,7 @@ $maxCoverImages: 2;
   }
 
   &__text {
-    color: $clr-black;
+    color: black;
 
     p + p { margin-top: 1rem; }
   }

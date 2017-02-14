@@ -1,5 +1,3 @@
-const fs              = require('fs');
-const path            = require('path');
 const express         = require('express');
 const fileOpener      = require('../lib/file-opener');
 const augmentItems    = require('../lib/augment');

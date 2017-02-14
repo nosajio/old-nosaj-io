@@ -1,41 +1,38 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import App from '../views/App';
 import api from '../services/api-service';
 
-const AppContainer = React.createClass({
-  contextTypes: {
-    router: PropTypes.object
-  },
-
-  getInitialState () {
-    return {
+class AppContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
       // Universal
       freshRender: false, // For telling child components this is the landing view
       updateState: this.updateState,
       currentRoute: '/',
-      // Message UI
-      handleShowMessageUi: this.handleShowMessageUi,
-      handleHideMessageUi: this.handleShowMessageUi.bind(this, false),
-      handleMessageChange: this.handleMessageChange,
-      handleSendMessage: this.handleSendMessage,
-      messageUiShowing: false,
-      messageSending: false,
-      messageSent: false,
+      isBusy: false,
+      navigateTo: this.navigateTo,
+      showoff: false,
       // Posts
       allPosts: null,
+      navigateToPost: this.navigateToPost,
       // Portfolio
       navigateToProject: this.navigateToProject,
       activeProject: null,
     };
-  },
+  }
 
   componentWillMount () {
     this.setState({ freshRender: true });
-  },
+    this.updateState('posts');
+    // For fun and to let the user know that the logo will flash when the site is busy
+    this.showoffLogoFlashes(1310);
+  }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps () {
     this.setState({ freshRender: false });
-  },
+  }
 
   componentDidUpdate () {
     const {currentRoute} = this.state;
@@ -43,8 +40,12 @@ const AppContainer = React.createClass({
     if (routeChanged) {
       this.setState({ currentRoute: this.props.location.pathname });
     }
-  },
+  }
 
+  render () {
+    return React.createElement(App, {...this.state}, this.props.children);
+  }
+  
   /**
    * Navigate To Project
    * Gracefully transition to the specified project
@@ -56,49 +57,31 @@ const AppContainer = React.createClass({
     router.push({
       pathname: `/portfolio/${project.slug}`
     });
-  },
-
-
+  }
+  
   /**
-   * Handle Show Message UI
-   * Set state for showing message UI
+   * Navigate To Post
+   * Handle the fetching of post data and then route to the post
    *
-   * @param {boolean} open
+   * @param {object} post
    */
-  handleShowMessageUi (open=true) {
-    this.setState({messageUiShowing: open});
-  },
-
-  /**
-   * handle Message Change
-   * For updating the state when the in-progress message contents changes
-   *
-   * @param {Event} event
-   */
-  handleMessageChange (event) {
-    const messageValue = event.target.value;
-    this.setState({ messageValue });
-  },
-
-  /**
-   * Handle Send Message
-   *
-   * @return {Promise}
-   */
-  async handleSendMessage () {
-    const {messageValue} = this.state;
-    this.setState({messageSending: true});
-    try {
-      const messageRequest = await api.request({
-        path: 'messages',
-        method: 'post',
-        body: {message: messageValue},
-      });
-      this.setState({ messageSent: true, messageSending: false });
-    } catch (err) {
-      console.error(err);
+  navigateToPost = (post) => {
+    const { allPosts } = this.state;
+    if (allPosts) {
+      return this.navigateTo({ pathname: `/r/${post.slug}` });
     }
-  },
+    this
+      .updateState('posts')
+      .then(() => this.navigateTo({ pathname: `/r/${post.slug}` }));
+  }
+  
+  /**
+   * Navigate To
+   * General helper for navigating around the website
+   * 
+   * @param {object} location Location object to be passed to the router
+   */
+  navigateTo = location => this.context.router.push(location);
 
   /**
    * Update State
@@ -108,22 +91,33 @@ const AppContainer = React.createClass({
    * @param {string} part
    * @param {object} params
    */
-  async updateState (part, params) {
+  async updateState (part) {
+    this.setState({ isBusy: true });
     switch (part) {
       case 'posts':
         try {
           const allPosts = await api.request({ path: 'posts' });
-          this.setState({ allPosts });
+          this.setState({ allPosts, isBusy: false });
         } catch (err) {
           console.error(err);
         }
         return;
     }
-  },
-
-  render () {
-    return React.createElement(App, {...this.state}, this.props.children);
   }
-});
+  
+  showoffLogoFlashes (duration) {
+    this.setState({ showoff: true });
+    window.setTimeout(() => this.setState({ showoff: false }), duration);
+  }
+}
+
+AppContainer.contextTypes = {
+  router: PropTypes.object,
+};
+
+AppContainer.propTypes = {
+  children: PropTypes.node,
+  location: PropTypes.object,
+};
 
 export default AppContainer;

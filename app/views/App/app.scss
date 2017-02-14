@@ -1,10 +1,17 @@
 @import '../../styles/colors';
+@import '../../styles/ms';
+@import '../../styles/mq';
 
-.wrap-me-like-its-christmas {
+.wrap-everything {
   position: relative;
+  padding: #{ms(3)}rem;
 
   &.is-locked {
     height: 100vh;
     overflow: hidden;
+  }
+  
+  @media #{$mq-desktop-up} {
+    padding: #{ms(15)}rem;
   }
 }

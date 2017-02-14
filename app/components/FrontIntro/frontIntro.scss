@@ -1,0 +1,9 @@
+@import '../../styles/ms';
+
+.front-intro {
+  width: 100%;
+  max-width: 780px;
+  
+  
+  p + p { margin-top: #{msRem(1)}; }
+}

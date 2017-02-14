@@ -1,0 +1,116 @@
+@import '../../styles/ms';
+@import '../../styles/mq';
+@import '../../styles/colors';
+
+.a-post {
+  max-width: 700px;
+  @media (min-width: 702px) {
+    margin: 0 auto;
+  }
+  
+  &__cover {
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    margin: 0 auto #{msRem(10)};
+    border-radius: 10px;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-bottom: 63%;
+      @media #{$mq-tablet-up} {
+        padding-bottom: 40%;
+      }
+    }
+  }
+  
+  &__header {
+    width: 100%;
+    margin-bottom: msRem(4);
+    @media #{$mq-tablet-up} {
+      margin-bottom: msRem(7);
+    }
+    
+    > h1 {
+      font-size: msRem(5);
+      font-weight: 600;
+    }
+    
+  } 
+  
+  &__meta {
+    margin-top: msRem(-1);
+    font-size: msRem(-1);
+    color: $clr-grey-subtle;
+  }
+  
+  &__body {
+    width: 100%;
+    
+    @media #{$mq-tablet-up} {
+      font-size: msRem(1);
+    }
+  } 
+}
+
+// Post body Typography
+.a-post__body {
+  p {
+    margin: #{msRem(2)} 0;
+    @media #{$mq-tablet-up} {
+      margin: #{msRem(4)} 0;
+    }
+  }
+  
+  h1, h2, h3 {
+    font-size: msRem(3);
+    font-weight: 600;
+  }
+  
+  ul, ol {
+    padding-left: msRem(4);
+    margin: #{msRem(2)} 0;
+    @media #{$mq-tablet-up} {
+      margin: #{msRem(4)} 0;
+    }
+    
+    li { margin: #{msRem(1)} 0; }
+  }
+  
+  ul { list-style: disc; }
+  ol { list-style: upper-roman; }
+  
+  > hr {
+    display: flex;
+    justify-content: center;
+    border: none;
+    width: 100%;
+    padding: #{msRem(2)} 0;
+    margin: 0;
+    &::after {
+      content: '';
+      display: block;
+      width: msRem(5);
+      height: 3px;
+      background: $clr-grey-subtle;
+      transform: skewX(40deg);
+    }
+  }
+  
+  
+  // Image and video containers
+  > div {
+    margin: #{msRem(6)} 0;
+    width: 100%;
+    > cite,
+    > img,
+    > iframe { display: block; max-width: 100%; }
+    
+    > cite {   
+      margin-top: msRem(2);
+      font-size: msRem(-1); 
+      color: $clr-grey-neutral;
+    }
+  }
+}

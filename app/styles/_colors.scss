@@ -1,13 +1,13 @@
-$clr-black: #0a0a0a;
-$clr-white: #ffffff;
-$clr-offwhite: #fafafa;
-$clr-offblack: #393844;
-$clr-obsidian: #18171a;
-$clr-green: #43cf64;
-$clr-blue: #62aaff;
-$clr-white-blue: #F1FFFF;
+// Main color library
+// Blacks
+$clr-black: #232325;
+$clr-anthracite: #202a2d;
+// Greys
+$clr-offwhite: #f5f5f5;
+$clr-grey-subtle: #b3b3b3;
+$clr-grey-neutral: #7e7e7e;
 
-// Assign colors to some kind of scheme
-$clr-bg: $clr-obsidian;
-$clr-text: $clr-offwhite;
-$clr-link: $clr-blue;
+// Assign colors to some kind of logical scheme
+$clr-bg: white;
+$clr-text: $clr-black;;
+$clr-link: #0714c3;
