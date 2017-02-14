@@ -12,23 +12,29 @@ const config = (ENV === 'production') ?
 
 outputStartupSuccess();
 const compiler = webpack(config);
-compiler.run(handleComplete);
 
 if (watch) {
-  compiler.watch({}, handleComplete);
+  compiler.watch({}, handleCompiled);
+  return;
 }
 
-function handleComplete(err, stats) {
+compiler.run(handleCompiled);
+
+function handleCompiled(err, stats) {
   if (err) {
-    console.log('----------');
-    console.warn(err);
-    console.log('----------');
-    return;
+    // Throw for fatal errors
+    throw err;
+  }
+  const statsObj = stats.toJson();
+  if (statsObj.errors.length > 0) {
+    return console.error(statsObj.errors[0]);
+  }
+  if (statsObj.warnings.length > 0) {
+    console.warn(statsObj.warnings);
   }
   clear(); // Clear the console of previous output to keep stuff clean
   console.log(`🙌   Built in ${stats.endTime - stats.startTime}ms`);
 }
-
 
 function outputStartupSuccess() {
   clear();

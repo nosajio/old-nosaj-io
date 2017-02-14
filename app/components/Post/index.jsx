@@ -1,9 +1,8 @@
 import React, {PropTypes} from 'react';
-import './post.scss'
+import './post.scss';
 
 const Post = ({post}) => (
-  <div
-    className={`post ${post.slug}`}>
+  <div className={`post ${post.slug}`}>
     <article className="post__container">
       <header className="post__header">
         <h1 className="post-title">{post.title}</h1>
