@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import App from '../views/App';
 import api from '../services/api-service';
 
@@ -13,14 +13,6 @@ const AppContainer = React.createClass({
       freshRender: false, // For telling child components this is the landing view
       updateState: this.updateState,
       currentRoute: '/',
-      // Message UI
-      handleShowMessageUi: this.handleShowMessageUi,
-      handleHideMessageUi: this.handleShowMessageUi.bind(this, false),
-      handleMessageChange: this.handleMessageChange,
-      handleSendMessage: this.handleSendMessage,
-      messageUiShowing: false,
-      messageSending: false,
-      messageSent: false,
       // Posts
       allPosts: null,
       // Portfolio
@@ -56,48 +48,6 @@ const AppContainer = React.createClass({
     router.push({
       pathname: `/portfolio/${project.slug}`
     });
-  },
-
-
-  /**
-   * Handle Show Message UI
-   * Set state for showing message UI
-   *
-   * @param {boolean} open
-   */
-  handleShowMessageUi (open=true) {
-    this.setState({messageUiShowing: open});
-  },
-
-  /**
-   * handle Message Change
-   * For updating the state when the in-progress message contents changes
-   *
-   * @param {Event} event
-   */
-  handleMessageChange (event) {
-    const messageValue = event.target.value;
-    this.setState({ messageValue });
-  },
-
-  /**
-   * Handle Send Message
-   *
-   * @return {Promise}
-   */
-  async handleSendMessage () {
-    const {messageValue} = this.state;
-    this.setState({messageSending: true});
-    try {
-      const messageRequest = await api.request({
-        path: 'messages',
-        method: 'post',
-        body: {message: messageValue},
-      });
-      this.setState({ messageSent: true, messageSending: false });
-    } catch (err) {
-      console.error(err);
-    }
   },
 
   /**

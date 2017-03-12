@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import debounce from '../../helpers/debounce';
-import InstantMessage from '../../components/InstantMessage';
 
 import './app.scss';
 
@@ -46,14 +45,6 @@ const App = React.createClass({
     return (
       <div className={`wrap-everything ${messageUiShowing ? 'is-locked' : ''}`}>
         {React.cloneElement(children, {data: {...sharedState, reachedBottomOfPage}, updateState: this.props.updateState})}
-        {messageUiShowing ?
-          <InstantMessage
-            onMessageChange={handleMessageChange}
-            onClose={handleHideMessageUi}
-            isSent={messageSent}
-            isSending={messageSending}
-            onSend={handleSendMessage}/>
-          : null}
       </div>
     );
   },
