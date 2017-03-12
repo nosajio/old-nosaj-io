@@ -11,7 +11,7 @@ $front-margin-small: msRem(4);
 .front-view {
   display: flex;
   flex-flow: column nowrap;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   padding: $front-margin-small;
 
@@ -27,30 +27,8 @@ $front-margin-small: msRem(4);
 
   &__header h1 {
     display: inline-block;
-    color: lighten($clr-bg, 45%);
-    border-bottom: 5px solid lighten($clr-bg, 10%);
-  }
-
-  &__cover {
-    width: 100%;
-    padding-top: 70%;
-    margin-bottom: $front-margin-big;
-    background: darken($clr-bg, 10%) url('../../static/img/nosaj.jpg') center no-repeat;
-    background-size: cover;
-    border-radius: 4px;
-
-    @media #{$mq-desktop-up} {
-      padding-top: 0;
-      margin-bottom: 0;
-      max-width: auto;
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: calc(40% - #{$front-margin-big});
-      background-position: center left;
-      border-radius: 0;
-    }
+    color: darken($clr-bg, 45%);
+    border-bottom: 5px solid darken($clr-bg, 10%);
   }
 
   &__main {
@@ -58,11 +36,10 @@ $front-margin-small: msRem(4);
     flex-flow: column nowrap;
     align-items: flex-start;
     width: 100%;
+    max-width: 700px;
     background: $clr-bg;
 
     @media #{$mq-desktop-up} {
-      width: 60%;
-      margin-left: 40%;
       padding: $front-margin-big;
     }
   }
@@ -121,7 +98,7 @@ $front-margin-small: msRem(4);
     em {
       display: block;
       font: 500 msRem(-1) $ff-headings;
-      color: lighten($clr-bg, 45%);
+      color: darken($clr-bg, 45%);
     }
   }
 
@@ -129,7 +106,7 @@ $front-margin-small: msRem(4);
     display: block;
     margin-top: 1rem;
     font-size: msRem(-1);
-    color: lighten($clr-bg, 25%);
+    color: darken($clr-bg, 25%);
   }
 
   &__posts {

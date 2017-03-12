@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react';
+import PostCover from './PostCover';
 import './post.scss';
 
 const Post = ({post}) => (
   <div className={`post ${post.slug}`}>
     <article className="post__container">
+      <PostCover title={post.title} slug={post.slug} />
       <header className="post__header">
         <h1 className="post-title">{post.title}</h1>
         <ul className="post-meta">

@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font: 1rem/1.5 $ff-body;
+  font: 400 1rem/1.5 $ff-body;
   -webkit-font-smoothing: antialiased;
   @media #{$mq-tablet-up} {
     font: 1rem/1.5 $ff-body;
@@ -25,7 +25,7 @@ h1, h2, h3 {
 
 
 strong, b {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 

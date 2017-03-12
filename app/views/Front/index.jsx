@@ -23,7 +23,6 @@ const Front = React.createClass({
 
     return (
       <div className={`front-view ${freshRender ? 'animate' : ''}`}>
-        <div className="front-view__cover"></div>
         <main className="front-view__main">
           <header className="front-view__introduction">
             <h1>I'm a multidisciplinary designer and software engineer.</h1>

@@ -44,7 +44,7 @@ const App = React.createClass({
     }
 
     return (
-      <div className={`wrap-me-like-its-christmas ${messageUiShowing ? 'is-locked' : ''}`}>
+      <div className={`wrap-everything ${messageUiShowing ? 'is-locked' : ''}`}>
         {React.cloneElement(children, {data: {...sharedState, reachedBottomOfPage}, updateState: this.props.updateState})}
         {messageUiShowing ?
           <InstantMessage
