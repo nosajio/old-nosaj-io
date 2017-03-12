@@ -1,41 +1,37 @@
+/* global ga */
 import React, { PropTypes } from 'react'
 import debounce from '../../helpers/debounce';
 
 import './app.scss';
 
-const App = React.createClass({
-  getInitialState () {
-    return {
+class App extends React.component {
+  constructor(props) {
+    super(props);
+    this.state = {
       scrollPosition: 0,
       reachedBottomOfPage: false,
     };
-  },
+  }
 
   componentDidMount () {
     if (typeof window === 'undefined') return;
     this.putGaOnPage();
     this.sendEventToGa();
     this.scrollListener(this.updateScrollPosition);
-  },
+  }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.currentRoute !== this.props.currentRoute
       && typeof window !== 'undefined') {
       this.sendEventToGa();
     }
-  },
+  }
 
   render () {
-    const {reachedBottomOfPage} = this.state;
+    const { reachedBottomOfPage } = this.state;
     const sharedState = this.props;
     const {
       children,
-      handleMessageChange,
-      handleHideMessageUi,
-      handleSendMessage,
-      messageUiShowing,
-      messageSent,
-      messageSending,
     } = this.props;
 
     if (! children) {
@@ -43,11 +39,11 @@ const App = React.createClass({
     }
 
     return (
-      <div className={`wrap-everything ${messageUiShowing ? 'is-locked' : ''}`}>
+      <div className={`wrap-everything`}>
         {React.cloneElement(children, {data: {...sharedState, reachedBottomOfPage}, updateState: this.props.updateState})}
       </div>
     );
-  },
+  }
 
   /**
    * Update Scroll Position
@@ -63,14 +59,14 @@ const App = React.createClass({
       scrollPosition,
       reachedBottomOfPage: this.state.reachedBottomOfPage ? true : scrollPosition >= (pageHeight - 15),
     });
-  },
+  }
 
   /**
    * Scroll To the Top
    */
   scrollToTop () {
     window.scroll(0, 0);
-  },
+  }
 
   /**
    * Scroll Listener
@@ -86,14 +82,14 @@ const App = React.createClass({
       // debounce; we don't need absolute precision for this
       debounce(20, () => cb(window.scrollY));
     }
-  },
+  }
 
   /**
    * Send Event to Google Analytice
    */
   sendEventToGa () {
     ga('send', 'pageview');
-  },
+  }
 
   /**
    * Put Google Analytics onto the page
@@ -106,6 +102,10 @@ const App = React.createClass({
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-71692329-1', 'auto');
   }
-})
+}
+
+App.propTypes = {
+  children: PropTypes.array,
+};
 
 export default App
