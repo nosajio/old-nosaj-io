@@ -1,24 +1,18 @@
 import React, { PropTypes } from 'react'
 
-import Footer from '../../components/Footer';
-import Posts from '../../components/Posts';
 import './front.scss';
 
-const Front = React.createClass({
-  propTypes: {
-    data: React.PropTypes.object // this will be the shared state object
-  },
+class Front extends React.Component {
 
   componentWillMount () {
     this.props.updateState('posts');
-  },
+  }
 
   render () {
     const {
       allPosts,
       freshRender,
-      reachedBottomOfPage,
-      handleShowMessageUi
+      reachedBottomOfPage
     } = this.props.data;
 
     return (
@@ -27,6 +21,11 @@ const Front = React.createClass({
       </div>
     )
   }
-})
+}
+
+Front.propTypes = {
+  data: PropTypes.object, // this will be the shared state object
+  updateState: PropTypes.func,
+};
 
 export default Front

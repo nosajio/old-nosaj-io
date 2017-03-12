@@ -2,13 +2,11 @@ import React, { PropTypes } from 'react';
 import App from '../views/App';
 import api from '../services/api-service';
 
-const AppContainer = React.createClass({
-  contextTypes: {
-    router: PropTypes.object
-  },
-
-  getInitialState () {
-    return {
+class AppContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
       // Universal
       freshRender: false, // For telling child components this is the landing view
       updateState: this.updateState,
@@ -19,15 +17,15 @@ const AppContainer = React.createClass({
       navigateToProject: this.navigateToProject,
       activeProject: null,
     };
-  },
+  }
 
   componentWillMount () {
     this.setState({ freshRender: true });
-  },
+  }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps () {
     this.setState({ freshRender: false });
-  },
+  }
 
   componentDidUpdate () {
     const {currentRoute} = this.state;
@@ -35,7 +33,7 @@ const AppContainer = React.createClass({
     if (routeChanged) {
       this.setState({ currentRoute: this.props.location.pathname });
     }
-  },
+  }
 
   /**
    * Navigate To Project
@@ -48,7 +46,7 @@ const AppContainer = React.createClass({
     router.push({
       pathname: `/portfolio/${project.slug}`
     });
-  },
+  }
 
   /**
    * Update State
@@ -58,7 +56,7 @@ const AppContainer = React.createClass({
    * @param {string} part
    * @param {object} params
    */
-  async updateState (part, params) {
+  async updateState (part) {
     switch (part) {
       case 'posts':
         try {
@@ -69,11 +67,20 @@ const AppContainer = React.createClass({
         }
         return;
     }
-  },
+  }
 
   render () {
     return React.createElement(App, {...this.state}, this.props.children);
   }
-});
+}
+
+AppContainer.contextTypes = {
+  router: PropTypes.object,
+};
+
+AppContainer.propTypes = {
+  children: PropTypes.array,
+  location: PropTypes.object,
+};
 
 export default AppContainer;
