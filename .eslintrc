@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "Promise": true,
+    "process": true,
+  },
+  "plugins": [
+    "react",
+    "import",
+    "jsx-a11y"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "rules": {
+    "no-console": 0,
+    "import/no-unresolved": 0,
+  }
+}
