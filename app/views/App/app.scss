@@ -1,7 +1,9 @@
 @import '../../styles/colors';
+@import '../../styles/ms';
 
 .wrap-everything {
   position: relative;
+  padding: #{ms(5)}rem;
 
   &.is-locked {
     height: 100vh;

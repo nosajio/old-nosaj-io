@@ -3,3 +3,13 @@
 @import '../../styles/fonts';
 @import '../../styles/ms';
 @import '../../styles/mq';
+
+
+.front-section {
+  display: flex;
+  flex-flow: column nowrap;
+  
+  & + & {
+    margin-top: #{ms(5)}rem;
+  }
+}

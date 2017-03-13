@@ -1,0 +1,10 @@
+@import '../../styles/ms';
+
+.logo {
+  width: 100%;
+  margin-bottom: #{ms(4)}rem;
+}
+
+.logo h1 {
+  font-weight: 700;
+}

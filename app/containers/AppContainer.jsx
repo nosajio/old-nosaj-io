@@ -21,6 +21,7 @@ class AppContainer extends React.Component {
 
   componentWillMount () {
     this.setState({ freshRender: true });
+    this.updateState('posts');
   }
 
   componentWillReceiveProps () {
@@ -79,7 +80,7 @@ AppContainer.contextTypes = {
 };
 
 AppContainer.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.node,
   location: PropTypes.object,
 };
 

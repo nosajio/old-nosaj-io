@@ -4,7 +4,7 @@ import debounce from '../../helpers/debounce';
 
 import './app.scss';
 
-class App extends React.component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -105,7 +105,8 @@ class App extends React.component {
 }
 
 App.propTypes = {
-  children: PropTypes.array,
+  currentRoute: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default App

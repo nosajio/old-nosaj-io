@@ -1,27 +1,20 @@
 import React, { PropTypes } from 'react'
 
+import Logo from '../../components/Logo';
+import Posts from '../../components/Posts';
+import FrontIntro from '../../components/FrontIntro';
+
 import './front.scss';
 
-class Front extends React.Component {
-
-  componentWillMount () {
-    this.props.updateState('posts');
-  }
-
-  render () {
-    const {
-      allPosts,
-      freshRender,
-      reachedBottomOfPage
-    } = this.props.data;
-
-    return (
-      <div className={`front-view ${freshRender ? 'animate' : ''}`}>
-        
-      </div>
-    )
-  }
-}
+const Front = ({ data: { allPosts, freshRender, reachedBottomOfPage } }) => (    
+  <div className={`front-view ${freshRender ? 'animate' : ''}`}>
+    <Logo />
+    <main className="front-view__main">
+      <FrontIntro className="front-section" />
+      {allPosts && (<Posts className="front-section" data={allPosts} />)}
+    </main>
+  </div>
+)
 
 Front.propTypes = {
   data: PropTypes.object, // this will be the shared state object
