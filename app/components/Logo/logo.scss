@@ -1,8 +1,13 @@
 @import '../../styles/ms';
+@import '../../styles/mq';
 
 .logo {
   width: 100%;
-  margin-bottom: #{ms(4)}rem;
+  margin-bottom: #{msRem(3)};
+  
+  @media #{$mq-tablet-up} {
+    margin-bottom: #{msRem(10)};
+  }
 }
 
 .logo h1 {

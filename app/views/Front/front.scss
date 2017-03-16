@@ -10,6 +10,9 @@
   flex-flow: column nowrap;
   
   & + & {
-    margin-top: #{ms(5)}rem;
+    margin-top: #{msRem(5)};
+    @media #{$mq-desktop-up} {
+      margin-top: #{msRem(10)};
+    }
   }
 }
