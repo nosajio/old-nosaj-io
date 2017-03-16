@@ -1,3 +1,4 @@
+/* global require */
 const webpack = require('webpack');
 const clear = require('clear');
 
@@ -6,7 +7,7 @@ const watch = process.argv.filter((val) => val === '--watch').length > 0;
 const release = process.argv.filter((val) => val === '--release').length > 0;
 
 const ENV = process.env.NODE_ENV || 'development';
-const config = (ENV === 'production') ?
+const config = (ENV === 'production' || release) ?
   require('./config/webpack.production.config.js') :
   require('./config/webpack.config.js')
 
