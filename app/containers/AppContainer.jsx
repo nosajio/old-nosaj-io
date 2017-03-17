@@ -13,6 +13,7 @@ class AppContainer extends React.Component {
       currentRoute: '/',
       isBusy: false,
       navigateTo: this.navigateTo,
+      showoff: false,
       // Posts
       allPosts: null,
       navigateToPost: this.navigateToPost,
@@ -25,6 +26,8 @@ class AppContainer extends React.Component {
   componentWillMount () {
     this.setState({ freshRender: true });
     this.updateState('posts');
+    // For fun and to let the user know that the logo will flash when the site is busy
+    this.showoffLogoFlashes(1310);
   }
 
   componentWillReceiveProps () {
@@ -39,6 +42,10 @@ class AppContainer extends React.Component {
     }
   }
 
+  render () {
+    return React.createElement(App, {...this.state}, this.props.children);
+  }
+  
   /**
    * Navigate To Project
    * Gracefully transition to the specified project
@@ -97,9 +104,10 @@ class AppContainer extends React.Component {
         return;
     }
   }
-
-  render () {
-    return React.createElement(App, {...this.state}, this.props.children);
+  
+  showoffLogoFlashes (duration) {
+    this.setState({ showoff: true });
+    window.setTimeout(() => this.setState({ showoff: false }), duration);
   }
 }
 

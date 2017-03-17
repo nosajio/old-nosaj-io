@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Logo from '../../components/Logo';
 import PostHeader from './PostHeader';
 import PostHTML from './PostHTML';
 
@@ -13,12 +14,15 @@ const Post = ({ routeParams: { slug }, data: { allPosts, isBusy } }) => {
   const post = findCurrentPost(slug, allPosts);
   
   return (
-    <main className="post-wrapper">
-      <article className="a-post">
-        <PostHeader title={post.title} date={post.friendlyDate} />
-        <PostHTML body={post.body} />
-      </article>
-    </main>
+    <div className="post-view">
+      <Logo text="nosaj" loading={isBusy} />
+      <main className="post-wrapper">
+        <article className="a-post">
+          <PostHeader title={post.title} date={post.friendlyDate} />
+          <PostHTML body={post.body} />
+        </article>
+      </main>
+    </div>
   );
 };
 

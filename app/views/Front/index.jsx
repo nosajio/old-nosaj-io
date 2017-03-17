@@ -6,9 +6,9 @@ import FrontIntro from '../../components/FrontIntro';
 
 import './front.scss';
 
-const Front = ({ data: { allPosts, freshRender, isBusy, navigateToPost } }) => (    
+const Front = ({ data: { allPosts, freshRender, isBusy, navigateToPost, showoff } }) => (    
   <div className={`front-view ${freshRender ? 'animate' : ''}`}>
-    <Logo text="nosaj" loading={isBusy} />
+    <Logo showoff={showoff} text="nosaj" loading={isBusy} />
     <main className="front-view__main">
       <FrontIntro className="front-section" />
       {allPosts && (

@@ -9,7 +9,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       scrollPosition: 0,
-      reachedBottomOfPage: false,
     };
   }
 
@@ -17,7 +16,7 @@ class App extends React.Component {
     if (typeof window === 'undefined') return;
     this.putGaOnPage();
     this.sendEventToGa();
-    this.scrollListener(this.updateScrollPosition);
+    this.scrollListener((pos) => this.updateScrollPosition(pos));
   }
 
   componentWillReceiveProps (nextProps) {
@@ -28,7 +27,6 @@ class App extends React.Component {
   }
 
   render () {
-    const { reachedBottomOfPage } = this.state;
     const sharedState = this.props;
     const {
       children,
@@ -40,7 +38,7 @@ class App extends React.Component {
 
     return (
       <div className={`wrap-everything`}>
-        {React.cloneElement(children, {data: {...sharedState, reachedBottomOfPage}, updateState: this.props.updateState})}
+        {React.cloneElement(children, {data: {...sharedState}, updateState: this.props.updateState})}
       </div>
     );
   }
@@ -53,11 +51,9 @@ class App extends React.Component {
    */
   updateScrollPosition (pos) {
     const windowHeight = window.innerHeight;
-    const pageHeight = Math.floor(document.getElementById('Nosaj').getBoundingClientRect().height);
     let scrollPosition = Math.ceil(windowHeight + pos);
     this.setState({
       scrollPosition,
-      reachedBottomOfPage: this.state.reachedBottomOfPage ? true : scrollPosition >= (pageHeight - 15),
     });
   }
 
@@ -107,6 +103,7 @@ class App extends React.Component {
 App.propTypes = {
   currentRoute: PropTypes.string,
   children: PropTypes.node,
+  updateState: PropTypes.func.isRequired,
 };
 
 export default App
