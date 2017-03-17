@@ -12,8 +12,10 @@ class AppContainer extends React.Component {
       updateState: this.updateState,
       currentRoute: '/',
       isBusy: false,
+      navigateTo: this.navigateTo,
       // Posts
       allPosts: null,
+      navigateToPost: this.navigateToPost,
       // Portfolio
       navigateToProject: this.navigateToProject,
       activeProject: null,
@@ -49,6 +51,30 @@ class AppContainer extends React.Component {
       pathname: `/portfolio/${project.slug}`
     });
   }
+  
+  /**
+   * Navigate To Post
+   * Handle the fetching of post data and then route to the post
+   *
+   * @param {object} post
+   */
+  navigateToPost = (post) => {
+    const { allPosts } = this.state;
+    if (allPosts) {
+      return this.navigateTo({ pathname: `/r/${post.slug}` });
+    }
+    this
+      .updateState('posts')
+      .then(() => this.navigateTo({ pathname: `/r/${post.slug}` }));
+  }
+  
+  /**
+   * Navigate To
+   * General helper for navigating around the website
+   * 
+   * @param {object} location Location object to be passed to the router
+   */
+  navigateTo = location => this.context.router.push(location);
 
   /**
    * Update State

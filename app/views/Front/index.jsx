@@ -6,12 +6,18 @@ import FrontIntro from '../../components/FrontIntro';
 
 import './front.scss';
 
-const Front = ({ data: { allPosts, freshRender, reachedBottomOfPage, isBusy } }) => (    
+const Front = ({ data: { allPosts, freshRender, isBusy, navigateToPost } }) => (    
   <div className={`front-view ${freshRender ? 'animate' : ''}`}>
     <Logo text="nosaj" loading={isBusy} />
     <main className="front-view__main">
       <FrontIntro className="front-section" />
-      {allPosts && (<Posts className="front-section" data={allPosts} />)}
+      {allPosts && (
+        <Posts 
+          className="front-section" 
+          data={allPosts} 
+          navigateToPost={(location) => navigateToPost(location)} 
+        />
+      )}
     </main>
   </div>
 )
