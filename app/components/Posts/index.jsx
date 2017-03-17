@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react';
 
 // import './posts.scss';
 
-// Flip the indexing so that tabbing through posts happens in the order they're
-// listed in.
+// Flip the indexing so that tabbing through posts happens in the order they're listed 
 const calculateTabIndex = (index, data) => data.length - index - 1;
 
 const returnPostItem = (post, i, navigateToPost, data) => (
