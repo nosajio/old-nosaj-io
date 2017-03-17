@@ -11,6 +11,7 @@ class AppContainer extends React.Component {
       freshRender: false, // For telling child components this is the landing view
       updateState: this.updateState,
       currentRoute: '/',
+      isBusy: false,
       // Posts
       allPosts: null,
       // Portfolio
@@ -58,11 +59,12 @@ class AppContainer extends React.Component {
    * @param {object} params
    */
   async updateState (part) {
+    this.setState({ isBusy: true });
     switch (part) {
       case 'posts':
         try {
           const allPosts = await api.request({ path: 'posts' });
-          this.setState({ allPosts });
+          this.setState({ allPosts, isBusy: false });
         } catch (err) {
           console.error(err);
         }

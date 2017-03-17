@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import './logo.scss';
 
-const Logo = () => (
-  <div className="logo">
-    <h1>nosaj</h1>
+const splitLetters = (letters) => 
+  letters.split('').map((l, i)  => (
+    <span key={i} className={`logo-letter logo-letter--${l}`}>{l}</span>
+  ));
+
+const Logo = ({ text, loading }) => (
+  <div className={`logo ${loading && 'logo--app-is-busy'}`}>
+    <h1>{splitLetters(text)}</h1>
   </div>
 );
+
+Logo.propTypes = {
+  text: PropTypes.string,
+  loading: PropTypes.bool,
+}
 
 export default Logo;

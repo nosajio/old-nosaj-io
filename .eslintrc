@@ -4,6 +4,8 @@
     "browser": true
   },
   "globals": {
+    "require": true,
+    "module": true,
     "Promise": true,
     "process": true,
   },
