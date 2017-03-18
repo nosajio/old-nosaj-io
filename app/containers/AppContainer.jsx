@@ -52,8 +52,8 @@ class AppContainer extends React.Component {
    *
    * @param {Object} project - Full project object
    */
-  navigateToProject (project) {
-    const {router} = this.context;
+  navigateToProject = (project) => {
+    const { router } = this.context;
     router.push({
       pathname: `/portfolio/${project.slug}`
     });

@@ -37,11 +37,20 @@ class App extends React.Component {
     }
 
     return (
-      <div className={sharedState.currentRoute === '/portfolio' ? '' : 'wrap-everything'}>
+      <div className={this.isRoute(sharedState.currentRoute, 'portfolio') ? '' : 'wrap-everything'}>
         {React.cloneElement(children, {data: {...sharedState}, updateState: this.props.updateState})}
       </div>
     );
   }
+  
+  /**
+   * Is Route?
+   * Truthy when the passed current route contains the test string
+   *
+   * @param {String} currentRoute
+   * @param {String} testStr
+   */
+  isRoute = (currentRoute, testStr) => currentRoute.indexOf(testStr) > -1;
 
   /**
    * Update Scroll Position
