@@ -6,3 +6,8 @@
   background: $clr-bg;
   color: $clr-text;
 }
+
+// I know this is bad, but let's handle this on its own
+*:focus {
+  outline: none;
+}
