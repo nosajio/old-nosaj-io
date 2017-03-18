@@ -7,7 +7,7 @@ import './post.scss';
 
 const findCurrentPost = (slug, allPosts) => allPosts.filter(p => p.slug === slug)[0];
 
-const Post = ({ routeParams: { slug }, data: { allPosts, isBusy } }) => {
+const Post = ({ routeParams: { slug }, data: { navigateTo, allPosts, isBusy } }) => {
   if (isBusy) {
     return null;
   }
@@ -15,7 +15,7 @@ const Post = ({ routeParams: { slug }, data: { allPosts, isBusy } }) => {
   
   return (
     <div className="post-view">
-      <Logo text="nosaj" loading={isBusy} />
+      <Logo navigateTo={navigateTo} text="nosaj" loading={isBusy} />
       <main className="post-wrapper">
         <article className="a-post">
           <PostHeader title={post.title} date={post.friendlyDate} />
@@ -31,6 +31,7 @@ Post.propTypes = {
   data: PropTypes.shape({
     isBusy: PropTypes.bool.isRequired,
     allPosts: PropTypes.array,
+    navigateTo: PropTypes.func,
   }),
 };
 

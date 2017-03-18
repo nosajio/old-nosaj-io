@@ -2,6 +2,7 @@
 @import '../../styles/mq';
 
 .logo {
+  display: block; 
   width: 100%;
   margin-bottom: #{msRem(3)};
   
@@ -20,7 +21,7 @@
   display: inline-block;  
 }
 
-.logo--app-is-busy {
+.logo:hover, .logo--app-is-busy {
   .logo-letter--n { animation: letter-n-busy 600ms both infinite; }
   .logo-letter--o { animation: letter-o-busy 600ms 100ms both infinite; }
   .logo-letter--s { animation: letter-s-busy 600ms 200ms both infinite; }
