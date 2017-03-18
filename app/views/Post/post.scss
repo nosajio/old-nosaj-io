@@ -42,7 +42,7 @@
   &__meta {
     margin-top: msRem(-1);
     font-size: msRem(-1);
-    color: clr('greys', 1);
+    color: $clr-grey-subtle;
   }
   
   &__body {
@@ -63,6 +63,24 @@
     }
   }
   
+  h1, h2, h3 {
+    font-size: msRem(3);
+    font-weight: 600;
+  }
+  
+  ul, ol {
+    padding-left: msRem(4);
+    margin: #{msRem(2)} 0;
+    @media #{$mq-tablet-up} {
+      margin: #{msRem(4)} 0;
+    }
+    
+    li { margin: #{msRem(1)} 0; }
+  }
+  
+  ul { list-style: disc; }
+  ol { list-style: upper-roman; }
+  
   > hr {
     display: flex;
     justify-content: center;
@@ -75,7 +93,7 @@
       display: block;
       width: msRem(5);
       height: 3px;
-      background: clr('greys', 1);
+      background: $clr-grey-subtle;
       transform: skewX(40deg);
     }
   }
@@ -92,7 +110,7 @@
     > cite {   
       margin-top: msRem(2);
       font-size: msRem(-1); 
-      color: clr('greys', 2);
+      color: $clr-grey-neutral;
     }
   }
 }

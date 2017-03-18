@@ -3,22 +3,11 @@
 $clr-black: #232325;
 $clr-anthracite: #202a2d;
 // Greys
+$clr-offwhite: #f5f5f5;
 $clr-grey-subtle: #b3b3b3;
 $clr-grey-neutral: #7e7e7e;
-// ...Map colors into a single variable for convenience
-// Convention: DARK ---> LIGHT
-$clr-map: (
-  'blacks': ( $clr-black, $clr-anthracite ),
-  'greys': ( $clr-grey-subtle, $clr-grey-neutral )
-  );
-
-// Pull a color value from a map and return it
-@function clr($group, $index) {
-  $clr-group: map-get($clr-map, $group);
-  @return nth($clr-group, $index);
-}
 
 // Assign colors to some kind of logical scheme
 $clr-bg: white;
-$clr-text: clr('blacks', 1);
+$clr-text: $clr-black;;
 $clr-link: #0714c3;
