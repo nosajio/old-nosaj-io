@@ -37,7 +37,7 @@ class App extends React.Component {
     }
 
     return (
-      <div className={`wrap-everything`}>
+      <div className={sharedState.currentRoute === '/portfolio' ? '' : 'wrap-everything'}>
         {React.cloneElement(children, {data: {...sharedState}, updateState: this.props.updateState})}
       </div>
     );
