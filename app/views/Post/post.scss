@@ -8,6 +8,23 @@
     margin: 0 auto;
   }
   
+  &__cover {
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    margin: 0 auto #{msRem(10)};
+    border-radius: 10px;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-bottom: 63%;
+      @media #{$mq-tablet-up} {
+        padding-bottom: 40%;
+      }
+    }
+  }
+  
   &__header {
     width: 100%;
     margin-bottom: msRem(4);

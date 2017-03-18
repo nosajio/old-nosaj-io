@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Logo from '../../components/Logo';
+import PostCover from './PostCover';
 import PostHeader from './PostHeader';
 import PostHTML from './PostHTML';
 
@@ -12,11 +13,12 @@ const Post = ({ routeParams: { slug }, data: { navigateTo, allPosts, isBusy } })
     return null;
   }
   const post = findCurrentPost(slug, allPosts);
-  
+  const { coverColor, coverImg } = post;
   return (
     <div className="post-view">
       <Logo navigateTo={navigateTo} text="nosaj" loading={isBusy} />
       <main className="post-wrapper">
+        {(coverImg || coverColor) && <PostCover coverImg={coverImg} coverColor={coverColor} />}
         <article className="a-post">
           <PostHeader title={post.title} date={post.friendlyDate} />
           <PostHTML body={post.body} />
