@@ -1,3 +1,29 @@
+@import '../../styles/ms';
+@import '../../styles/mq';
+@import '../../styles/colors';
+
 .a-post {
+  max-width: 700px;
   
+  &__header {
+    width: 100%;
+    
+    > h1 {
+      font-size: #{msRem(5)};
+      font-weight: 600;
+    }
+  } 
+  
+  &__meta {
+    font-size: #{msRem(-1)};
+    color: #{clr('greys', 1)};
+  }
+  
+  &__body {
+    width: 100%;
+    
+    @media #{$mq-tablet-up} {
+      font-size: #{msRem(1)};
+    }
+  } 
 }
