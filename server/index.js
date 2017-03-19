@@ -31,7 +31,7 @@ if (env === 'production') {
 }
 
 // Register the API routes at /api
-app.use('/api', api);
+app.use(apiRoot, api);
 
 // Tell express where the base should be for static files,
 // like images, js, css, index.html etc

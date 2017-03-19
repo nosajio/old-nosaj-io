@@ -1,0 +1,14 @@
+version: "2"
+services:
+    data:
+        image: mongo
+        volumes:
+            - /data/db
+        command: --break-mongo
+    database: 
+        image: mongo
+        ports: 
+            - "27017:27017"
+        volumes_from:
+            - data
+        command: --rest
