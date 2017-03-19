@@ -36,6 +36,10 @@ a, .pseudo-link {
   &:hover, &:focus { text-decoration: underline; }
 }
 
+strong, b {
+  font-weight: 700;
+}
+
 // Forms
 input, textarea {
   font: 1rem/1.5 $ff-body;

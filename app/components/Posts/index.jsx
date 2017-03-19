@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-// import './posts.scss';
+import './posts.scss';
 
 const returnPostItem = (post, i, navigateToPost) => (
   <a 
@@ -8,12 +8,12 @@ const returnPostItem = (post, i, navigateToPost) => (
     key={i} 
     onKeyPress={e => e.key === 'Enter' && navigateToPost(post)}
     onClick={() => navigateToPost(post)} 
-    className="posts-list__post"
+    className="list-of-posts__post"
   >{post.title}</a>
 );
 
 const Posts = ({ data, className, navigateToPost }) => (
-  <section className={`posts-list ${className}`}>
+  <section className={`list-of-posts ${className}`}>
     {data.map((post, i) => returnPostItem(post, i, navigateToPost))}
   </section>
 );

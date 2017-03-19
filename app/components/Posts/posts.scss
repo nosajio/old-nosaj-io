@@ -1,0 +1,19 @@
+@import '../../styles/ms';
+
+.list-of-posts {
+  
+  // The pen icon
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin-bottom: msRem(2);
+    background: url('../../static/img/pen-icon.svg') left no-repeat;
+    background-size: auto 100%;
+  }
+  
+  &__post + &__post {
+    margin-top: msRem(-3);
+  }
+}

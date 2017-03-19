@@ -1,9 +1,13 @@
+@import '../../styles/colors';
 @import '../../styles/ms';
 
 .front-intro {
   width: 100%;
   max-width: 780px;
   
+  p + p { margin-top: msRem(1); }
   
-  p + p { margin-top: #{msRem(1)}; }
+  &__booking {
+    color: $clr-grey-neutral;
+  }
 }

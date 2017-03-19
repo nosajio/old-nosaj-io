@@ -3,11 +3,11 @@
 @import '../../styles/colors';
 
 @mixin logo-dance {
-  .logo-letter--n { animation: letter-n-busy 600ms both infinite; }
-  .logo-letter--o { animation: letter-o-busy 600ms 100ms both infinite; }
-  .logo-letter--s { animation: letter-s-busy 600ms 200ms both infinite; }
-  .logo-letter--a { animation: letter-a-busy 600ms 300ms both infinite; }
-  .logo-letter--j { animation: letter-j-busy 600ms 400ms both infinite; }
+  .logo-letter--j { animation: letter-n-busy 700ms both infinite; }
+  .logo-letter--a { animation: letter-o-busy 700ms 200ms both infinite; }
+  .logo-letter--s { animation: letter-s-busy 700ms 300ms both infinite; }
+  .logo-letter--o { animation: letter-a-busy 700ms 400ms both infinite; }
+  .logo-letter--n { animation: letter-j-busy 700ms 500ms both infinite; }
 }
 
 .logo {
@@ -28,6 +28,7 @@
 
 .logo-letter {
   display: inline-block;  
+  transition: all 500ms;
 }
 
 .logo:focus, .logo:hover {
@@ -38,8 +39,8 @@
   @include logo-dance;
 }
 
-@keyframes letter-n-busy { 50% { transform: scale(1.3); color: rgb(235, 0, 0); } }
-@keyframes letter-o-busy { 50% { transform: scale(1.3); color: rgb(18, 203, 186); } }
-@keyframes letter-s-busy { 50% { transform: scale(1.3); color: rgb(25, 55, 210); } }
-@keyframes letter-a-busy { 50% { transform: scale(1.3); color: rgb(181, 0, 235); } }
+@keyframes letter-n-busy { 50% { transform: scale(1.3); color: rgb(205, 23, 88); } }
+@keyframes letter-o-busy { 50% { transform: scale(1.3); color: rgb(28, 202, 226); } }
+@keyframes letter-s-busy { 50% { transform: scale(1.3); color: rgb(49, 205, 10); } }
+@keyframes letter-a-busy { 50% { transform: scale(1.3); color: rgb(103, 0, 235); } }
 @keyframes letter-j-busy { 50% { transform: scale(1.3); color: rgb(235, 197, 0); } }
