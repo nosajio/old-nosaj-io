@@ -31,7 +31,7 @@
   transition: all 500ms;
 }
 
-.logo:focus, .logo:hover {
+.logo:focus, .logo--mouse-over {
   @include logo-dance;
 }
 

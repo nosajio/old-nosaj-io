@@ -8,7 +8,7 @@ import './post.scss';
 
 const findCurrentPost = (slug, allPosts) => allPosts.filter(p => p.slug === slug)[0];
 
-const Post = ({ routeParams: { slug }, data: { navigateTo, allPosts, isBusy } }) => {
+const Post = ({ routeParams: { slug }, data: { navigateTo, showoff, allPosts, isBusy, triggerNavDance } }) => {
   if (isBusy) {
     return null;
   }
@@ -16,7 +16,13 @@ const Post = ({ routeParams: { slug }, data: { navigateTo, allPosts, isBusy } })
   const { coverColor, coverImg } = post;
   return (
     <div className="post-view">
-      <Logo navigateTo={navigateTo} text="nosaj" loading={isBusy} />
+      <Logo 
+        onNavigate={navigateTo}
+        onTrigger={triggerNavDance}
+        text="nosaj" 
+        showoff={showoff}
+        loading={isBusy}
+      />
       <main className="post-wrapper">
         {(coverImg || coverColor) && <PostCover coverImg={coverImg} coverColor={coverColor} />}
         <article className="a-post">

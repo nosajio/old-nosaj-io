@@ -14,6 +14,7 @@ class AppContainer extends React.Component {
       isBusy: false,
       navigateTo: this.navigateTo,
       showoff: false,
+      triggerNavDance: this.triggerNavDance,
       // Posts
       allPosts: null,
       navigateToPost: this.navigateToPost,
@@ -105,10 +106,17 @@ class AppContainer extends React.Component {
     }
   }
   
+  /**
+   * Navigation control functions
+   * Used for managing the interactive elements of the nav, passed down into
+   * the Logo for convenience.
+   */
   showoffLogoFlashes (duration) {
     this.setState({ showoff: true });
     window.setTimeout(() => this.setState({ showoff: false }), duration);
   }
+  
+  triggerNavDance = (on) => this.setState({ showoff: on });
 }
 
 AppContainer.contextTypes = {

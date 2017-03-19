@@ -20,6 +20,7 @@ class App extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    // When the route changes
     if (nextProps.currentRoute !== this.props.currentRoute
       && typeof window !== 'undefined') {
       this.sendEventToGa();
