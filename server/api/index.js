@@ -1,6 +1,7 @@
 const express         = require('express');
 const fileOpener      = require('../lib/file-opener');
 const augmentItems    = require('../lib/augment');
+const hitCounter      = require('../lib/hitcount');
 const {
   handleFiles,
   orderPosts,
@@ -16,16 +17,21 @@ api.post('/messages', require('./messages-handler'));
 module.exports = api;
 
 function postHandler(req, res) {
-  const {slug} = req.params;
-  const augmentWith = ['friendlyDate', 'readingTime'];
+  const { slug } = req.params;
+  const augmentWith = ['friendlyDate', 'hitCount', 'readingTime'];
   fileOpener
     .openAll()
     .then(findOnePost.bind(this, slug))
     .then(handleFiles)
-    .then(augmentItems.bind(this, augmentWith))
+    .then(post => augmentItems(augmentWith, post))
     .then(post => {
       res.json(post[0])
-    });
+    })
+    .catch(e => console.error(e));
+  // Track this hit
+  hitCounter.track({
+    property: slug,
+  }).then(() => {}, (err) => console.log(err));
 }
 
 

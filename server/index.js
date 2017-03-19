@@ -37,12 +37,17 @@ app.use(apiRoot, api);
 // like images, js, css, index.html etc
 app.use(express.static(serverRoot));
 
-// Configure logging
+/**
+ * Configure logging
+ * Use morgan for recording access log entries in production.
+ */
 const logDir = path.join(__dirname, 'logs');
 // Create the logs directory if it doesn't already exist
 fs.existsSync(logDir) || fs.mkdirSync(logDir);
 const logStream = fs.createWriteStream(path.join(logDir, 'access.log'), {flags: 'a'});
-app.use(morgan('combined', {stream: logStream}));
+app.use(
+  morgan('combined', {stream: logStream})
+);
 
 
 // Alwsays send the index file for routes in the react app. Let React handle the routing
