@@ -8,6 +8,8 @@
     "module": true,
     "Promise": true,
     "process": true,
+    "__dirname": true,
+    
   },
   "plugins": [
     "react",
