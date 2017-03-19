@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 
 import Logo from '../../components/Logo';
+import Footer from '../../components/Footer';
 import Posts from '../../components/Posts';
 import FrontIntro from '../../components/FrontIntro';
 
@@ -23,6 +24,7 @@ const Front = ({ data: { allPosts, freshRender, isBusy, navigateToPost, showoff,
         />
       )}
     </main>
+    <Footer />
   </div>
 )
 

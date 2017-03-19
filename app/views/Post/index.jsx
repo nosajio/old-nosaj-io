@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Logo from '../../components/Logo';
+import Footer from '../../components/Footer';
 import PostCover from './PostCover';
 import PostHeader from './PostHeader';
 import PostHTML from './PostHTML';
@@ -30,6 +31,7 @@ const Post = ({ routeParams: { slug }, data: { navigateTo, showoff, allPosts, is
           <PostHTML body={post.body} />
         </article>
       </main>
+      <Footer />
     </div>
   );
 };

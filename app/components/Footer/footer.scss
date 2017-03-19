@@ -1,0 +1,12 @@
+@import '../../styles/colors';
+@import '../../styles/ms';
+
+.the-footer {
+  width: 100%;
+  margin-top: msRem(20);  
+}
+
+.footer-list {
+  &__item { display: block; }
+  a { color: $clr-grey-subtle; }
+}
