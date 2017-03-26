@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import IsLoading from '../components/IsLoading';
 import api from '../services/api-service';
 

@@ -16,11 +16,7 @@ const serverRoot = path.join(__dirname, '..', 'dist');
 const apiRoot = '/api';
 
 const reactRoutes = [
-  '/',
-  '/vitae',
-  '/r/:slug',
-  '/portfolio',
-  '/portfolio/:slug'
+  '*'
 ];
 
 // Configure Express middleware:

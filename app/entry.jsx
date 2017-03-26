@@ -12,6 +12,7 @@ import Vitae from './views/Vitae';
 import Portfolio from './views/Portfolio';
 import Post from './views/Post';
 import PortfolioProject from './views/Portfolio/Project';
+import FourOhFour from './components/FourOhFour';
 
 render((
   <Router history={browserHistory}>
@@ -21,6 +22,8 @@ render((
       <Route path="vitae" component={Vitae} />
       <Route path="portfolio" component={Portfolio} />
       <Route path="portfolio/:slug" component={PortfolioProject} />
+      {/* default 404 route */}
+      <Route path="*" component={FourOhFour} />
     </Route>
   </Router>
 ), document.getElementById('Nosaj'));

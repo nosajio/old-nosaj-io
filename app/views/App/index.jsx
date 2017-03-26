@@ -1,6 +1,7 @@
 /* global ga */
 import React, { PropTypes } from 'react'
 import debounce from '../../helpers/debounce';
+import FourOhFour from '../../components/FourOhFour';
 
 import './app.scss';
 
@@ -15,7 +16,7 @@ class App extends React.Component {
   componentDidMount () {
     if (typeof window === 'undefined') return;
     this.putGaOnPage();
-    this.sendEventToGa();
+    this.sendPageviewToGa();
     this.scrollListener((pos) => this.updateScrollPosition(pos));
   }
 
@@ -23,7 +24,7 @@ class App extends React.Component {
     // When the route changes
     if (nextProps.currentRoute !== this.props.currentRoute
       && typeof window !== 'undefined') {
-      this.sendEventToGa();
+      this.sendPageviewToGa();
     }
   }
 
@@ -31,14 +32,18 @@ class App extends React.Component {
     const sharedState = this.props;
     const { children } = this.props;
     if (! children) {
-      return (<div className="not-found">
-        <h1>404</h1>
-      </div>)
+      return <FourOhFour />
     }
 
     return (
       <div className={this.isRoute(sharedState.currentRoute, 'portfolio') ? '' : 'wrap-everything'}>
-        {React.cloneElement(children, {data: {...sharedState} })}
+        {React.cloneElement(
+          children, 
+          {
+            data: {...sharedState}, 
+            actions: { trackEvent: this.sendEventToGa } 
+          }
+        )}
       </div>
     );
   }
@@ -90,11 +95,10 @@ class App extends React.Component {
   }
 
   /**
-   * Send Event to Google Analytice
+   * Send Pageview /  events to Google Analytics
    */
-  sendEventToGa () {
-    ga('send', 'pageview');
-  }
+  sendPageviewToGa = () => window.ga ? ga('send', 'pageview') : null;
+  sendEventToGa = (category='', message='') => window.ga ? ga('send', 'event', category, message) : null;
 
   /**
    * Put Google Analytics onto the page
