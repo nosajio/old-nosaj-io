@@ -3,7 +3,7 @@ import IsLoading from '../components/IsLoading';
 import api from '../services/api-service';
 
 export default (WrappedComponent) => (
-  class PostGetter extends React.Component {
+  class PostsGetter extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
