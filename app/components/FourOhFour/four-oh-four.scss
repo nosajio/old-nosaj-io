@@ -1,8 +1,19 @@
 @import '../../styles/ms';
 
-.four-oh-four {
-  h1 {
-    font-size: msRem(4);
-    font-weight: 700;
+.four-oh-four {  
+  &__title {
+    font-size: msRem(14);
+    font-weight: 500;
+    
+    > sup {
+      vertical-align: super;
+      font-size: msRem(2);
+      color: #bababa;
+    }
+  }
+  
+  p {
+    font-size: msRem(1);
+    max-width: 700px;
   }
 }
