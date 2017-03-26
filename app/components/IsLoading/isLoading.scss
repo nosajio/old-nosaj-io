@@ -1,0 +1,7 @@
+@import '../../styles/animations';
+
+.isLoading {
+  &--done {
+    animation: fade-in 400ms 100ms 1 both;
+  }
+}

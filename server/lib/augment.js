@@ -26,7 +26,7 @@ function augment(augmenters, writing) {
     });
     // In order to properly manage both pure augment functions and async ones, 
     // wrap every response in a promise so that they can be handled by Promise.all
-    // and passed back to the then.then.then... stream as the expected array of posts.
+    // and passed back to the then.. stream as the expected array of posts.
     if (asyncOutputs.length) {
       return new Promise(resolve => {
         Promise.all(asyncOutputs).then(asyncAugs => {

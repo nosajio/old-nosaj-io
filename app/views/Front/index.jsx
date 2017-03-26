@@ -7,7 +7,7 @@ import FrontIntro from '../../components/FrontIntro';
 
 import './front.scss';
 
-const Front = ({ data: { allPosts, freshRender, isBusy, navigateToPost, showoff, triggerNavDance } }) => (    
+const Front = ({ data: { freshRender, isBusy, navigateToPost, showoff, triggerNavDance } }) => (    
   <div className={`front-view ${freshRender ? 'animate' : ''}`}>
     <Logo 
       onTrigger={triggerNavDance}
@@ -16,13 +16,10 @@ const Front = ({ data: { allPosts, freshRender, isBusy, navigateToPost, showoff,
       loading={isBusy} />
     <main className="front-view__main">
       <FrontIntro className="front-section" />
-      {allPosts && (
         <Posts 
           className="front-section" 
-          data={allPosts} 
           navigateToPost={(location) => navigateToPost(location)} 
         />
-      )}
     </main>
     <Footer />
   </div>
@@ -30,7 +27,6 @@ const Front = ({ data: { allPosts, freshRender, isBusy, navigateToPost, showoff,
 
 Front.propTypes = {
   data: PropTypes.object, // this will be the shared state object
-  updateState: PropTypes.func,
 };
 
 export default Front

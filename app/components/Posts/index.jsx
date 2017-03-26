@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import withPosts from '../../hocs/withPosts';
 
 import './posts.scss';
 
@@ -12,16 +13,16 @@ const returnPostItem = (post, i, navigateToPost) => (
   >{post.title}</a>
 );
 
-const Posts = ({ data, className, navigateToPost }) => (
+const Posts = ({ allPosts, className, navigateToPost }) => (
   <section className={`list-of-posts ${className}`}>
-    {data.map((post, i) => returnPostItem(post, i, navigateToPost))}
+    {allPosts.map((post, i) => returnPostItem(post, i, navigateToPost))}
   </section>
 );
 
 Posts.propTypes = {
-  data: PropTypes.array,
+  allPosts: PropTypes.array,
   className: PropTypes.string,
   navigateToPost: PropTypes.func,
 };
 
-export default Posts;
+export default withPosts(Posts);

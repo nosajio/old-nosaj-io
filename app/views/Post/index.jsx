@@ -4,16 +4,14 @@ import Footer from '../../components/Footer';
 import PostCover from './PostCover';
 import PostHeader from './PostHeader';
 import PostHTML from './PostHTML';
+import withPost from '../../hocs/withPost';
 
 import './post.scss';
 
-const findCurrentPost = (slug, allPosts) => allPosts.filter(p => p.slug === slug)[0];
-
-const Post = ({ routeParams: { slug }, data: { navigateTo, showoff, allPosts, isBusy, triggerNavDance } }) => {
+const Post = ({ post, data: { navigateTo, showoff, isBusy, triggerNavDance } }) => {
   if (isBusy) {
     return null;
   }
-  const post = findCurrentPost(slug, allPosts);
   const { coverColor, coverImg } = post;
   return (
     <div className="post-view">
@@ -37,12 +35,11 @@ const Post = ({ routeParams: { slug }, data: { navigateTo, showoff, allPosts, is
 };
 
 Post.propTypes = {
-  routeParams: PropTypes.object,
+  post: PropTypes.object,
   data: PropTypes.shape({
     isBusy: PropTypes.bool.isRequired,
-    allPosts: PropTypes.array,
     navigateTo: PropTypes.func,
   }),
 };
 
-export default Post;
+export default withPost(Post);

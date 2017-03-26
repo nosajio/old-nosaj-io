@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import App from '../views/App';
-import api from '../services/api-service';
 
 class AppContainer extends React.Component {
   constructor(props) {
@@ -9,14 +8,12 @@ class AppContainer extends React.Component {
     this.state = {
       // Universal
       freshRender: false, // For telling child components this is the landing view
-      updateState: this.updateState,
       currentRoute: '/',
       isBusy: false,
       navigateTo: this.navigateTo,
       showoff: false,
       triggerNavDance: this.triggerNavDance,
       // Posts
-      allPosts: null,
       navigateToPost: this.navigateToPost,
       // Portfolio
       navigateToProject: this.navigateToProject,
@@ -26,7 +23,6 @@ class AppContainer extends React.Component {
 
   componentWillMount () {
     this.setState({ freshRender: true });
-    this.updateState('posts');
     // Make the logo dance. For fun and to let the user know that the logo will flash when the site is busy
     this.showoffLogoFlashes(1600);
   }
@@ -62,18 +58,11 @@ class AppContainer extends React.Component {
   
   /**
    * Navigate To Post
-   * Handle the fetching of post data and then route to the post
    *
    * @param {object} post
    */
   navigateToPost = (post) => {
-    const { allPosts } = this.state;
-    if (allPosts) {
-      return this.navigateTo({ pathname: `/r/${post.slug}` });
-    }
-    this
-      .updateState('posts')
-      .then(() => this.navigateTo({ pathname: `/r/${post.slug}` }));
+    return this.navigateTo({ pathname: `/r/${post.slug}` });
   }
   
   /**
@@ -84,28 +73,7 @@ class AppContainer extends React.Component {
    */
   navigateTo = location => this.context.router.push(location);
 
-  /**
-   * Update State
-   * A minimal implementation of a store / messaging system. This method will
-   * be passed to child components to send a message back up for data requests.
-   *
-   * @param {string} part
-   * @param {object} params
-   */
-  async updateState (part) {
-    this.setState({ isBusy: true });
-    switch (part) {
-      case 'posts':
-        try {
-          const allPosts = await api.request({ path: 'posts' });
-          this.setState({ allPosts, isBusy: false });
-        } catch (err) {
-          console.error(err);
-        }
-        return;
-    }
-  }
-  
+
   /**
    * Navigation control functions
    * Used for managing the interactive elements of the nav, passed down into

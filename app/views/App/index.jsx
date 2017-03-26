@@ -29,17 +29,16 @@ class App extends React.Component {
 
   render () {
     const sharedState = this.props;
-    const {
-      children,
-    } = this.props;
-
+    const { children } = this.props;
     if (! children) {
-      return (<div className="not-found">IV—O—IV</div>)
+      return (<div className="not-found">
+        <h1>404</h1>
+      </div>)
     }
 
     return (
       <div className={this.isRoute(sharedState.currentRoute, 'portfolio') ? '' : 'wrap-everything'}>
-        {React.cloneElement(children, {data: {...sharedState}, updateState: this.props.updateState})}
+        {React.cloneElement(children, {data: {...sharedState} })}
       </div>
     );
   }
@@ -113,7 +112,6 @@ class App extends React.Component {
 App.propTypes = {
   currentRoute: PropTypes.string,
   children: PropTypes.node,
-  updateState: PropTypes.func.isRequired,
 };
 
 export default App
