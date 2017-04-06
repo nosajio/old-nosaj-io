@@ -11,6 +11,10 @@ export default (WrappedComponent) => (
       };
     }
     
+    static propTypes = {
+      params: PropTypes.object,
+    }
+    
     async componentWillMount() {
       const { slug } = this.props.params;
       const post = await api.request(({
