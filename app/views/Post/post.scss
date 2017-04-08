@@ -2,18 +2,41 @@
 @import '../../styles/mq';
 @import '../../styles/colors';
 
+$post-media-width: 950px;
+$post-text-width: 700px;
+
+.post-wrapper {
+  background: white;
+  padding: msRem(3);
+  color: $clr-bg;
+  
+  @media #{$mq-hd-up} {
+    padding-top: msRem(15);
+  }
+  
+  a {
+    color: #123dd6;
+  }
+  
+  .logo {
+    padding: msRem(3);
+    svg path { fill: $clr-bg; }
+  }
+}
+
 .a-post {
-  max-width: 700px;
+  max-width: $post-text-width;
   @media (min-width: 702px) {
     margin: 0 auto;
   }
   
   &__cover {
     width: 100%;
-    max-width: 930px;
+    max-width: $post-media-width;
     height: auto;
     margin: 0 auto #{msRem(10)};
     border-radius: 6px;
+        
     &::after {
       content: '';
       display: block;

@@ -20,7 +20,7 @@ class AppContainer extends React.Component {
   }
 
   componentWillMount () {
-    this.setState({ freshRender: true });
+    this.setState({ freshRender: true, currentRoute: this.props.location.pathname });
   }
 
   componentWillReceiveProps () {

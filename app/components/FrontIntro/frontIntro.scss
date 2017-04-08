@@ -4,9 +4,14 @@
 @import '../../styles/mq';
 
 .front-intro {
+  margin-top: msRem(5);
   width: 100%;
   max-width: msRem(29);
   font-size: msRem(1);
+  
+  @media #{$mq-hd-up} {
+    margin-top: msRem(13);
+  }
   
   p + p { 
     margin-top: msRem(2); 

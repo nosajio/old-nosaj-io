@@ -31,12 +31,13 @@ class App extends React.Component {
   render () {
     const sharedState = this.props;
     const { children } = this.props;
+    
     if (! children) {
       return <FourOhFour />
     }
-
+    
     return (
-      <div className={this.isRoute(sharedState.currentRoute, 'portfolio') ? '' : 'wrap-everything'}>
+      <div className={this.classNameForRoute(sharedState.currentRoute)}>
         {React.cloneElement(
           children, 
           {
@@ -46,6 +47,17 @@ class App extends React.Component {
         )}
       </div>
     );
+  }
+  
+  classNameForRoute(routeName) {
+    let className = 'wrap-everything';
+    if ( this.isRoute(routeName, '/portfolio') ) {
+      className = '';
+    }
+    if ( this.isRoute(routeName, '/r') ){
+      className = 'post-wrapper';
+    }
+    return className;
   }
   
   /**

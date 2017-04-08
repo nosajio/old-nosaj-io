@@ -19,7 +19,7 @@ const Post = ({ post, data: { navigateTo, isBusy } }) => {
         onNavigate={navigateTo}
         loading={isBusy}
       />
-      <main className="post-wrapper">
+      <main>
         {(coverImg || coverColor) && <PostCover coverImg={coverImg} coverColor={coverColor} />}
         <article className="a-post">
           <PostHeader title={post.title} date={post.friendlyDate} />

@@ -4,7 +4,6 @@
 
 .logo {
   display: block;
-  margin-bottom: msRem(5);
   
   // These breakpoints & 'padding' values to align with `app.scss`
   @media #{$mq-hd-up} {
