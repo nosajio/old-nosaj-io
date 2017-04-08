@@ -8,18 +8,15 @@ import withPost from '../../hocs/withPost';
 
 import './post.scss';
 
-const Post = ({ post, data: { navigateTo, showoff, isBusy, triggerNavDance } }) => {
+const Post = ({ post, data: { navigateTo, isBusy } }) => {
   if (isBusy) {
     return null;
   }
   const { coverColor, coverImg } = post;
   return (
-    <div className="post-view">
+    <div className="a-view post-view">
       <Logo 
         onNavigate={navigateTo}
-        onTrigger={triggerNavDance}
-        text="nosaj" 
-        showoff={showoff}
         loading={isBusy}
       />
       <main className="post-wrapper">

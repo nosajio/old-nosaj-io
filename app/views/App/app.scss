@@ -15,3 +15,9 @@
     padding: #{ms(15)}rem;
   }
 }
+
+// This is simply a helper class that should be added to child views so that 
+// *its* children will treat it as parent
+.a-view {
+  position: relative;
+}

@@ -7,12 +7,10 @@ import FrontIntro from '../../components/FrontIntro';
 
 import './front.scss';
 
-const Front = ({ data: { freshRender, isBusy, navigateToPost, showoff, triggerNavDance } }) => (    
-  <div className={`front-view ${freshRender ? 'animate' : ''}`}>
+const Front = ({ data: { freshRender, isBusy, navigateToPost } }) => (    
+  <div className={`a-view front-view ${freshRender ? 'fresh-render' : ''}`}>
     <Logo 
-      onTrigger={triggerNavDance}
       text="nosaj" 
-      showoff={showoff} 
       loading={isBusy} />
     <main className="front-view__main">
       <FrontIntro className="front-section" />

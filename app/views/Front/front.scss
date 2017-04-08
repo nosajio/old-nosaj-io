@@ -9,6 +9,11 @@
   display: flex;
   flex-flow: column nowrap;
   
+  @media #{$mq-desktop-up} {
+    // Padding to offset the content from the logo
+    padding: msRem(8);
+  }
+    
   & + & {
     margin-top: #{msRem(5)};
     @media #{$mq-desktop-up} {

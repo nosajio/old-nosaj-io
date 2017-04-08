@@ -2,45 +2,25 @@
 @import '../../styles/mq';
 @import '../../styles/colors';
 
-@mixin logo-dance {
-  .logo-letter--j { animation: letter-n-busy 700ms both infinite; }
-  .logo-letter--a { animation: letter-o-busy 700ms 200ms both infinite; }
-  .logo-letter--s { animation: letter-s-busy 700ms 300ms both infinite; }
-  .logo-letter--o { animation: letter-a-busy 700ms 400ms both infinite; }
-  .logo-letter--n { animation: letter-j-busy 700ms 500ms both infinite; }
-}
-
 .logo {
-  display: block; 
-  width: auto;
-  margin-bottom: #{msRem(3)};
+  display: block;
+  margin-bottom: msRem(5);
   
-  @media #{$mq-tablet-up} {
-    margin-bottom: #{msRem(10)};
+  // These breakpoints & 'padding' values to align with `app.scss`
+  @media #{$mq-hd-up} {
+    position: fixed;
+    top: 0; right: auto;
+    bottom: auto; left: 0;
+    padding: msRem(5);
+    margin-bottom: 0;
+  }
+  
+  > svg {
+    display: block;
+    height: auto;
+    width: msRem(10);
+    
+    @media #{$mq-tablet-up} { width: msRem(13); }
+    @media #{$mq-hd-up} { width: msRem(14); }
   }
 }
-
-.logo h1 {
-  font-weight: 700;
-  font-size: msRem(1);
-  color: #ffffff;
-}
-
-.logo-letter {
-  display: inline-block;  
-  transition: all 500ms;
-}
-
-.logo:focus, .logo--mouse-over {
-  @include logo-dance;
-}
-
-.logo--app-is-busy {
-  @include logo-dance;
-}
-
-@keyframes letter-n-busy { 50% { transform: scale(1.3); color: rgb(205, 23, 88); } }
-@keyframes letter-o-busy { 50% { transform: scale(1.3); color: rgb(28, 202, 226); } }
-@keyframes letter-s-busy { 50% { transform: scale(1.3); color: rgb(49, 205, 10); } }
-@keyframes letter-a-busy { 50% { transform: scale(1.3); color: rgb(103, 0, 235); } }
-@keyframes letter-j-busy { 50% { transform: scale(1.3); color: rgb(235, 197, 0); } }

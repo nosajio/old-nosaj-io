@@ -11,8 +11,6 @@ class AppContainer extends React.Component {
       currentRoute: '/',
       isBusy: false,
       navigateTo: this.navigateTo,
-      showoff: false,
-      triggerNavDance: this.triggerNavDance,
       // Posts
       navigateToPost: this.navigateToPost,
       // Portfolio
@@ -23,8 +21,6 @@ class AppContainer extends React.Component {
 
   componentWillMount () {
     this.setState({ freshRender: true });
-    // Make the logo dance. For fun and to let the user know that the logo will flash when the site is busy
-    this.showoffLogoFlashes(1600);
   }
 
   componentWillReceiveProps () {
@@ -72,19 +68,6 @@ class AppContainer extends React.Component {
    * @param {object} location Location object to be passed to the router
    */
   navigateTo = location => this.context.router.push(location);
-
-
-  /**
-   * Navigation control functions
-   * Used for managing the interactive elements of the nav, passed down into
-   * the Logo for convenience.
-   */
-  showoffLogoFlashes (duration) {
-    this.setState({ showoff: true });
-    window.setTimeout(() => this.setState({ showoff: false }), duration);
-  }
-  
-  triggerNavDance = (on) => this.setState({ showoff: on });
 }
 
 AppContainer.contextTypes = {

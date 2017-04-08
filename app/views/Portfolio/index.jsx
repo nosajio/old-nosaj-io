@@ -84,7 +84,7 @@ const Portfolio = React.createClass({
     }
 
     return (
-      <div className="portfolio">
+      <div className="portfolio a-view">
         <main className="portfolio__body">
           <header className="project-tile projects-intro">
             <div className="projects-intro__picture">
