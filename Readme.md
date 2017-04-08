@@ -1,4 +1,4 @@
-![ ](http://imgur.com/asuLr0F)
+![ ](http://imgur.com/asuLr0F.png)
 
 
 # ✨  nosaj.io  ✨
