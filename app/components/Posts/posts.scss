@@ -1,6 +1,8 @@
 @import '../../styles/ms';
 
 .list-of-posts {
+  display: flex;
+  flex-flow: column nowrap;
   font-size: msRem(1);
   
   // The pen icon

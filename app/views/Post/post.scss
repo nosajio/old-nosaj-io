@@ -42,7 +42,7 @@
   &__meta {
     margin-top: msRem(-1);
     font-size: msRem(-1);
-    color: $clr-grey-subtle;
+    color: $clr-subtle;
   }
   
   &__body {
@@ -118,7 +118,7 @@
     > cite {   
       margin-top: msRem(2);
       font-size: msRem(-1); 
-      color: $clr-grey-neutral;
+      color: $clr-neutral;
     }
   }
 }

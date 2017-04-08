@@ -4,12 +4,15 @@ $clr-black: #232325;
 $clr-anthracite: #202a2d;
 // Greys
 $clr-offwhite: #eceff7;
-$clr-grey-subtle: #dddef0;
-$clr-grey-neutral: #d2d2d2;
+$clr-subtle: #dddef0;
+$clr-neutral: #d2d2d2;
 // Blues
 $clr-blue: #0b19da;
+$clr-deep-blue: #060b2b;
+// Yellows
+$clr-yellow: #e9dd40
 
 // Assign colors to some kind of logical scheme
-$clr-bg: rgb(6, 11, 43);
-$clr-text: #ffffff;
-$clr-link: rgb(233, 221, 64);
+$clr-bg: $clr-deep-blue;
+$clr-text: white;
+$clr-link: $clr-yellow;
