@@ -2,6 +2,9 @@
 @import '../../styles/mq';
 @import '../../styles/colors';
 
+$logo-hw-ratio: .810734463; // For scaling the logo properly
+
+
 .logo {
   display: block;
   
@@ -16,7 +19,7 @@
   
   > svg {
     display: block;
-    height: auto;
+    height: #{ms(10) * $logo-hw-ratio}rem;
     width: msRem(10);
     
     @media #{$mq-tablet-up} { width: msRem(13); }
