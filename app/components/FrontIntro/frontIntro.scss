@@ -1,13 +1,19 @@
 @import '../../styles/colors';
 @import '../../styles/fonts';
 @import '../../styles/ms';
+@import '../../styles/mq';
 
 .front-intro {
   width: 100%;
   max-width: msRem(29);
   font-size: msRem(1);
   
-  p + p { margin-top: msRem(5); }
+  p + p { 
+    margin-top: msRem(2); 
+    @media #{$mq-desktop-up} {
+      margin-top: msRem(5); 
+    }
+  }
   
   &__booking {
     display: block;
