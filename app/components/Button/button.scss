@@ -1,0 +1,9 @@
+@import '../../styles/ms';
+@import '../../styles/colors';
+
+.button {
+  display: inline-block;
+  padding: msRem(-3) msRem(1);
+  background: $clr-yellow;
+  color: $clr-bg;
+}

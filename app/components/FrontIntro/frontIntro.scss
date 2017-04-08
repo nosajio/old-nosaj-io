@@ -1,14 +1,18 @@
 @import '../../styles/colors';
+@import '../../styles/fonts';
 @import '../../styles/ms';
 
 .front-intro {
   width: 100%;
-  max-width: 736px;
-  font-size: msRem(2);
+  max-width: msRem(29);
+  font-size: msRem(1);
   
-  p + p { margin-top: msRem(1); }
+  p + p { margin-top: msRem(5); }
   
   &__booking {
+    display: block;
+    margin-top: msRem(-1);
     color: $clr-neutral;
+    font: msRem(-1) $ff-mono;
   }
 }

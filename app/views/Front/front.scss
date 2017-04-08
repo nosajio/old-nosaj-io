@@ -7,16 +7,14 @@
 .front-view__main {
   display: flex;
   flex-flow: column nowrap;
-  @media #{$mq-desktop-up} { flex-direction: row; }
 }
 
 .front-section {
       
   & + & {
-    margin-top: #{msRem(5)};
+    margin-top: #{msRem(10)};
     @media #{$mq-desktop-up} {
-      margin-top: 0;
-      margin-left: #{msRem(10)};
+      margin-top: msRem(18);
     }
   }
 }
