@@ -27,7 +27,7 @@ $post-text-width: 700px;
   .footer-list {
     flex-flow: row wrap;
     justify-content: center;
-    &__item { margin-left: msRem(4); }
+    &__item + .footer-list__item { margin-left: msRem(4); }
   }
 }
 
