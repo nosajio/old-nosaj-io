@@ -13,6 +13,8 @@ class AppContainer extends React.Component {
       navigateTo: this.navigateTo,
       // Posts
       navigateToPost: this.navigateToPost,
+      setActivePost: this.setActivePost,
+      activePost: null,
       // Portfolio
       navigateToProject: this.navigateToProject,
       activeProject: null,
@@ -38,6 +40,8 @@ class AppContainer extends React.Component {
   render () {
     return React.createElement(App, {...this.state}, this.props.children);
   }
+  
+  setActivePost = (post) => this.setState({ activePost: post });
   
   /**
    * Navigate To Project

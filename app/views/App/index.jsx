@@ -1,6 +1,7 @@
 /* global ga */
 import React, { PropTypes } from 'react'
 import debounce from '../../helpers/debounce';
+import pageTitle from '../../helpers/pageTitle';
 import FourOhFour from '../../components/FourOhFour';
 
 import './app.scss';
@@ -12,16 +13,27 @@ class App extends React.Component {
       scrollPosition: 0,
     };
   }
+  
+  static propTypes = {
+    currentRoute: PropTypes.string,
+    children: PropTypes.node,
+    activePost: PropTypes.object,
+  }
 
   componentDidMount () {
     if (typeof window === 'undefined') return;
     this.putGaOnPage();
     this.sendPageviewToGa();
     this.scrollListener((pos) => this.updateScrollPosition(pos));
+    this.pageTitleForRoute(this.props.currentRoute)
+  }
+  
+  componentDidUpdate () {
+    this.pageTitleForRoute(this.props.currentRoute);
   }
 
   componentWillReceiveProps (nextProps) {
-    // When the route changes
+    // Only when the route changes
     if (nextProps.currentRoute !== this.props.currentRoute
       && typeof window !== 'undefined') {
       this.sendPageviewToGa();
@@ -47,6 +59,15 @@ class App extends React.Component {
         )}
       </div>
     );
+  }
+  
+  pageTitleForRoute(routeName) {
+    pageTitle((() => {
+      if ( this.isRoute(routeName, '/r') && this.props.activePost ) {
+        return this.props.activePost.title;
+      }
+      return '🛠 Jason makes the internet'
+    })());
   }
   
   classNameForRoute(routeName) {
@@ -124,10 +145,5 @@ class App extends React.Component {
     ga('create', 'UA-71692329-1', 'auto');
   }
 }
-
-App.propTypes = {
-  currentRoute: PropTypes.string,
-  children: PropTypes.node,
-};
 
 export default App

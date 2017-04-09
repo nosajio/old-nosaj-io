@@ -13,6 +13,7 @@ export default (WrappedComponent) => (
     
     static propTypes = {
       params: PropTypes.object,
+      data: PropTypes.object,
     }
     
     async componentWillMount() {
@@ -21,6 +22,7 @@ export default (WrappedComponent) => (
         path: `posts/${slug}`,
       }));
       this.setState({ post });
+      this.props.data.setActivePost(post);
     }
     
     render() {
