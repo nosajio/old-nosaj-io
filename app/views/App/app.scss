@@ -5,6 +5,8 @@
 .wrap-everything {
   position: relative;
   padding: #{ms(3)}rem;
+  background: $clr-bg;
+  color: $clr-text;
 
   &.is-locked {
     height: 100vh;
