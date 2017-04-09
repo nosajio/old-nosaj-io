@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react'
 import debounce from '../../helpers/debounce';
 import pageTitle from '../../helpers/pageTitle';
 import FourOhFour from '../../components/FourOhFour';
+import Message from '../../components/Message';
 
 import './app.scss';
 
@@ -11,6 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       scrollPosition: 0,
+      showMessageUi: false,
     };
   }
   
@@ -43,23 +45,30 @@ class App extends React.Component {
   render () {
     const sharedState = this.props;
     const { children } = this.props;
+    const { showMessageUi } = this.state;
     
     if (! children) {
       return <FourOhFour />
     }
     
     return (
-      <div className={this.classNameForRoute(sharedState.currentRoute)}>
+      <div 
+        className={`${this.classNameForRoute(sharedState.currentRoute)} ${showMessageUi ? 'is-locked' : ''}`}
+      >
         {React.cloneElement(
           children, 
           {
+            toggleMessageUi: this.toggleMessageUi,
             data: {...sharedState}, 
             actions: { trackEvent: this.sendEventToGa } 
           }
         )}
+        {showMessageUi && <Message onToggle={t => this.toggleMessageUi(t)} />}
       </div>
     );
   }
+  
+  toggleMessageUi = (show=true) => this.setState({ showMessageUi: show });
   
   pageTitleForRoute(routeName) {
     pageTitle((() => {

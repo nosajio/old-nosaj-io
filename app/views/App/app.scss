@@ -2,6 +2,10 @@
 @import '../../styles/ms';
 @import '../../styles/mq';
 
+.is-locked {
+  overflow-y: hidden !important;
+}
+
 .wrap-everything {
   position: relative;
   min-height: 100vh;

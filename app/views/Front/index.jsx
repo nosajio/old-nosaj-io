@@ -7,13 +7,16 @@ import FrontIntro from '../../components/FrontIntro';
 
 import './front.scss';
 
-const Front = ({ data: { freshRender, isBusy, navigateToPost } }) => (    
+const Front = ({ toggleMessageUi, data: { freshRender, isBusy, navigateToPost } }) => (    
   <div className={`a-view front-view ${freshRender ? 'fresh-render' : ''}`}>
     <Logo 
       text="nosaj" 
       loading={isBusy} />
     <main className="front-view__main">
-      <FrontIntro className="front-section" />
+      <FrontIntro 
+        className="front-section" 
+        toggleMessageUi={toggleMessageUi}
+      />
         <Posts 
           className="front-section" 
           navigateToPost={(location) => navigateToPost(location)} 
@@ -25,6 +28,7 @@ const Front = ({ data: { freshRender, isBusy, navigateToPost } }) => (
 
 Front.propTypes = {
   data: PropTypes.object, // this will be the shared state object
+  toggleMessageUi: PropTypes.func,
 };
 
 export default Front

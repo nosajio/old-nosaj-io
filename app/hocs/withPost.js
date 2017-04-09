@@ -18,9 +18,9 @@ export default (WrappedComponent) => (
     
     async componentWillMount() {
       const { slug } = this.props.params;
-      const post = await api.request(({
+      const post = await api.request({
         path: `posts/${slug}`,
-      }));
+      });
       this.setState({ post });
       this.props.data.setActivePost(post);
     }
