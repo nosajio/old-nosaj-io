@@ -4,6 +4,8 @@
 
 .wrap-everything {
   position: relative;
+  min-height: 100vh;
+  height: auto;
   padding: #{ms(3)}rem;
   background: $clr-bg;
   color: $clr-text;
