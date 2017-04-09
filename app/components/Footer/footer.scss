@@ -7,6 +7,9 @@
 }
 
 .footer-list {
+  display: flex;
+  flex-flow: column nowrap;
+  
   &__item { display: block; }
   a { color: $clr-subtle; }
 }

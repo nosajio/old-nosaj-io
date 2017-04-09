@@ -1,5 +1,6 @@
 @import '../../styles/ms';
 @import '../../styles/mq';
+@import '../../styles/fonts';
 @import '../../styles/colors';
 
 $post-media-width: 950px;
@@ -21,6 +22,12 @@ $post-text-width: 700px;
   .logo {
     padding: msRem(3);
     svg path { fill: $clr-bg; }
+  }
+  
+  .footer-list {
+    flex-flow: row wrap;
+    justify-content: center;
+    &__item { margin-left: msRem(4); }
   }
 }
 
@@ -58,14 +65,15 @@ $post-text-width: 700px;
     > h1 {
       font-size: msRem(5);
       font-weight: 600;
+      width: 70%;
     }
     
   } 
   
   &__meta {
     margin-top: msRem(-1);
-    font-size: msRem(-1);
-    color: $clr-subtle;
+    font: msRem(-2) #{$ff-mono};
+    color: $clr-blue;
   }
   
   &__body {
@@ -112,7 +120,7 @@ $post-text-width: 700px;
     display: block;
     width: 4px; 
     height: 4px;
-    background: white;
+    background: $clr-bg;
     border-radius: 1px;
     border: none;
   }
@@ -136,7 +144,10 @@ $post-text-width: 700px;
     width: 100%;
     > cite,
     > img,
-    > iframe { display: block; max-width: 100%; }
+    > iframe { 
+      display: block; 
+      max-width: 100%;
+    }
     
     > cite {   
       margin-top: msRem(2);
