@@ -7,6 +7,7 @@ $logo-hw-ratio: .810734463; // For scaling the logo properly
 
 .logo {
   display: block;
+  margin-bottom: msRem(3);
   
   @media #{$mq-tablet-up} {
     margin-bottom: msRem(4);  

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Logo from '../../components/Logo';
 import Footer from '../../components/Footer';
+import Head from '../../components/Head';
 import PostCover from './PostCover';
 import PostHeader from './PostHeader';
 import PostHTML from './PostHTML';
@@ -15,6 +16,14 @@ const Post = ({ post, data: { navigateTo, isBusy } }) => {
   const { coverColor, coverImg } = post;
   return (
     <div className="a-view post-view">
+      <Head>
+        {/* OpenGraph */}
+        <meta name="og:url" property="og:url" content={`https://nosaj.io/r/${post.slug}`} />
+        <meta name="og:type" property="og:type" content="article" />
+        <meta name="og:title" property="og:title" content={post.title} />
+        <meta name="og:description" property="og:description" content="" />
+        <meta name="og:image" property="og:image" content={coverImg ? coverImg : 'http://a.nosaj.io/og-nosaj.png'} />
+      </Head>
       <Logo 
         onNavigate={navigateTo}
         loading={isBusy}
