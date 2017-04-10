@@ -10,14 +10,6 @@ import './front.scss';
 
 const Front = ({ toggleMessageUi, data: { freshRender, isBusy, navigateToPost } }) => (    
   <div className={`a-view front-view ${freshRender ? 'fresh-render' : ''}`}>
-    <Head>
-      {/* OpenGraph */}
-      <meta name="og:url" property="og:url" content="https://nosaj.io" />
-      <meta name="og:type" property="og:type" content="website" />
-      <meta name="og:title" property="og:title" content="Jason makes the internet" />
-      <meta name="og:description" property="og:description" content="Hi I'm Jason. I'm a multi-disciplinary designer and software engineer." />
-      <meta name="og:image" property="og:image" content="http://a.nosaj.io/og-nosaj.png" />
-    </Head>
     <Logo 
       text="nosaj" 
       loading={isBusy} />
