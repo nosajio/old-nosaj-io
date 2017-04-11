@@ -12,7 +12,7 @@ const FourOhFour = ({ actions, data: { navigateTo } }) => {
   return (
     <section className="four-oh-four">
       <Logo onNavigate={navigateTo} text="nosaj" />
-      <h1 className="four-oh-four__title">DERP <sup>404</sup></h1>
+      <h1 className="four-oh-four__title caps">Derp <sup>404</sup></h1>
       <p>The thing you're looking for seems to have gone. While you're here, why not <Link to="/">read my posts</Link> or <Link to="/portfolio">check out my portfolio</Link></p>
       <Footer />
     </section>

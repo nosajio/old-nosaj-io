@@ -11,6 +11,7 @@ class Message extends Component {
       // Underscored to prevent possible conflicts, as this component is able to
       // update its own state from the form
       _notice: null,
+      _sending: false,
       // Form fields state
       name: null,
       email: null,
@@ -24,14 +25,18 @@ class Message extends Component {
   }
   
   render() {
-    const { _notice } = this.state;
+    const { _notice, _sending } = this.state;
     const { onToggle } = this.props;
     
     return (
-      <div
+      <section
         className="message-wrapper" 
         onClick={() => onToggle(false)}
       >
+        <header className="message-header">
+          <h1 className="caps message-header__title">Send a message</h1>
+          <span className="message-header__sub">I do my best to respond to new messages within 24h.</span>
+        </header>
         <div onClick={e => e.stopPropagation()} className="message-box">
           <form onSubmit={this.handleFormSubmit} className="message-form">
             <input
@@ -53,11 +58,11 @@ class Message extends Component {
               className="message-field message-field--textarea" 
               name="message"
               placeholder="message..."></textarea>
-            <Button className="message-field--button" type="submit">Send it</Button>
+            <Button className="message-field--button" type="submit">{_sending ? 'Sending...' : 'Send it'}</Button>
           </form>
         </div>
         {_notice && <div className="message-notice">{_notice}</div>}
-      </div>
+      </section>
     )
   }
   
@@ -72,15 +77,18 @@ class Message extends Component {
   
   handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (this.state._sending) return;
     if (! this.state.name || ! this.state.email || ! this.state.message) {
       return this.notice(`Please make sure you've filled out all the fields`)
     }
+    this.setState({ _sending: true });
     const { sendMessage, onToggle } = this.props;
     const message = this.composeMessageString();
     const success = await sendMessage(message);
     if (success) {
       onToggle(false);
     } else {
+      this.setState({ _sending: false });
       this.notice(`Damn it! your message could'nt be sent. While I work on fixing this, email me direct on jason@nosaj.io instead.`);
     }
   }
