@@ -24,9 +24,9 @@ function augment(augmenters, writing) {
       clonedPost = augmentedOutput;
       return clonedPost;
     });
-    // In order to properly manage both pure augment functions and async ones, 
-    // wrap every response in a promise so that they can be handled by Promise.all
-    // and passed back to the then.. stream as the expected array of posts.
+    // To properly manage both pure and async augment functions, wrap every response 
+    // in a promise so that the result can be handled by Promise.all. This makes for 
+    // more predictable behaviour.
     if (asyncOutputs.length) {
       return new Promise(resolve => {
         Promise.all(asyncOutputs).then(asyncAugs => {

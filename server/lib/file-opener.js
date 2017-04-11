@@ -8,8 +8,7 @@ module.exports = fileOpener();
 function fileOpener() {
   'use strict';
 
-  const rootDir = path.join('writing'); // Relative to where the script is called from
-  const fileExtension = '.md';
+  const rootDir = path.join('writing'); // Relative to app root
 
   return {
     openOne,
@@ -18,7 +17,7 @@ function fileOpener() {
 
   function openAll() {
     return new Promise(handler);
-    function handler(resolve, reject) {
+    function handler(resolve) {
       fs.readdir(rootDir, (err, files) => {
         const validFiles = files.filter(file => filenameValid(file) ? file : null);
         const readFiles = validFiles.map(fname => openOne(fname));
