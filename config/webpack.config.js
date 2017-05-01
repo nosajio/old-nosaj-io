@@ -20,15 +20,20 @@ module.exports = {
     filename: 'nosaj.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
+    mainFiles: ['index'],
+    modules: [
+      path.resolve(__dirname, '../node_modules'),
+      path.resolve(__dirname, '../app')
+    ],
+    extensions: ['.js', '.jsx', '.json'],
   },
   module: {
     loaders: [
       {
         test: /\.(gif|jpe?g|png|svg)$/,
         loaders: [
-          'file?name=img/[name]-[hash].[ext]',
-          'image-webpack?optimizationLevel=7'
+          'file-loader?name=img/[name]-[hash].[ext]',
+          'image-webpack-loader?optimizationLevel=7'
         ],
       },
       {
@@ -37,21 +42,33 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader'),
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!postcss-loader!sass-loader' }),
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
-          presets: ['es2017', 'es2015', 'stage-0', 'react'],
+          presets: [
+              'react',
+              ['env', {
+                targets: {
+                  browsers: ['last 2 versions', 'safari >= 7']
+                }
+            }]
+          ],
+          'plugins': [
+            'transform-class-properties', 
+            'transform-object-rest-spread', 
+            'transform-es2015-arrow-functions'
+          ]
         }
       }
     ],
   },
   plugins: [
     new ExtractTextPlugin('nosaj.css'),
-    new CopyPlugin(copyFiles)
+    new CopyPlugin(copyFiles),
   ],
   devtool: 'source-map',
 };

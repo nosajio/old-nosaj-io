@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react'
 
-import Logo from '../../components/Logo';
-import Footer from '../../components/Footer';
-import Posts from '../../components/Posts';
-import Head from '../../components/Head';
-import FrontIntro from '../../components/FrontIntro';
+import Logo from 'components/Logo';
+import Footer from 'components/Footer';
+import Posts from 'components/Posts';
+import FrontIntro from 'components/FrontIntro';
 
 import './front.scss';
 
