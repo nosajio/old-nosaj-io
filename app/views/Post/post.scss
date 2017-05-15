@@ -86,6 +86,8 @@ $post-text-width: 700px;
 
 // Post body Typography
 .a-post__body {
+  font-size: 1rem;
+  
   p {
     margin: #{msRem(2)} 0;
     @media #{$mq-tablet-up} {
@@ -138,7 +140,7 @@ $post-text-width: 700px;
   }
   
   // Image and video containers
-  > div {
+  > div, .image {
     margin: #{msRem(6)} 0;
     width: 100%;
     > cite,
@@ -148,10 +150,11 @@ $post-text-width: 700px;
       max-width: 100%;
     }
     
-    > cite {   
-      margin-top: msRem(2);
-      font-size: msRem(-1); 
-      color: $clr-neutral;
+    > cite, .image-caption {   
+      display: block;
+      margin-top: msRem(1);
+      font: msRem(-2) #{$ff-mono}; 
+      color: $clr-light-text;
     }
   }
 }
