@@ -18,7 +18,7 @@ module.exports = api;
 
 function postHandler(req, res) {
   const { slug } = req.params;
-  const augmentWith = ['friendlyDate', 'hitCount', 'readingTime'];
+  const augmentWith = ['friendlyDate', 'hitCount', 'readingTime', 'nextPost'];
   fileOpener
     .openAll()
     .then(findOnePost.bind(this, slug))
