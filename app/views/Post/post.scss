@@ -1,5 +1,6 @@
 @import '../../styles/ms';
 @import '../../styles/mq';
+@import '../../styles/animations';
 @import '../../styles/fonts';
 @import '../../styles/colors';
 
@@ -163,8 +164,10 @@ $post-text-width: 700px;
   margin-top: msRem(15);
   padding: msRem(10);
   text-align: center;
-  
+  cursor: pointer;
+    
   &__header, &__post {
+    transition: all 300ms ease-out;
     max-width: $post-text-width + 200px;
     @media (min-width: #{$post-text-width + 202px}) {
       margin-left: auto;
@@ -172,12 +175,24 @@ $post-text-width: 700px;
     }  
   }
   
+  &:hover {
+    .next-post__header {
+      opacity: .5;
+      transform: scale(.8);
+      transition: all 400ms $easeInOutCirc;
+    }
+    .next-post__post {
+      transform: scale(1.2);
+      transition: all 1.2s $easeInOutCirc;
+    }
+  }
+  
   &__header {
     h2 {
       font-size: msRem(1);
       
       @media #{$mq-desktop-up} {
-        font-size: msRem(4);
+        font-size: msRem(2);
       }
     }
   }
@@ -185,7 +200,6 @@ $post-text-width: 700px;
   &__post {
     display: inline-block;
     margin-top: msRem(1);
-    cursor: pointer;
     
     h1 {
       display: inline;
@@ -196,7 +210,7 @@ $post-text-width: 700px;
       @media #{$mq-desktop-up} {
         font-size: msRem(5);
       }
+      
     }
-    
   }
 }

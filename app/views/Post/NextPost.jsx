@@ -3,11 +3,15 @@ import React, { PropTypes } from 'react';
 const NextPost = ({post, navigateTo}) => {
   const navigateToNextPost = slug => navigateTo({pathname: `/r/${slug}`});
   return (
-    <section style={{backgroundColor: post.coverColor}} className="next-post">
+    <section 
+      onClick={() => navigateToNextPost(post.slug)}
+      style={{backgroundColor: post.coverColor}} 
+      className="next-post"
+    >
       <header className="next-post__header">
         <h2>Feel like reading something else?</h2>
       </header>
-      <div onClick={() => navigateToNextPost(post.slug)} className="next-post__post">
+      <div className="next-post__post">
         <h1>{post.title}</h1>
       </div>
     </section>
