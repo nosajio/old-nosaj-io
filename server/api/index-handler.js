@@ -9,7 +9,7 @@ const {
 const staticDir = path.resolve(__dirname, '..', '..', 'app', 'static');
 
 module.exports = (req, res) => {
-  const htmlFile = path.join(staticDir, 'main.html');
+  const htmlFile = path.join(staticDir, 'index.html');
   
   // Hydrate post OG data
   if (req.url.indexOf('/r/') > -1) {
