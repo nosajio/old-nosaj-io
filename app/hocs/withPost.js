@@ -7,7 +7,9 @@ export default (WrappedComponent) => (
     constructor(props) {
       super(props);
       this.state = {
-        post: null,
+        post: {
+          slug: null,
+        },
       };
     }
     
@@ -18,11 +20,21 @@ export default (WrappedComponent) => (
     
     async componentWillMount() {
       const { slug } = this.props.params;
-      const post = await api.request({
-        path: `posts/${slug}`,
-      });
-      this.setState({ post });
-      this.props.data.setActivePost(post);
+      await this.updateWithPost(slug, this.props);
+    }
+    
+    async componentWillReceiveProps(nextProps) {
+      const { slug } = nextProps.params;
+      // If the post is the same, don't do anything else
+      if (slug === this.state.post.slug) return;
+      // Otherwise, continue with updating the state
+      await this.updateWithPost(slug, nextProps)
+    }
+    
+    componentWillUpdate(nextProps, nextState) {
+      // On update only, scroll to the top of the page
+      if (nextState.post.slug === this.state.post.slug) return;
+      window.scrollTo(0, 0);
     }
     
     render() {
@@ -34,6 +46,14 @@ export default (WrappedComponent) => (
           <WrappedComponent {...this.props} {...additionalProps} />
         </IsLoading>
       )
+    }
+    
+    async updateWithPost(slug, props) {
+      const post = await api.request({
+        path: `posts/${slug}`,
+      });
+      this.setState({ post });
+      props.data.setActivePost(post);
     }
   }
 );

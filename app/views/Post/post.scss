@@ -158,3 +158,45 @@ $post-text-width: 700px;
     }
   }
 }
+
+.next-post {
+  margin-top: msRem(15);
+  padding: msRem(10);
+  text-align: center;
+  
+  &__header, &__post {
+    max-width: $post-text-width + 200px;
+    @media (min-width: #{$post-text-width + 202px}) {
+      margin-left: auto;
+      margin-right: auto;
+    }  
+  }
+  
+  &__header {
+    h2 {
+      font-size: msRem(1);
+      
+      @media #{$mq-desktop-up} {
+        font-size: msRem(4);
+      }
+    }
+  }
+  
+  &__post {
+    display: inline-block;
+    margin-top: msRem(1);
+    cursor: pointer;
+    
+    h1 {
+      display: inline;
+      font-size: msRem(4);
+      font-weight: 600;
+      border-bottom: 1px solid black;
+      
+      @media #{$mq-desktop-up} {
+        font-size: msRem(5);
+      }
+    }
+    
+  }
+}

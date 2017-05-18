@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import PostCover from './PostCover';
 import PostHeader from './PostHeader';
 import PostHTML from './PostHTML';
+import NextPost from './NextPost';
 import withPost from '../../hocs/withPost';
 
 import './post.scss';
@@ -12,7 +13,7 @@ const Post = ({ post, data: { navigateTo, isBusy } }) => {
   if (isBusy) {
     return null;
   }
-  const { coverColor, coverImg } = post;
+  const { coverColor, coverImg, nextPost } = post;
   return (
     <div className="a-view post-view">
       <Logo 
@@ -25,6 +26,7 @@ const Post = ({ post, data: { navigateTo, isBusy } }) => {
           <PostHeader title={post.title} date={post.friendlyDate} />
           <PostHTML body={post.body} />
         </article>
+        {nextPost && <NextPost navigateTo={navigateTo} post={nextPost} />}
       </main>
       <Footer />
     </div>
