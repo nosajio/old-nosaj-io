@@ -27,7 +27,6 @@ $logo-hw-ratio: .810734463; // For scaling the logo properly
     height: #{ms(10) * $logo-hw-ratio}rem;
     width: msRem(10);
     
-    @media #{$mq-tablet-up} { width: msRem(13); height: #{ms(13) * $logo-hw-ratio}rem; }
-    @media #{$mq-hd-up} { width: msRem(14); height: #{ms(14) * $logo-hw-ratio}rem; }
+    @media #{$mq-tablet-up} { width: msRem(12); height: #{ms(12) * $logo-hw-ratio}rem; }
   }
 }
