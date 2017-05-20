@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 const copyFiles = [
   // Load all the portfolio images
@@ -10,6 +11,12 @@ const copyFiles = [
     ignore: ['.DS_Store'],
   }
 ];
+
+const liveReloadOptions = {
+  // Add script tag automatically to the head so that we don't have to fuck 
+  // around with environment dependant index.html
+  appendScriptTag: true,
+};
 
 module.exports = {
   context: path.resolve(__dirname, '../app'),
@@ -69,6 +76,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('nosaj.css'),
     new CopyPlugin(copyFiles),
+    new LiveReloadPlugin(liveReloadOptions),
   ],
   devtool: 'source-map',
 };
