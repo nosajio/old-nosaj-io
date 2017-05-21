@@ -63,8 +63,8 @@ $post-text-width: 700px;
     }
     
     > h1 {
-      font-size: msRem(5);
-      font-weight: 600;
+      font: #{msRem(5)} #{$ff-serif};
+      font-weight: 800;
       width: 70%;
     }
     
@@ -88,6 +88,7 @@ $post-text-width: 700px;
 // Post body Typography
 .a-post__body {
   font-size: 1rem;
+  font-family: $ff-sans-serif;
   
   p {
     margin: #{msRem(2)} 0;

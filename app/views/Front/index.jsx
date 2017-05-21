@@ -3,7 +3,9 @@ import React, { PropTypes } from 'react'
 import Logo from 'components/Logo';
 import Footer from 'components/Footer';
 import Posts from 'components/Posts';
+import Projects from 'components/ProjectsGrid';
 import FrontIntro from 'components/FrontIntro';
+import projects from './projects.json';
 
 import './front.scss';
 
@@ -17,10 +19,14 @@ const Front = ({ toggleMessageUi, data: { freshRender, isBusy, navigateToPost } 
         className="front-section" 
         toggleMessageUi={toggleMessageUi}
       />
-        <Posts 
-          className="front-section" 
-          navigateToPost={(location) => navigateToPost(location)} 
-        />
+      <Projects 
+        projects={projects}
+        className="front-section" 
+      />
+      <Posts 
+        className="front-section" 
+        navigateToPost={(location) => navigateToPost(location)} 
+      />
     </main>
     <Footer />
   </div>

@@ -1,3 +1,8 @@
+// Families
+$ff-serif: 'acta-display', serif;
+$ff-sans-serif: 'museo-sans', 'Helvetica', sans-serif;
 $ff-mono: 'anonymous-pro', monospace, sans-serif;
-$ff-body: 'museo-sans', 'Helvetica', sans-serif;
-$ff-headings: $ff-body;
+
+// Alias for simple updates
+$ff-body: $ff-sans-serif;
+$ff-headings: $ff-serif;
